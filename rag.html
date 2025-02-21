@@ -1,166 +1,121 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<!-- Previous head content remains the same -->
 <head>
     <title>RAG Framework - Georges Chamma Portfolio</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Detailed overview of RAG Framework implementation in AI projects by Georges Chamma" />
-    <meta name="keywords" content="RAG, AI, Machine Learning, Portfolio, Georges Chamma" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     
-    <!-- Preload critical assets -->
-    <link rel="preload" href="assets/js/main.js" as="script">
-    <link rel="preload" href="assets/css/main.css" as="style">
-
-    <!-- Add custom styles for image handling -->
+    <!-- Added styles for image handling -->
     <style>
-        .image-container {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 2em auto;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-
-        .responsive-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            object-fit: contain;
-            background-color: #f5f5f5;
-            image-rendering: -webkit-optimize-contrast; /* Improves image sharpness on webkit browsers */
-            image-rendering: crisp-edges; /* Modern browsers */
-        }
-
-        .image-container img {
-            transition: transform 0.3s ease;
-        }
-
-        .image-container:hover img {
-            transform: scale(1.02);
-        }
-
-        figcaption {
+        .image-wrapper {
+            margin: 2em 0;
             text-align: center;
-            padding: 1em;
-            background: rgba(255,255,255,0.9);
-            margin-top: 0.5em;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        .image-caption {
+            margin-top: 1em;
             font-style: italic;
-        }
-
-        /* Add loading animation */
-        .image-loading {
-            position: relative;
-        }
-
-        .image-loading::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #f5f5f5;
-            z-index: 1;
-        }
-
-        .image-loading::after {
-            content: 'Loading...';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
+            color: #666;
         }
     </style>
 </head>
 <body class="is-preload">
-    <!-- Previous content up to the image section -->
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <h1>RAG Framework</h1>
+            <p>A detailed look at the framework used in my projects</p>
+        </header>
 
-    <!-- Updated image section -->
-    <div id="main" role="main">
-        <section class="post">
-            <!-- Previous header content -->
-            
-            <div class="content">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="rag.html">RAG Framework</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/georgeschamma/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h2>Framework Overview</h2>
+                </header>
                 <p>This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.</p>
+                
+                <!-- Improved Image Section -->
+                <div class="image-wrapper">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
+                         alt="RAG Framework Workflow - Detailed diagram showing the integration of document processing, vector database, and LLM components"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
+                    <div class="image-caption">RAG Framework Workflow Diagram</div>
+                </div>
 
-                <figure class="image-container">
-                    <picture>
-                        <!-- Provide multiple image sources for different screen sizes -->
-                        <source 
-                            srcset="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png?size=large 1200w,
-                                    https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png?size=medium 800w,
-                                    https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png?size=small 400w"
-                            sizes="(max-width: 400px) 100vw,
-                                   (max-width: 800px) 800px,
-                                   1200px"
-                        >
-                        <img 
-                            src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
-                            alt="RAG Framework Workflow Diagram showing document processing pipeline" 
-                            class="responsive-img"
-                            loading="lazy"
-                            onload="this.classList.remove('image-loading')"
-                            onerror="this.onerror=null; this.src='assets/images/default-image.jpg'; this.classList.remove('image-loading')"
-                            width="1200"
-                            height="800"
-                        >
-                        <figcaption>RAG Framework Workflow Diagram - Click to enlarge</figcaption>
-                    </picture>
-                </figure>
+                <h3>RAG Workflow</h3>
+                <ul>
+                    <li><strong>Document Upload:</strong> Documents (PDFs, Excel files, etc.) are uploaded into a database.</li>
+                    <li><strong>Vector Database:</strong> Documents are converted into embeddings and stored in a vector database for efficient retrieval.</li>
+                    <li><strong>LLM Integration:</strong> A Large Language Model (LLM) is fine-tuned to work seamlessly with the vector database.</li>
+                    <li><strong>AI Application:</strong> The final output is delivered through an AI-powered application tailored for specific tasks.</li>
+                </ul>
 
-                <!-- Rest of the content remains the same -->
-            </div>
-        </section>
+                <h3>Project Build</h3>
+                <p>This application is built as a unified solution comprising three interconnected projects, each addressing specific needs while contributing to the overall functionality:</p>
+                <ul>
+                    <li>
+                        <strong>AI Marketing Expert:</strong> 
+                        A specialized AI module designed to analyze marketing data and provide actionable insights. It leverages the RAG framework to process domain-specific knowledge and deliver tailored strategies for improving marketing ROI.
+                    </li>
+                    <li>
+                        <strong>Web Loader:</strong> 
+                        An automated tool that extracts and processes data from websites. This component integrates seamlessly with the AI Marketing Expert to enrich the dataset used for analysis, ensuring up-to-date and relevant information.
+                    </li>
+                    <li>
+                        <strong>PDF Summarization:</strong> 
+                        A powerful NLP-driven feature that converts lengthy PDF documents into concise summaries. This project enhances the application by enabling quick extraction of key insights from large volumes of textual data.
+                    </li>
+                </ul>
+
+                <h3>Why This Framework?</h3>
+                <p>This framework empowers businesses by:</p>
+                <ul>
+                    <li>Enabling customized AI solutions tailored to specific needs.</li>
+                    <li>Providing scalable and flexible tools for data processing and analysis.</li>
+                    <li>Delivering actionable insights through seamless integration of domain-specific knowledge and AI capabilities.</li>
+                </ul>
+
+                <h3>Code Access</h3>
+                <p>The full source code for this project is hosted in a private GitHub repository. If you'd like access, please contact me at <a href="mailto:georgeschamma@gmail.com">georgeschamma@gmail.com</a>.</p>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul><li>&copy; Georges Chamma</li><li>Based on a template by HTML5 UP</li></ul>
+        </div>
     </div>
 
-    <!-- Previous content remains the same -->
-
-    <!-- Add image modal script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.image-container img');
-            
-            images.forEach(img => {
-                // Add loading class initially
-                img.classList.add('image-loading');
-                
-                // Handle image click for enlargement
-                img.addEventListener('click', function() {
-                    const modal = document.createElement('div');
-                    modal.style.position = 'fixed';
-                    modal.style.top = '0';
-                    modal.style.left = '0';
-                    modal.style.width = '100%';
-                    modal.style.height = '100%';
-                    modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
-                    modal.style.display = 'flex';
-                    modal.style.alignItems = 'center';
-                    modal.style.justifyContent = 'center';
-                    modal.style.zIndex = '1000';
-                    modal.style.cursor = 'pointer';
-
-                    const modalImg = document.createElement('img');
-                    modalImg.src = this.src;
-                    modalImg.style.maxHeight = '90vh';
-                    modalImg.style.maxWidth = '90vw';
-                    modalImg.style.objectFit = 'contain';
-                    
-                    modal.appendChild(modalImg);
-                    document.body.appendChild(modal);
-
-                    modal.onclick = function() {
-                        modal.remove();
-                    };
-                });
-            });
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
