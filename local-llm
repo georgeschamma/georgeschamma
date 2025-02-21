@@ -65,7 +65,7 @@
                 <div class="content">
                     <p>This project demonstrates the implementation of local Large Language Models using Ollama, integrated with LangChain for enhanced capabilities and accessibility. The solution enables organizations to run powerful AI models locally, ensuring data privacy and reducing cloud dependency.</p>
                     <div class="image-wrapper">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
+                        <img src="https://github.com/georgeschamma/georgeschamma/blob/main/images/Olama.png" 
                              alt="Ollama Architecture Diagram" 
                              onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
                     </div>
