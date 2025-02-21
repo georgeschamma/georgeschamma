@@ -1,132 +1,92 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html>
 <head>
     <title>RAG Framework - Georges Chamma Portfolio</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Detailed overview of the RAG Framework implementation in Georges Chamma's portfolio projects" />
-    
-    <!-- Modern CSS framework via CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    
-    <!-- Custom styles -->
-    <style>
-        .project-card {
-            transition: transform 0.2s ease-in-out;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-        .workflow-step {
-            border-left: 4px solid #3B82F6;
-            padding-left: 1rem;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex space-x-4">
-                    <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
-                    <a href="rag.html" class="text-blue-600 font-medium">RAG Framework</a>
-                </div>
-                <a href="https://www.linkedin.com/in/georgeschamma/" 
-                   class="text-gray-600 hover:text-blue-600"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8 max-w-4xl">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">RAG Framework</h1>
-            <p class="text-xl text-gray-600">A detailed look at the framework used in my projects</p>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <h1>RAG Framework</h1>
+            <p>A detailed look at the framework used in my projects</p>
         </header>
-
-        <!-- Framework Overview -->
-        <section class="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <h2 class="text-2xl font-semibold mb-4">Framework Overview</h2>
-            <p class="text-gray-700 mb-6">
-                This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.
-            </p>
-
-            <!-- Framework Image -->
-            <div class="bg-gray-100 rounded-lg p-4 mb-8">
-                <img src="images/ai_course_project_1.png" 
-                     alt="RAG Framework Workflow" 
-                     class="mx-auto rounded-lg shadow-md max-w-full h-auto"
-                     onerror="this.src='images/default-image.jpg';">
-            </div>
-
-            <!-- Workflow Steps -->
-            <h3 class="text-xl font-semibold mb-4">RAG Workflow</h3>
-            <div class="space-y-4 mb-8">
-                <div class="workflow-step">
-                    <h4 class="font-medium">Document Upload</h4>
-                    <p class="text-gray-600">Documents (PDFs, Excel files, etc.) are uploaded into a database.</p>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="rag.html">RAG Framework</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/georgeschamma/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+            </ul>
+        </nav>
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h2>Framework Overview</h2>
+                </header>
+                <p>This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.</p>
+                <!-- Add an Image -->
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
+                         alt="RAG Framework Workflow" 
+                         style="max-width: 600px; height: auto; display: block; margin: 0 auto;"
+                         onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
                 </div>
-                <div class="workflow-step">
-                    <h4 class="font-medium">Vector Database</h4>
-                    <p class="text-gray-600">Documents are converted into embeddings and stored in a vector database for efficient retrieval.</p>
-                </div>
-                <div class="workflow-step">
-                    <h4 class="font-medium">LLM Integration</h4>
-                    <p class="text-gray-600">A Large Language Model (LLM) is fine-tuned to work seamlessly with the vector database.</p>
-                </div>
-                <div class="workflow-step">
-                    <h4 class="font-medium">AI Application</h4>
-                    <p class="text-gray-600">The final output is delivered through an AI-powered application tailored for specific tasks.</p>
-                </div>
-            </div>
-
-            <!-- Projects -->
-            <h3 class="text-xl font-semibold mb-4">Project Build</h3>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="project-card bg-gray-50 p-4 rounded-lg">
-                    <h4 class="font-medium text-lg mb-2">AI Marketing Expert</h4>
-                    <p class="text-gray-600">A specialized AI module designed to analyze marketing data and provide actionable insights.</p>
-                </div>
-                <div class="project-card bg-gray-50 p-4 rounded-lg">
-                    <h4 class="font-medium text-lg mb-2">Web Loader</h4>
-                    <p class="text-gray-600">An automated tool that extracts and processes data from websites for analysis.</p>
-                </div>
-                <div class="project-card bg-gray-50 p-4 rounded-lg">
-                    <h4 class="font-medium text-lg mb-2">PDF Summarization</h4>
-                    <p class="text-gray-600">A powerful NLP-driven feature that converts lengthy PDF documents into concise summaries.</p>
-                </div>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="mt-8 p-6 bg-blue-50 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Code Access</h3>
-                <p class="text-gray-700">
-                    The full source code for this project is hosted in a private GitHub repository. 
-                    If you'd like access, please contact me at 
-                    <a href="mailto:georgeschamma@gmail.com" 
-                       class="text-blue-600 hover:text-blue-800">
-                        georgeschamma@gmail.com
-                    </a>
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-6 text-center">
-        <p>&copy; Georges Chamma • Based on a template by HTML5 UP</p>
-    </footer>
+                <h3>RAG Workflow</h3>
+                <ul>
+                    <li><strong>Document Upload:</strong> Documents (PDFs, Excel files, etc.) are uploaded into a database.</li>
+                    <li><strong>Vector Database:</strong> Documents are converted into embeddings and stored in a vector database for efficient retrieval.</li>
+                    <li><strong>LLM Integration:</strong> A Large Language Model (LLM) is fine-tuned to work seamlessly with the vector database.</li>
+                    <li><strong>AI Application:</strong> The final output is delivered through an AI-powered application tailored for specific tasks.</li>
+                </ul>
+                <!-- Project Build Section -->
+                <h3>Project Build</h3>
+                <p>This application is built as a unified solution comprising three interconnected projects, each addressing specific needs while contributing to the overall functionality:</p>
+                <ul>
+                    <li>
+                        <strong>AI Marketing Expert:</strong> 
+                        A specialized AI module designed to analyze marketing data and provide actionable insights. It leverages the RAG framework to process domain-specific knowledge and deliver tailored strategies for improving marketing ROI.
+                    </li>
+                    <li>
+                        <strong>Web Loader:</strong> 
+                        An automated tool that extracts and processes data from websites. This component integrates seamlessly with the AI Marketing Expert to enrich the dataset used for analysis, ensuring up-to-date and relevant information.
+                    </li>
+                    <li>
+                        <strong>PDF Summarization:</strong> 
+                        A powerful NLP-driven feature that converts lengthy PDF documents into concise summaries. This project enhances the application by enabling quick extraction of key insights from large volumes of textual data.
+                    </li>
+                </ul>
+                <h3>Why This Framework?</h3>
+                <p>This framework empowers businesses by:</p>
+                <ul>
+                    <li>Enabling customized AI solutions tailored to specific needs.</li>
+                    <li>Providing scalable and flexible tools for data processing and analysis.</li>
+                    <li>Delivering actionable insights through seamless integration of domain-specific knowledge and AI capabilities.</li>
+                </ul>
+                <h3>Code Access</h3>
+                <p>The full source code for this project is hosted in a private GitHub repository. If you'd like access, please contact me at <a href="mailto:georgeschamma@gmail.com">georgeschamma@gmail.com</a>.</p>
+            </section>
+        </div>
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul><li>&copy; Georges Chamma</li><li>Based on a template by HTML5 UP</li></ul>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
