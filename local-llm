@@ -78,7 +78,7 @@
                     <section class="workflow">
                         <h3>Technical Implementation</h3>
                         <ul class="feature-list">
-                            <li><strong>Model Deployment:</strong> Streamlined setup of various LLM models (Llama 2, CodeLlama, Mistral)</li>
+                            <li><strong>Model Deployment:</strong> Streamlined setup of various LLM models (Llama 3, DeepSeek-R1)</li>
                             <li><strong>API Integration:</strong> RESTful endpoints for seamless communication with LangChain</li>
                             <li><strong>Performance Optimization:</strong> Advanced caching and model quantization for efficient resource usage</li>
                             <li><strong>Security Implementation:</strong> Role-based access control and API key authentication</li>
