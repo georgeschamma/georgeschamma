@@ -12,7 +12,6 @@
     <!-- Preload critical assets -->
     <link rel="preload" href="assets/js/main.js" as="script">
     <link rel="preload" href="assets/css/main.css" as="style">
-
     <!-- Simple image styles -->
     <style>
         .image-wrapper {
@@ -36,13 +35,11 @@
 <body class="is-preload">
     <!-- Skip to main content for accessibility -->
     <a href="#main" class="skip-link" style="position: absolute; left: -9999px;">Skip to main content</a>
-
     <div id="wrapper">
         <header id="header" class="alt">
             <h1>Ollama LLM Implementation</h1>
             <p class="subtitle">Democratizing AI with Local Large Language Models</p>
         </header>
-
         <nav id="nav" aria-label="Main navigation">
             <ul class="links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
@@ -59,7 +56,6 @@
                 </li>
             </ul>
         </nav>
-
         <div id="main" role="main">
             <section class="post">
                 <header class="major">
@@ -68,13 +64,11 @@
                 
                 <div class="content">
                     <p>This project demonstrates the implementation of local Large Language Models using Ollama, integrated with LangChain for enhanced capabilities and accessibility. The solution enables organizations to run powerful AI models locally, ensuring data privacy and reducing cloud dependency.</p>
-
                     <div class="image-wrapper">
-                        <img src="https://github.com/georgeschamma/georgeschamma/blob/main/images/Olama.png" 
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
                              alt="Ollama Architecture Diagram" 
                              onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
                     </div>
-
                     <section class="workflow">
                         <h3>Technical Implementation</h3>
                         <ul class="feature-list">
@@ -84,34 +78,28 @@
                             <li><strong>Security Implementation:</strong> Role-based access control and API key authentication</li>
                         </ul>
                     </section>
-
                     <section class="code-preview">
                         <h3>Example Implementation</h3>
                         <pre><code>
 from langchain.llms import Ollama
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-
 # Initialize Ollama with custom configuration
 llm = Ollama(
     model="llama2",
     callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
     temperature=0.7,
 )
-
 # Create a simple chain for document processing
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-
 prompt = PromptTemplate(
     input_variables=["query"],
     template="Analyze the following: {query}"
 )
-
 chain = LLMChain(llm=llm, prompt=prompt)
         </code></pre>
                     </section>
-
                     <section class="projects">
                         <h3>Key Features</h3>
                         <div class="grid">
@@ -119,19 +107,16 @@ chain = LLMChain(llm=llm, prompt=prompt)
                                 <h4>Model Management</h4>
                                 <p>Custom model registry with version control and automatic updates for maintaining multiple LLM versions.</p>
                             </article>
-
                             <article class="project-card">
                                 <h4>Integration Framework</h4>
                                 <p>Flexible middleware layer enabling seamless integration with existing applications and workflows.</p>
                             </article>
-
                             <article class="project-card">
                                 <h4>Monitoring Dashboard</h4>
                                 <p>Real-time analytics and performance monitoring for model inference and resource utilization.</p>
                             </article>
                         </div>
                     </section>
-
                     <section class="benefits">
                         <h3>Business Impact</h3>
                         <ul class="feature-list">
@@ -141,13 +126,11 @@ chain = LLMChain(llm=llm, prompt=prompt)
                             <li>Improved response times with local inference</li>
                         </ul>
                     </section>
-                        <p>If you're interested in implementing local LLM solutions or exploring collaborative opportunities, please reach out:</p>
-                        <a href="mailto:your.email@example.com" class="button">Contact Me</a>
-                    </section>
+                    <p>If you're interested in implementing local LLM solutions or exploring collaborative opportunities, please reach out:</p>
+                    <a href="mailto:your.email@example.com" class="button">Contact Me</a>
                 </div>
             </section>
         </div>
-
         <footer id="copyright">
             <ul>
                 <li>&copy; <span id="year">2024</span> Your Name</li>
@@ -155,7 +138,6 @@ chain = LLMChain(llm=llm, prompt=prompt)
             </ul>
         </footer>
     </div>
-
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js" defer></script>
     <script src="assets/js/jquery.scrollex.min.js" defer></script>
