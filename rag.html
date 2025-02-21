@@ -4,118 +4,139 @@
     <title>RAG Framework - Georges Chamma Portfolio</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Detailed overview of RAG Framework implementation in AI projects by Georges Chamma" />
+    <meta name="keywords" content="RAG, AI, Machine Learning, Portfolio, Georges Chamma" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     
-    <!-- Added styles for image handling -->
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="assets/css/main.css" as="style">
+
+    <!-- Simple image styles -->
     <style>
         .image-wrapper {
-            margin: 2em 0;
             text-align: center;
+            margin: 2em 0;
         }
         .image-wrapper img {
             max-width: 100%;
             height: auto;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-        .image-caption {
-            margin-top: 1em;
-            font-style: italic;
-            color: #666;
         }
     </style>
 </head>
 <body class="is-preload">
-    <!-- Wrapper -->
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="skip-link" style="position: absolute; left: -9999px;">Skip to main content</a>
+
     <div id="wrapper">
-        <!-- Header -->
-        <header id="header">
+        <header id="header" class="alt">
             <h1>RAG Framework</h1>
-            <p>A detailed look at the framework used in my projects</p>
+            <p class="subtitle">Enhancing AI Applications with Advanced Knowledge Retrieval</p>
         </header>
 
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="links">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="rag.html">RAG Framework</a></li>
+        <nav id="nav" aria-label="Main navigation">
+            <ul class="links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li class="active" role="none"><a href="rag.html" role="menuitem" aria-current="page">RAG Framework</a></li>
             </ul>
-            <ul class="icons">
-                <li><a href="https://www.linkedin.com/in/georgeschamma/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+            <ul class="icons" role="list">
+                <li><a href="https://www.linkedin.com/in/georgeschamma/" 
+                       class="icon brands alt fa-linkedin" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn Profile">
+                        <span class="label">LinkedIn</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
-        <!-- Main -->
-        <div id="main">
-            <!-- Post -->
+        <div id="main" role="main">
             <section class="post">
                 <header class="major">
                     <h2>Framework Overview</h2>
                 </header>
-                <p>This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.</p>
                 
-                <!-- Improved Image Section -->
-                <div class="image-wrapper">
-                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
-                         alt="RAG Framework Workflow - Detailed diagram showing the integration of document processing, vector database, and LLM components"
-                         loading="lazy"
-                         onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
-                    <div class="image-caption">RAG Framework Workflow Diagram</div>
+                <div class="content">
+                    <p>This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.</p>
+
+                    <div class="image-wrapper">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
+                             alt="RAG Framework Workflow Diagram" 
+                             onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
+                    </div>
+
+                    <section class="workflow">
+                        <h3>RAG Workflow</h3>
+                        <ul class="feature-list">
+                            <li><strong>Document Upload:</strong> Secure upload system for PDFs, Excel files, and other document formats</li>
+                            <li><strong>Vector Database:</strong> Advanced embedding storage for optimized information retrieval</li>
+                            <li><strong>LLM Integration:</strong> Custom-tuned language models for precise responses</li>
+                            <li><strong>AI Application:</strong> Task-specific implementation with intuitive user interface</li>
+                        </ul>
+                    </section>
+
+                    <section class="projects">
+                        <h3>Project Components</h3>
+                        <div class="grid">
+                            <article class="project-card">
+                                <h4>AI Marketing Expert</h4>
+                                <p>Specialized AI module for marketing data analysis and ROI optimization through RAG-powered insights.</p>
+                            </article>
+
+                            <article class="project-card">
+                                <h4>Web Loader</h4>
+                                <p>Automated data extraction tool integrated with AI Marketing Expert for real-time dataset enrichment.</p>
+                            </article>
+
+                            <article class="project-card">
+                                <h4>PDF Summarization</h4>
+                                <p>NLP-driven document synthesis for rapid extraction of key insights from extensive documentation.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="benefits">
+                        <h3>Framework Benefits</h3>
+                        <ul class="feature-list">
+                            <li>Custom-tailored AI solutions for specific business needs</li>
+                            <li>Scalable data processing and analysis infrastructure</li>
+                            <li>Seamless integration of domain expertise with AI capabilities</li>
+                        </ul>
+                    </section>
+
+                    <section class="contact">
+                        <h3>Access the Code</h3>
+                        <p>The complete source code is available in a private GitHub repository. For access requests, please contact me at 
+                            <a href="mailto:georgeschamma@gmail.com" class="button">georgeschamma@gmail.com</a>
+                        </p>
+                    </section>
                 </div>
-
-                <h3>RAG Workflow</h3>
-                <ul>
-                    <li><strong>Document Upload:</strong> Documents (PDFs, Excel files, etc.) are uploaded into a database.</li>
-                    <li><strong>Vector Database:</strong> Documents are converted into embeddings and stored in a vector database for efficient retrieval.</li>
-                    <li><strong>LLM Integration:</strong> A Large Language Model (LLM) is fine-tuned to work seamlessly with the vector database.</li>
-                    <li><strong>AI Application:</strong> The final output is delivered through an AI-powered application tailored for specific tasks.</li>
-                </ul>
-
-                <h3>Project Build</h3>
-                <p>This application is built as a unified solution comprising three interconnected projects, each addressing specific needs while contributing to the overall functionality:</p>
-                <ul>
-                    <li>
-                        <strong>AI Marketing Expert:</strong> 
-                        A specialized AI module designed to analyze marketing data and provide actionable insights. It leverages the RAG framework to process domain-specific knowledge and deliver tailored strategies for improving marketing ROI.
-                    </li>
-                    <li>
-                        <strong>Web Loader:</strong> 
-                        An automated tool that extracts and processes data from websites. This component integrates seamlessly with the AI Marketing Expert to enrich the dataset used for analysis, ensuring up-to-date and relevant information.
-                    </li>
-                    <li>
-                        <strong>PDF Summarization:</strong> 
-                        A powerful NLP-driven feature that converts lengthy PDF documents into concise summaries. This project enhances the application by enabling quick extraction of key insights from large volumes of textual data.
-                    </li>
-                </ul>
-
-                <h3>Why This Framework?</h3>
-                <p>This framework empowers businesses by:</p>
-                <ul>
-                    <li>Enabling customized AI solutions tailored to specific needs.</li>
-                    <li>Providing scalable and flexible tools for data processing and analysis.</li>
-                    <li>Delivering actionable insights through seamless integration of domain-specific knowledge and AI capabilities.</li>
-                </ul>
-
-                <h3>Code Access</h3>
-                <p>The full source code for this project is hosted in a private GitHub repository. If you'd like access, please contact me at <a href="mailto:georgeschamma@gmail.com">georgeschamma@gmail.com</a>.</p>
             </section>
         </div>
 
-        <!-- Copyright -->
-        <div id="copyright">
-            <ul><li>&copy; Georges Chamma</li><li>Based on a template by HTML5 UP</li></ul>
-        </div>
+        <footer id="copyright">
+            <ul>
+                <li>&copy; <span id="year">2024</span> Georges Chamma</li>
+                <li>Design: HTML5 UP</li>
+            </ul>
+        </footer>
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    
+    <script>
+        // Update copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
