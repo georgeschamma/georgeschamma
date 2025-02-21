@@ -46,17 +46,9 @@
         <nav id="nav" aria-label="Main navigation">
             <ul class="links" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li class="active" role="none"><a href="ollama.html" role="menuitem" aria-current="page">Ollama Project</a></li>
+                <li class="active" role="none"><a href="ollama.html" role="menuitem" aria-current="page">Local LLM</a></li>
             </ul>
             <ul class="icons" role="list">
-                <li><a href="https://github.com/YourGitHub" 
-                       class="icon brands alt fa-github" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       aria-label="GitHub Profile">
-                        <span class="label">GitHub</span>
-                    </a>
-                </li>
                 <li><a href="https://www.linkedin.com/in/YourLinkedIn/" 
                        class="icon brands alt fa-linkedin" 
                        target="_blank" 
@@ -78,7 +70,7 @@
                     <p>This project demonstrates the implementation of local Large Language Models using Ollama, integrated with LangChain for enhanced capabilities and accessibility. The solution enables organizations to run powerful AI models locally, ensuring data privacy and reducing cloud dependency.</p>
 
                     <div class="image-wrapper">
-                        <img src="assets/images/ollama-architecture.png" 
+                        <img src="https://github.com/georgeschamma/georgeschamma/blob/main/images/Olama.png" 
                              alt="Ollama Architecture Diagram" 
                              onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
                     </div>
@@ -149,16 +141,6 @@ chain = LLMChain(llm=llm, prompt=prompt)
                             <li>Improved response times with local inference</li>
                         </ul>
                     </section>
-
-                    <section class="collaboration">
-                        <h3>Let's Collaborate</h3>
-                        <p>I'm actively seeking collaboration opportunities to further develop and implement local LLM solutions. My expertise includes:</p>
-                        <ul class="feature-list">
-                            <li>Large Language Model deployment and optimization</li>
-                            <li>API development and integration</li>
-                            <li>Performance tuning and scaling</li>
-                            <li>Custom solution architecture</li>
-                        </ul>
                         <p>If you're interested in implementing local LLM solutions or exploring collaborative opportunities, please reach out:</p>
                         <a href="mailto:your.email@example.com" class="button">Contact Me</a>
                     </section>
