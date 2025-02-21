@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Ollama LLM Implementation - Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Detailed overview of Local LLM API implementation using Ollama and LangChain" />
+    <meta name="keywords" content="Ollama, LLM, API, LangChain, Machine Learning, Portfolio" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="assets/css/main.css" as="style">
+
+    <!-- Simple image styles -->
+    <style>
+        .image-wrapper {
+            text-align: center;
+            margin: 2em 0;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code-preview {
+            background: #f4f4f4;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 1em 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="skip-link" style="position: absolute; left: -9999px;">Skip to main content</a>
+
+    <div id="wrapper">
+        <header id="header" class="alt">
+            <h1>Ollama LLM Implementation</h1>
+            <p class="subtitle">Democratizing AI with Local Large Language Models</p>
+        </header>
+
+        <nav id="nav" aria-label="Main navigation">
+            <ul class="links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li class="active" role="none"><a href="ollama.html" role="menuitem" aria-current="page">Ollama Project</a></li>
+            </ul>
+            <ul class="icons" role="list">
+                <li><a href="https://github.com/YourGitHub" 
+                       class="icon brands alt fa-github" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="GitHub Profile">
+                        <span class="label">GitHub</span>
+                    </a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/YourLinkedIn/" 
+                       class="icon brands alt fa-linkedin" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn Profile">
+                        <span class="label">LinkedIn</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="main" role="main">
+            <section class="post">
+                <header class="major">
+                    <h2>Project Overview</h2>
+                </header>
+                
+                <div class="content">
+                    <p>This project demonstrates the implementation of local Large Language Models using Ollama, integrated with LangChain for enhanced capabilities and accessibility. The solution enables organizations to run powerful AI models locally, ensuring data privacy and reducing cloud dependency.</p>
+
+                    <div class="image-wrapper">
+                        <img src="assets/images/ollama-architecture.png" 
+                             alt="Ollama Architecture Diagram" 
+                             onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
+                    </div>
+
+                    <section class="workflow">
+                        <h3>Technical Implementation</h3>
+                        <ul class="feature-list">
+                            <li><strong>Model Deployment:</strong> Streamlined setup of various LLM models (Llama 2, CodeLlama, Mistral)</li>
+                            <li><strong>API Integration:</strong> RESTful endpoints for seamless communication with LangChain</li>
+                            <li><strong>Performance Optimization:</strong> Advanced caching and model quantization for efficient resource usage</li>
+                            <li><strong>Security Implementation:</strong> Role-based access control and API key authentication</li>
+                        </ul>
+                    </section>
+
+                    <section class="code-preview">
+                        <h3>Example Implementation</h3>
+                        <pre><code>
+from langchain.llms import Ollama
+from langchain.callbacks.manager import CallbackManager
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+
+# Initialize Ollama with custom configuration
+llm = Ollama(
+    model="llama2",
+    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
+    temperature=0.7,
+)
+
+# Create a simple chain for document processing
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate(
+    input_variables=["query"],
+    template="Analyze the following: {query}"
+)
+
+chain = LLMChain(llm=llm, prompt=prompt)
+        </code></pre>
+                    </section>
+
+                    <section class="projects">
+                        <h3>Key Features</h3>
+                        <div class="grid">
+                            <article class="project-card">
+                                <h4>Model Management</h4>
+                                <p>Custom model registry with version control and automatic updates for maintaining multiple LLM versions.</p>
+                            </article>
+
+                            <article class="project-card">
+                                <h4>Integration Framework</h4>
+                                <p>Flexible middleware layer enabling seamless integration with existing applications and workflows.</p>
+                            </article>
+
+                            <article class="project-card">
+                                <h4>Monitoring Dashboard</h4>
+                                <p>Real-time analytics and performance monitoring for model inference and resource utilization.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="benefits">
+                        <h3>Business Impact</h3>
+                        <ul class="feature-list">
+                            <li>Reduced operational costs compared to cloud-based LLM services</li>
+                            <li>Enhanced data privacy and security through local deployment</li>
+                            <li>Customizable model behavior for specific use cases</li>
+                            <li>Improved response times with local inference</li>
+                        </ul>
+                    </section>
+
+                    <section class="collaboration">
+                        <h3>Let's Collaborate</h3>
+                        <p>I'm actively seeking collaboration opportunities to further develop and implement local LLM solutions. My expertise includes:</p>
+                        <ul class="feature-list">
+                            <li>Large Language Model deployment and optimization</li>
+                            <li>API development and integration</li>
+                            <li>Performance tuning and scaling</li>
+                            <li>Custom solution architecture</li>
+                        </ul>
+                        <p>If you're interested in implementing local LLM solutions or exploring collaborative opportunities, please reach out:</p>
+                        <a href="mailto:your.email@example.com" class="button">Contact Me</a>
+                    </section>
+                </div>
+            </section>
+        </div>
+
+        <footer id="copyright">
+            <ul>
+                <li>&copy; <span id="year">2024</span> Your Name</li>
+                <li>Design: HTML5 UP</li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    
+    <script>
+        // Update copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
