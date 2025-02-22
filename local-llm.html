@@ -73,31 +73,32 @@
                         <h3>Technical Implementation</h3>
                         <ul class="feature-list">
                             <li><strong>Model Deployment:</strong> Streamlined setup of various LLM models (Llama 3, DeepSeek-R1)</li>
-                            <li><strong>API Integration:</strong> RESTful endpoints for seamless communication with LangChain</li>
-                            <li><strong>Performance Optimization:</strong> Advanced caching and model quantization for efficient resource usage</li>
                             <li><strong>Security Implementation:</strong> Role-based access control and API key authentication</li>
+                            <li><strong>Performance Optimization:</strong> Advanced caching and model quantization for efficient resource usage</li>
                         </ul>
                     </section>
                     <section class="code-preview">
                         <h3>Example Implementation</h3>
                         <pre><code>
-from langchain.llms import Ollama
-from langchain.callbacks.manager import CallbackManager
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-# Initialize Ollama with custom configuration
-llm = Ollama(
-    model="llama2",
-    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
-    temperature=0.7,
-)
-# Create a simple chain for document processing
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
-prompt = PromptTemplate(
-    input_variables=["query"],
-    template="Analyze the following: {query}"
-)
-chain = LLMChain(llm=llm, prompt=prompt)
+from langchain_ollama.chat_models import ChatOllama
+from pprint import pprint
+from IPython.display import Markdown
+
+# LLAMA 3.2:3B
+# * ollama run llama3.2:3b
+
+llm = ChatOllama(model="llama3.2:3b")
+llm
+
+# DEEPSEEK AI: Took 5 minutes to download
+# * ollama run deepseek-r1
+
+llm = ChatOllama(model="deepseek-r1")
+llm
+
+response = llm.invoke("prompt")
+
+Markdown(response.content)
         </code></pre>
                     </section>
                     <section class="projects">
