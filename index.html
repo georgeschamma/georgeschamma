@@ -4,8 +4,14 @@
     <title>Georges Chamma Portfolio</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Georges Chamma's Portfolio - Marketing Projects Using Data Analytics and AI" />
+    <meta name="keywords" content="Data Analytics, Marketing, RAG Framework, Local LLM, Portfolio" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
 </head>
 <body class="is-preload">
     <!-- Wrapper -->
@@ -27,27 +33,35 @@
         <nav id="nav">
             <ul class="links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="rag.html">RAG Framework</a></li><!
-                <li><a href="local-llm.html">Local LLM</a></li><!
+                <li><a href="rag.html">RAG Framework</a></li>
+                <li><a href="local-llm.html">Local LLM</a></li>
             </ul>
             <ul class="icons">
-                <li><a href="https://www.linkedin.com/in/georgeschamma/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+                <li><a href="https://www.linkedin.com/in/georgeschamma/" 
+                       class="icon brands alt fa-linkedin"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn Profile">
+                    <span class="label">LinkedIn</span>
+                </a></li>
             </ul>
         </nav>
 
         <!-- Main -->
         <div id="main">
-
-            <!-- Featured Post -->
+            <!-- Featured Projects -->
             <section class="posts">
+                <h2 class="section-heading">Featured Projects</h2>
 
                 <!-- RAG Framework Project -->
                 <article>
                     <header>
-                        <h2><a href="rag.html">RAG Framework</a></h2> <!-- Link to rag.html -->
+                        <h2><a href="rag.html">RAG Framework</a></h2>
                     </header>
                     <a href="rag.html" class="image fit">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG Framework Workflow" />
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
+                             alt="RAG Framework Workflow"
+                             onerror="this.onerror=null; this.src='assets/images/default-image.jpg';" />
                     </a>
                     <p>
                         Harness the power of AI to transform data into actionable insights. The Retrieval Augmented Generation (RAG) framework combines specialized knowledge with advanced machine learning to deliver customized solutions for businesses. From marketing strategies to automated data processing, this project showcases the future of AI-driven decision-making.
@@ -57,17 +71,21 @@
                     </ul>
                 </article>
 
-                <!-- Attribution Model Project -->
+                <!-- Local LLM Project -->
                 <article>
                     <header>
-                        <h2><a href="https://colab.research.google.com/drive/1i6BEI_YNqJtzKP8seWfmrRGO88fmDIBM?usp=sharing">Attribution Model</a></h2>
+                        <h2><a href="local-llm.html">Local LLM Implementation</a></h2>
                     </header>
-                    <a href="https://colab.research.google.com/drive/1i6BEI_YNqJtzKP8seWfmrRGO88fmDIBM?usp=sharing" class="image fit"><img src="images/AM.jpg" alt="" /></a>
+                    <a href="local-llm.html" class="image fit">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
+                             alt="Ollama Architecture Diagram"
+                             onerror="this.onerror=null; this.src='assets/images/default-image.jpg';" />
+                    </a>
                     <p>
-                        Attribution Mix Modeling is a data-driven approach to measure the impact of different marketing touchpoints on customer behavior. Using Markov chains, machine learning algorithms, and probabilistic modeling, this model provides a more accurate view of the customer journey.
+                        Experience the power of running Large Language Models locally using Ollama and LangChain. This implementation enables organizations to leverage AI capabilities while maintaining data privacy and reducing cloud dependencies. From model deployment to performance optimization, discover how local LLMs can transform your business operations.
                     </p>
                     <ul class="actions special">
-                        <li><a href="https://colab.research.google.com/drive/1i6BEI_YNqJtzKP8seWfmrRGO88fmDIBM?usp=sharing" class="button">View Project</a></li>
+                        <li><a href="local-llm.html" class="button">View Project</a></li>
                     </ul>
                 </article>
 
@@ -91,7 +109,13 @@
                     <section>
                         <h3>Social</h3>
                         <ul class="icons alt">
-                            <li><a href="https://www.linkedin.com/in/georgeschamma/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/georgeschamma/" 
+                                   class="icon brands alt fa-linkedin"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   aria-label="LinkedIn Profile">
+                                <span class="label">LinkedIn</span>
+                            </a></li>
                         </ul>
                     </section>
                 </section>
@@ -99,7 +123,7 @@
 
             <!-- Copyright -->
             <div id="copyright">
-                <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                <ul><li>&copy; Georges Chamma</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
             </div>
 
         </div>
