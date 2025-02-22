@@ -12,7 +12,6 @@
     <!-- Preload critical assets -->
     <link rel="preload" href="assets/js/main.js" as="script">
     <link rel="preload" href="assets/css/main.css" as="style">
-
     <!-- Simple image styles -->
     <style>
         .image-wrapper {
@@ -29,13 +28,11 @@
 <body class="is-preload">
     <!-- Skip to main content for accessibility -->
     <a href="#main" class="skip-link" style="position: absolute; left: -9999px;">Skip to main content</a>
-
     <div id="wrapper">
         <header id="header" class="alt">
             <h1>RAG Framework</h1>
             <p class="subtitle">Enhancing AI Applications with Advanced Knowledge Retrieval</p>
         </header>
-
         <!-- Nav -->
         <nav id="nav">
             <ul class="links">
@@ -54,7 +51,6 @@
                 </li>
             </ul>
         </nav>
-
         <div id="main" role="main">
             <section class="post">
                 <header class="major">
@@ -63,13 +59,11 @@
                 
                 <div class="content">
                     <p>This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.</p>
-
                     <div class="image-wrapper">
                         <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
                              alt="RAG Framework Workflow Diagram" 
                              onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
                     </div>
-
                     <section class="workflow">
                         <h3>RAG Workflow</h3>
                         <ul class="feature-list">
@@ -79,7 +73,6 @@
                             <li><strong>AI Application:</strong> Task-specific implementation with intuitive user interface</li>
                         </ul>
                     </section>
-
                     <section class="projects">
                         <h3>Project Components</h3>
                         <div class="grid">
@@ -87,19 +80,16 @@
                                 <h4>AI Marketing Expert</h4>
                                 <p>Specialized AI module for marketing data analysis and ROI optimization through RAG-powered insights.</p>
                             </article>
-
                             <article class="project-card">
                                 <h4>Web Loader</h4>
                                 <p>Automated data extraction tool integrated with AI Marketing Expert for real-time dataset enrichment.</p>
                             </article>
-
                             <article class="project-card">
                                 <h4>PDF Summarization</h4>
                                 <p>NLP-driven document synthesis for rapid extraction of key insights from extensive documentation.</p>
                             </article>
                         </div>
                     </section>
-
                     <section class="benefits">
                         <h3>Framework Benefits</h3>
                         <ul class="feature-list">
@@ -108,7 +98,6 @@
                             <li>Seamless integration of domain expertise with AI capabilities</li>
                         </ul>
                     </section>
-
                     <section class="contact">
                         <h3>Access the Code</h3>
                         <p>The complete source code is available in a private GitHub repository. For access requests, please contact me at 
@@ -118,7 +107,6 @@
                 </div>
             </section>
         </div>
-
         <footer id="copyright">
             <ul>
                 <li>&copy; <span id="year">2024</span> Georges Chamma</li>
@@ -126,7 +114,6 @@
             </ul>
         </footer>
     </div>
-
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js" defer></script>
     <script src="assets/js/jquery.scrollex.min.js" defer></script>
@@ -138,7 +125,9 @@
     
     <script>
         // Update copyright year automatically
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
     </script>
 </body>
 </html>
