@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Portfolio Optimization with GenAI - Project Showcase</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Stock Portfolio Optimization using Modern Portfolio Theory and Black-Litterman Model with GenAI" />
+    <meta name="keywords" content="Portfolio Optimization, MPT, Black-Litterman, Python, AI" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    
+    <style>
+        .project-section {
+            margin: 2em 0;
+            padding: 1.5em;
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin: 2em 0;
+        }
+        .metric-card {
+            background: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .chart-container {
+            margin: 2em 0;
+            text-align: center;
+        }
+        code {
+            background: #f8f8f8;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .results-table {
+            width: 100%;
+            margin: 1em 0;
+            border-collapse: collapse;
+        }
+        .results-table th, .results-table td {
+            padding: 0.75em;
+            border: 1px solid #ddd;
+        }
+        .results-table th {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <header id="header" class="alt">
+            <h1>Portfolio Optimization with GenAI</h1>
+            <p class="subtitle">Leveraging AI and Financial Models for Intelligent Investment Decisions</p>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Data-Framework.html">Data Framework</a></li>
+                <li class="active"><a href="portfolio-optimization.html">Portfolio Optimization</a></li>
+                <li><a href="rag.html">RAG Framework</a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+            <section class="post">
+                <header class="major">
+                    <h2>Stock Portfolio Optimization</h2>
+                    <p>Combining Modern Portfolio Theory, Black-Litterman Model, and Technical Analysis with AI</p>
+                </header>
+
+                <div class="content">
+                    <div class="project-section">
+                        <h3>Project Overview</h3>
+                        <p>This project implements an advanced portfolio optimization strategy that combines traditional financial models with AI-driven analysis. The system analyzes major tech stocks and cryptocurrencies, providing comprehensive insights and optimal portfolio allocation recommendations.</p>
+                        
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Technical Analysis Indicators (RSI, MACD, Bollinger Bands)</li>
+                            <li>Modern Portfolio Theory Implementation</li>
+                            <li>Black-Litterman Model Integration</li>
+                            <li>AI-Powered Market Analysis</li>
+                            <li>Dynamic Portfolio Rebalancing</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h3>Technical Analysis Components</h3>
+                        
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <h4>RSI (Relative Strength Index)</h4>
+                                <p>Momentum indicator measuring speed and magnitude of recent price changes to evaluate overbought or oversold conditions.</p>
+                                <img src="/api/placeholder/400/200" alt="RSI Chart" />
+                            </div>
+                            
+                            <div class="metric-card">
+                                <h4>Bollinger Bands</h4>
+                                <p>Volatility indicator using moving averages and standard deviations to identify potential trading opportunities.</p>
+                                <img src="/api/placeholder/400/200" alt="Bollinger Bands Chart" />
+                            </div>
+                            
+                            <div class="metric-card">
+                                <h4>MACD</h4>
+                                <p>Trend-following momentum indicator showing relationship between two moving averages of asset's price.</p>
+                                <img src="/api/placeholder/400/200" alt="MACD Chart" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3>Portfolio Optimization Results</h3>
+                        
+                        <h4>Modern Portfolio Theory Allocation</h4>
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Asset</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>NVDA</td><td>100%</td></tr>
+                                <tr><td>Others</td><td>0%</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Black-Litterman Model Allocation</h4>
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Asset</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>SPY</td><td>71.1%</td></tr>
+                                <tr><td>MSFT</td><td>17.7%</td></tr>
+                                <tr><td>NVDA</td><td>4.1%</td></tr>
+                                <tr><td>AAPL</td><td>2.9%</td></tr>
+                                <tr><td>Others</td><td>4.2%</td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <h4>Portfolio Performance</h4>
+                                <ul>
+                                    <li>Expected Annual Return: 10.5%</li>
+                                    <li>Annual Volatility: 15.4%</li>
+                                    <li>Sharpe Ratio: 0.67</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3>Implementation Details</h3>
+                        <p>The project is implemented in Python, utilizing key libraries including:</p>
+                        <ul>
+                            <li>yfinance: For fetching historical stock data</li>
+                            <li>PyPortfolioOpt: For portfolio optimization calculations</li>
+                            <li>LangChain: For AI-powered analysis</li>
+                            <li>Pandas & NumPy: For data manipulation and analysis</li>
+                        </ul>
+                        
+                        <div class="github-link" style="margin-top: 2em; text-align: center;">
+                            <a href="https://github.com/yourusername/portfolio-optimization" class="button primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer id="copyright">
+            <ul>
+                <li>&copy; <span id="year">2024</span></li>
+                <li>Design: HTML5 UP</li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
