@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="description" content="Stock Portfolio Optimization using Modern Portfolio Theory and Black-Litterman Model with GenAI" />
     <style>
-        /* Previous styles remain the same */
         :root {
             --primary-color: #4a90e2;
             --secondary-color: #2c3e50;
@@ -16,6 +15,7 @@
             --hover-color: #3498db;
         }
 
+        /* Previous styles remain the same */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -40,6 +40,7 @@
             margin-bottom: 30px;
         }
 
+        /* Enhanced Navigation Styles */
         nav {
             background: white;
             padding: 15px;
@@ -57,6 +58,10 @@
             gap: 20px;
         }
 
+        nav li {
+            position: relative;
+        }
+
         nav a {
             color: var(--text-color);
             text-decoration: none;
@@ -70,7 +75,67 @@
             background: transparent;
         }
 
-        /* Rest of the styles remain the same as in your original file */
+        nav a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--hover-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.2;
+        }
+
+        nav a:hover:before {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        nav a.active:hover {
+            color: white;
+        }
+
+        nav a.active:before {
+            display: none;
+        }
+
+        /* Tooltip on hover */
+        nav a:after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8em;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover:after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
+        }
+
+        /* Rest of the previous styles remain the same */
         .project-section {
             background: white;
             padding: 25px;
@@ -91,6 +156,42 @@
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .chart-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .results-table th, .results-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .results-table th {
+            background: var(--background-light);
+            font-weight: 600;
+        }
+
+        .results-table tr:hover {
+            background-color: #f5f5f5;
         }
 
         .button {
@@ -115,9 +216,17 @@
         }
 
         @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
             nav ul {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            nav a:after {
+                display: none; /* Hide tooltips on mobile */
             }
         }
     </style>
@@ -131,16 +240,94 @@
 
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html">Data Framework</a></li>
-                <li><a href="rag.html">RAG Framework</a></li>
-                <li><a href="portfolio-optimization.html" class="active">Stock Analyzer</a></li>
-                <li><a href="local-llm.html">Local LLM</a></li>
+                <li><a href="index.html" class="active" data-tooltip="Overview & Summary">Home</a></li>
+                <li><a href="Data-Framework.html" data-tooltip="Data Collection & Processing">Data Framework</a></li>
+                <li><a href="rag.html" data-tooltip="RAG Framework">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html" data-tooltip="Stock Analyzer">Stock Analyzer</a></li>
+                <li><a href="local-llm.html" data-tooltip="Local LLM">Local LLM</a></li>
             </ul>
         </nav>
 
         <!-- Rest of the content remains the same -->
-        <!-- Added target="_blank" to the Colab link -->
+        <div class="project-section">
+            <h2>Technical Analysis Components</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>RSI (Relative Strength Index)</h3>
+                    <div class="chart-container">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="RSI Chart">
+                    </div>
+                    <p>Momentum indicator measuring speed and magnitude of recent price changes.</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Bollinger Bands</h3>
+                    <div class="chart-container">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bollinger.png" alt="Bollinger Bands Chart">
+                    </div>
+                    <p>Volatility indicator using moving averages and standard deviations.</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>MACD</h3>
+                    <div class="chart-container">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/MACD.webp" alt="MACD Chart">
+                    </div>
+                    <p>Trend-following momentum indicator showing moving averages relationship.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Portfolio Optimization Results</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Modern Portfolio Theory Allocation</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>NVDA</td><td>100%</td></tr>
+                            <tr><td>Others</td><td>0%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Black-Litterman Model Allocation</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SPY</td><td>71.1%</td></tr>
+                            <tr><td>MSFT</td><td>17.7%</td></tr>
+                            <tr><td>NVDA</td><td>4.1%</td></tr>
+                            <tr><td>AAPL</td><td>2.9%</td></tr>
+                            <tr><td>Others</td><td>4.2%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Portfolio Performance</h3>
+                    <ul>
+                        <li>Expected Annual Return: 10.5%</li>
+                        <li>Annual Volatility: 15.4%</li>
+                        <li>Sharpe Ratio: 0.67</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="project-section">
             <h2>Implementation Details</h2>
             <p>The project leverages several key Python libraries:</p>
@@ -152,15 +339,12 @@
             </ul>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" 
-                   class="button primary" 
-                   target="_blank" 
-                   rel="noopener noreferrer">View on Google Colab</a>
+                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" class="button primary" class="button">View on Google Colab</a>
             </div>
         </div>
 
         <footer>
-            <p>&copy; 2025 Georges Chamma Projects. Design inspired by HTML5 UP</p>
+            <p>&copy; 2024 Portfolio Optimization Project. Design inspired by HTML5 UP</p>
         </footer>
     </div>
 </body>
