@@ -5,198 +5,272 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="description" content="Stock Portfolio Optimization using Modern Portfolio Theory and Black-Litterman Model with GenAI" />
-    <meta name="keywords" content="Portfolio Optimization, MPT, Black-Litterman, Python, AI" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    
     <style>
-        .project-section {
-            margin: 2em 0;
-            padding: 1.5em;
-            background: rgba(0,0,0,0.05);
-            border-radius: 4px;
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --background-light: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
         }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5em;
-            margin: 2em 0;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
         }
-        .metric-card {
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        nav {
             background: white;
-            padding: 1.5em;
-            border-radius: 8px;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--background-light);
+        }
+
+        .project-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
         .chart-container {
-            margin: 2em 0;
-            text-align: center;
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
         }
-        code {
-            background: #f8f8f8;
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 0.9em;
+
+        .chart-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
         .results-table {
             width: 100%;
-            margin: 1em 0;
             border-collapse: collapse;
+            margin: 20px 0;
         }
+
         .results-table th, .results-table td {
-            padding: 0.75em;
+            padding: 12px;
+            text-align: left;
             border: 1px solid #ddd;
         }
+
         .results-table th {
-            background: #f5f5f5;
+            background: var(--background-light);
+            font-weight: 600;
+        }
+
+        .results-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
-<body class="is-preload">
+<body>
     <div id="wrapper">
-        <header id="header" class="alt">
+        <header>
             <h1>Portfolio Optimization with GenAI</h1>
-            <p class="subtitle">Leveraging AI and Financial Models for Intelligent Investment Decisions</p>
+            <p>Leveraging AI and Financial Models for Intelligent Investment Decisions</p>
         </header>
 
-        <nav id="nav">
-            <ul class="links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html">Data Framework</a></li>
-                <li class="active"><a href="portfolio-optimization.html">Portfolio Optimization</a></li>
-                <li><a href="rag.html">RAG Framework</a></li>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Data Framework</a></li>
+                <li><a href="#">Portfolio Optimization</a></li>
+                <li><a href="#">RAG Framework</a></li>
             </ul>
         </nav>
 
-        <div id="main">
-            <section class="post">
-                <header class="major">
-                    <h2>Stock Portfolio Optimization</h2>
-                    <p>Combining Modern Portfolio Theory, Black-Litterman Model, and Technical Analysis with AI</p>
-                </header>
-
-                <div class="content">
-                    <div class="project-section">
-                        <h3>Project Overview</h3>
-                        <p>This project implements an advanced portfolio optimization strategy that combines traditional financial models with AI-driven analysis. The system analyzes major tech stocks and cryptocurrencies, providing comprehensive insights and optimal portfolio allocation recommendations.</p>
-                        
-                        <h4>Key Features:</h4>
-                        <ul>
-                            <li>Technical Analysis Indicators (RSI, MACD, Bollinger Bands)</li>
-                            <li>Modern Portfolio Theory Implementation</li>
-                            <li>Black-Litterman Model Integration</li>
-                            <li>AI-Powered Market Analysis</li>
-                            <li>Dynamic Portfolio Rebalancing</li>
-                        </ul>
+        <div class="project-section">
+            <h2>Technical Analysis Components</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>RSI (Relative Strength Index)</h3>
+                    <div class="chart-container">
+                        <img src="/api/placeholder/600/300" alt="RSI Chart">
                     </div>
-
-                    <div class="project-section">
-                        <h3>Technical Analysis Components</h3>
-                        
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <h4>RSI (Relative Strength Index)</h4>
-                                <p>Momentum indicator measuring speed and magnitude of recent price changes to evaluate overbought or oversold conditions.</p>
-                                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="RSI Chart" />
-                            </div>
-                            
-                            <div class="metric-card">
-                                <h4>Bollinger Bands</h4>
-                                <p>Volatility indicator using moving averages and standard deviations to identify potential trading opportunities.</p>
-                                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bollinger.png" alt="Bollinger Bands Chart" />
-                            </div>
-                            
-                            <div class="metric-card">
-                                <h4>MACD</h4>
-                                <p>Trend-following momentum indicator showing relationship between two moving averages of asset's price.</p>
-                                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/MACD.webp" alt="MACD Chart" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-section">
-                        <h3>Portfolio Optimization Results</h3>
-                        
-                        <h4>Modern Portfolio Theory Allocation</h4>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>Asset</th>
-                                    <th>Weight</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>NVDA</td><td>100%</td></tr>
-                                <tr><td>Others</td><td>0%</td></tr>
-                            </tbody>
-                        </table>
-
-                        <h4>Black-Litterman Model Allocation</h4>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>Asset</th>
-                                    <th>Weight</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>SPY</td><td>71.1%</td></tr>
-                                <tr><td>MSFT</td><td>17.7%</td></tr>
-                                <tr><td>NVDA</td><td>4.1%</td></tr>
-                                <tr><td>AAPL</td><td>2.9%</td></tr>
-                                <tr><td>Others</td><td>4.2%</td></tr>
-                            </tbody>
-                        </table>
-
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <h4>Portfolio Performance</h4>
-                                <ul>
-                                    <li>Expected Annual Return: 10.5%</li>
-                                    <li>Annual Volatility: 15.4%</li>
-                                    <li>Sharpe Ratio: 0.67</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-section">
-                        <h3>Implementation Details</h3>
-                        <p>The project is implemented in Python, utilizing key libraries including:</p>
-                        <ul>
-                            <li>yfinance: For fetching historical stock data</li>
-                            <li>PyPortfolioOpt: For portfolio optimization calculations</li>
-                            <li>LangChain: For AI-powered analysis</li>
-                            <li>Pandas & NumPy: For data manipulation and analysis</li>
-                        </ul>
-                        
-                        <div class="github-link" style="margin-top: 2em; text-align: center;">
-                            <a href="https://github.com/yourusername/portfolio-optimization" class="button primary">View on GitHub</a>
-                        </div>
-                    </div>
+                    <p>Momentum indicator measuring speed and magnitude of recent price changes.</p>
                 </div>
-            </section>
+                
+                <div class="metric-card">
+                    <h3>Bollinger Bands</h3>
+                    <div class="chart-container">
+                        <img src="/api/placeholder/600/300" alt="Bollinger Bands Chart">
+                    </div>
+                    <p>Volatility indicator using moving averages and standard deviations.</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>MACD</h3>
+                    <div class="chart-container">
+                        <img src="/api/placeholder/600/300" alt="MACD Chart">
+                    </div>
+                    <p>Trend-following momentum indicator showing moving averages relationship.</p>
+                </div>
+            </div>
         </div>
 
-        <footer id="copyright">
+        <div class="project-section">
+            <h2>Portfolio Optimization Results</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Modern Portfolio Theory Allocation</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>NVDA</td><td>100%</td></tr>
+                            <tr><td>Others</td><td>0%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Black-Litterman Model Allocation</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SPY</td><td>71.1%</td></tr>
+                            <tr><td>MSFT</td><td>17.7%</td></tr>
+                            <tr><td>NVDA</td><td>4.1%</td></tr>
+                            <tr><td>AAPL</td><td>2.9%</td></tr>
+                            <tr><td>Others</td><td>4.2%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Portfolio Performance</h3>
+                    <ul>
+                        <li>Expected Annual Return: 10.5%</li>
+                        <li>Annual Volatility: 15.4%</li>
+                        <li>Sharpe Ratio: 0.67</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Implementation Details</h2>
+            <p>The project leverages several key Python libraries:</p>
             <ul>
-                <li>&copy; <span id="year">2024</span></li>
-                <li>Design: HTML5 UP</li>
+                <li>yfinance: For fetching historical stock data</li>
+                <li>PyPortfolioOpt: For portfolio optimization calculations</li>
+                <li>LangChain: For AI-powered analysis</li>
+                <li>Pandas & NumPy: For data manipulation and analysis</li>
             </ul>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="button">View on Google Colab</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Portfolio Optimization Project. Design inspired by HTML5 UP</p>
         </footer>
     </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
