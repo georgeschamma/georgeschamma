@@ -15,7 +15,6 @@
             --hover-color: #3498db;
         }
 
-        /* Previous styles remain the same */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -40,7 +39,6 @@
             margin-bottom: 30px;
         }
 
-        /* Enhanced Navigation Styles */
         nav {
             background: white;
             padding: 15px;
@@ -75,7 +73,7 @@
             background: transparent;
         }
 
-        nav a:before {
+        nav a:not(.active):before {
             content: '';
             position: absolute;
             top: 0;
@@ -89,11 +87,11 @@
             opacity: 0.2;
         }
 
-        nav a:hover:before {
+        nav a:not(.active):hover:before {
             width: 100%;
         }
 
-        nav a:hover {
+        nav a:not(.active):hover {
             color: var(--hover-color);
             transform: translateY(-2px);
         }
@@ -107,12 +105,7 @@
             color: white;
         }
 
-        nav a.active:before {
-            display: none;
-        }
-
-        /* Tooltip on hover */
-        nav a:after {
+        nav a:not(.active):after {
             content: attr(data-tooltip);
             position: absolute;
             bottom: -30px;
@@ -129,13 +122,12 @@
             white-space: nowrap;
         }
 
-        nav a:hover:after {
+        nav a:not(.active):hover:after {
             opacity: 1;
             visibility: visible;
             bottom: -35px;
         }
 
-        /* Rest of the previous styles remain the same */
         .project-section {
             background: white;
             padding: 25px;
@@ -226,7 +218,7 @@
             }
 
             nav a:after {
-                display: none; /* Hide tooltips on mobile */
+                display: none;
             }
         }
     </style>
@@ -248,7 +240,6 @@
             </ul>
         </nav>
 
-        <!-- Rest of the content remains the same -->
         <div class="project-section">
             <h2>Technical Analysis Components</h2>
             <div class="metrics-grid">
@@ -339,12 +330,12 @@
             </ul>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" class="button primary" class="button">View on Google Colab</a>
+                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" class="button primary" target="_blank">View on Google Colab</a>
             </div>
         </div>
 
         <footer>
-            <p>&copy; 2024 Portfolio Optimization Project. Design inspired by HTML5 UP</p>
+            <p>© 2024 Portfolio Optimization Project. Design inspired by HTML5 UP</p>
         </footer>
     </div>
 </body>
