@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="description" content="RAG Framework Implementation for Portfolio Optimization" />
     <style>
+        /* Same styles as above */
         :root {
             --primary-color: #4a90e2;
             --secondary-color: #2c3e50;
             --background-light: #f8f9fa;
             --text-color: #333;
-            --border-radius: 10px;
+            --border-radius: 8px;
             --hover-color: #3498db;
-            --spacing-unit: 30px;
         }
 
+        /* Copy all other styles from above */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.8;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
             background-color: var(--background-light);
@@ -26,36 +27,26 @@
         }
 
         #wrapper {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: var(--spacing-unit);
+            padding: 20px;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 0;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-unit);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            margin-bottom: 30px;
         }
 
         nav {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-unit);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         nav ul {
@@ -64,103 +55,59 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 25px;
+            padding: 8px 20px;
+            border-radius: 20px;
             transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        nav a:hover,
-        nav a.active {
-            background: var(--primary-color);
-            color: white;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background: transparent;
         }
 
         .project-section {
             background: white;
-            padding: var(--spacing-unit);
+            padding: 25px;
             border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-unit);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .project-section h2 {
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-unit);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .feature-card {
             background: var(--background-light);
-            padding: 25px;
+            padding: 20px;
             border-radius: var(--border-radius);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+            margin-bottom: 20px;
         }
 
         .workflow-diagram {
             text-align: center;
-            margin: 3em 0;
+            margin: 2em 0;
         }
 
         .workflow-diagram img {
             max-width: 100%;
             height: auto;
             border-radius: var(--border-radius);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         footer {
             text-align: center;
-            padding: var(--spacing-unit);
-            margin-top: var(--spacing-unit);
-            border-top: 1px solid #eee;
-            color: #666;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s ease;
-        }
-
-        .button:hover {
-            background: var(--hover-color);
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
         }
 
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
-            }
-
-            .grid-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -175,10 +122,10 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html">Data Framework</a></li>
-                <li><a href="rag.html" class="active">RAG Framework</a></li>
-                <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
-                <li><a href="local-llm.html">Local LLM</a></li>
+                <li><a href="Data-Framework.html" data-tooltip="Data Collection & Processing">Data Framework</a></li>
+                <li><a href="rag.html" class="active" data-tooltip="RAG Framework">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html" data-tooltip="Stock Analyzer">Stock Analyzer</a></li>
+                <li><a href="local-llm.html" data-tooltip="Local LLM">Local LLM</a></li>
             </ul>
         </nav>
 
@@ -189,69 +136,66 @@
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG Framework Workflow" />
             </div>
 
-            <div class="grid-container">
-                <div class="feature-card">
-                    <h3>Core Components</h3>
-                    <ul>
-                        <li>Document Processing Pipeline</li>
-                        <li>Vector Database Integration</li>
-                        <li>Advanced Query Processing</li>
-                        <li>Context-Aware Response Generation</li>
-                    </ul>
-                </div>
+            <div class="feature-card">
+                <h3>Core Components</h3>
+                <ul>
+                    <li>Document Processing Pipeline</li>
+                    <li>Vector Database Integration</li>
+                    <li>Advanced Query Processing</li>
+                    <li>Context-Aware Response Generation</li>
+                </ul>
+            </div>
 
-                <div class="feature-card">
-                    <h3>Implementation Features</h3>
-                    <ul>
-                        <li>Real-time market data integration</li>
-                        <li>Automated sentiment analysis</li>
-                        <li>Historical pattern recognition</li>
-                        <li>Dynamic portfolio rebalancing suggestions</li>
-                    </ul>
-                </div>
+            <div class="feature-card">
+                <h3>Implementation Features</h3>
+                <ul>
+                    <li>Real-time market data integration</li>
+                    <li>Automated sentiment analysis</li>
+                    <li>Historical pattern recognition</li>
+                    <li>Dynamic portfolio rebalancing suggestions</li>
+                </ul>
+            </div>
 
-                <div class="feature-card">
-                    <h3>Technical Stack</h3>
-                    <ul>
-                        <li>LangChain for AI orchestration</li>
-                        <li>FAISS for vector similarity search</li>
-                        <li>Custom embedding models for financial data</li>
-                        <li>Specialized prompt templates for portfolio analysis</li>
-                    </ul>
-                </div>
+            <div class="feature-card">
+                <h3>Technical Stack</h3>
+                <ul>
+                    <li>LangChain for AI orchestration</li>
+                    <li>FAISS for vector similarity search</li>
+                    <li>Custom embedding models for financial data</li>
+                    <li>Specialized prompt templates for portfolio analysis</li>
+                </ul>
             </div>
         </div>
 
         <div class="project-section">
             <h2>Applications</h2>
-            <div class="grid-container">
-                <div class="feature-card">
-                    <h3>Market Analysis</h3>
-                    <p>Leveraging RAG to analyze market trends, news, and sentiment for informed investment decisions.</p>
-                </div>
+            
+            <div class="feature-card">
+                <h3>Market Analysis</h3>
+                <p>Leveraging RAG to analyze market trends, news, and sentiment for informed investment decisions.</p>
+            </div>
 
-                <div class="feature-card">
-                    <h3>Risk Assessment</h3>
-                    <p>Intelligent risk evaluation using historical data and market conditions.</p>
-                </div>
+            <div class="feature-card">
+                <h3>Risk Assessment</h3>
+                <p>Intelligent risk evaluation using historical data and market conditions.</p>
+            </div>
 
-                <div class="feature-card">
-                    <h3>Portfolio Optimization</h3>
-                    <p>AI-driven suggestions for portfolio rebalancing and optimization strategies.</p>
-                </div>
+            <div class="feature-card">
+                <h3>Portfolio Optimization</h3>
+                <p>AI-driven suggestions for portfolio rebalancing and optimization strategies.</p>
             </div>
         </div>
         
         <div class="project-section">
             <h2>Access the Code</h2>
-            <p>The complete source code for this Local LLM implementation is available in a private GitHub repository. For access requests, please contact me at:</p>
-            <div style="text-align: center; margin-top: 25px;">
-                <a href="mailto:georgeschamma@gmail.com" class="button">georgeschamma@gmail.com</a>
-            </div>
+            <p>The complete source code for this Local LLM implementation is available in a private GitHub repository. For access requests, please contact me at:
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="mailto:georgeschamma@gmail.com" class="button">georgeschamma@gmail.com</a>
+                </div>
+            </p>
         </div>
-
         <footer>
-            <p>© 2025 Georges Chamma Projects. Design inspired by HTML5 UP</p>
+            <p>&copy; 2025 Georges Chamma Projects. Design inspired by HTML5 UP</p>
         </footer>
     </div>
 </body>
