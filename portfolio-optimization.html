@@ -12,8 +12,10 @@
             --background-light: #f8f9fa;
             --text-color: #333;
             --border-radius: 8px;
+            --hover-color: #3498db;
         }
 
+        /* Previous styles remain the same */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -38,6 +40,7 @@
             margin-bottom: 30px;
         }
 
+        /* Enhanced Navigation Styles */
         nav {
             background: white;
             padding: 15px;
@@ -55,18 +58,84 @@
             gap: 20px;
         }
 
+        nav li {
+            position: relative;
+        }
+
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 20px;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        nav a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--hover-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.2;
+        }
+
+        nav a:hover:before {
+            width: 100%;
         }
 
         nav a:hover {
-            background-color: var(--background-light);
+            color: var(--hover-color);
+            transform: translateY(-2px);
         }
 
+        nav a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        nav a.active:hover {
+            color: white;
+        }
+
+        nav a.active:before {
+            display: none;
+        }
+
+        /* Tooltip on hover */
+        nav a:after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8em;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover:after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
+        }
+
+        /* Rest of the previous styles remain the same */
         .project-section {
             background: white;
             padding: 25px;
@@ -155,6 +224,10 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            nav a:after {
+                display: none; /* Hide tooltips on mobile */
+            }
         }
     </style>
 </head>
@@ -167,20 +240,21 @@
 
         <nav>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Data Framework</a></li>
-                <li><a href="#">Portfolio Optimization</a></li>
-                <li><a href="#">RAG Framework</a></li>
+                <li><a href="#" class="active" data-tooltip="Overview & Summary">Home</a></li>
+                <li><a href="#" data-tooltip="Data Collection & Processing">Data Framework</a></li>
+                <li><a href="#" data-tooltip="Portfolio Analysis & Results">Portfolio Optimization</a></li>
+                <li><a href="#" data-tooltip="AI Implementation Details">RAG Framework</a></li>
             </ul>
         </nav>
 
+        <!-- Rest of the content remains the same -->
         <div class="project-section">
             <h2>Technical Analysis Components</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
                     <h3>RSI (Relative Strength Index)</h3>
                     <div class="chart-container">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="RSI Chart">
+                        <img src="/api/placeholder/600/300" alt="RSI Chart">
                     </div>
                     <p>Momentum indicator measuring speed and magnitude of recent price changes.</p>
                 </div>
@@ -188,7 +262,7 @@
                 <div class="metric-card">
                     <h3>Bollinger Bands</h3>
                     <div class="chart-container">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bollinger.png" alt="Bollinger Bands Chart">
+                        <img src="/api/placeholder/600/300" alt="Bollinger Bands Chart">
                     </div>
                     <p>Volatility indicator using moving averages and standard deviations.</p>
                 </div>
@@ -196,7 +270,7 @@
                 <div class="metric-card">
                     <h3>MACD</h3>
                     <div class="chart-container">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/MACD.webp" alt="MACD Chart">
+                        <img src="/api/placeholder/600/300" alt="MACD Chart">
                     </div>
                     <p>Trend-following momentum indicator showing moving averages relationship.</p>
                 </div>
