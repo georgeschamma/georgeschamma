@@ -1,134 +1,194 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>RAG Framework - Georges Chamma Portfolio</title>
+    <title>RAG Framework - Portfolio Optimization with GenAI</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Detailed overview of RAG Framework implementation in AI projects by Georges Chamma" />
-    <meta name="keywords" content="RAG, AI, Machine Learning, Portfolio, Georges Chamma" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="assets/js/main.js" as="script">
-    <link rel="preload" href="assets/css/main.css" as="style">
-    <!-- Simple image styles -->
+    <meta name="description" content="RAG Framework Implementation for Portfolio Optimization" />
     <style>
-        .image-wrapper {
+        /* Same styles as above */
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --background-light: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --hover-color: #3498db;
+        }
+
+        /* Copy all other styles from above */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
+        }
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .project-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .workflow-diagram {
             text-align: center;
             margin: 2em 0;
         }
-        .image-wrapper img {
+
+        .workflow-diagram img {
             max-width: 100%;
             height: auto;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: var(--border-radius);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
-<body class="is-preload">
-    <!-- Skip to main content for accessibility -->
-    <a href="#main" class="skip-link" style="position: absolute; left: -9999px;">Skip to main content</a>
+<body>
     <div id="wrapper">
-        <header id="header" class="alt">
+        <header>
             <h1>RAG Framework</h1>
-            <p class="subtitle">Enhancing AI Applications with Advanced Knowledge Retrieval</p>
+            <p>Enhancing Portfolio Optimization with AI-Powered Knowledge Retrieval</p>
         </header>
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="links">
+
+        <nav>
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html">Data Framework</a></li>
-                <li><a href="rag.html">RAG Framework</a></li>
-                <li><a href="local-llm.html">Local LLM</a></li>
-            </ul>
-            <ul class="icons" role="list">
-                <li><a href="https://www.linkedin.com/in/georgeschamma/" 
-                       class="icon brands alt fa-linkedin" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       aria-label="LinkedIn Profile">
-                        <span class="label">LinkedIn</span>
-                    </a>
-                </li>
+                <li><a href="Data-Framework.html" data-tooltip="Data Collection & Processing">Data Framework</a></li>
+                <li><a href="rag.html" class="active" data-tooltip="RAG Framework">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html" data-tooltip="Stock Analyzer">Stock Analyzer</a></li>
+                <li><a href="local-llm.html" data-tooltip="Local LLM">Local LLM</a></li>
             </ul>
         </nav>
-        <div id="main" role="main">
-            <section class="post">
-                <header class="major">
-                    <h2>Framework Overview</h2>
-                </header>
-                
-                <div class="content">
-                    <p>This project leverages the Retrieval Augmented Generation (RAG) framework to combine specialized knowledge with advanced AI capabilities.</p>
-                    <div class="image-wrapper">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
-                             alt="RAG Framework Workflow Diagram" 
-                             onerror="this.onerror=null; this.src='assets/images/default-image.jpg';">
-                    </div>
-                    <section class="workflow">
-                        <h3>RAG Workflow</h3>
-                        <ul class="feature-list">
-                            <li><strong>Document Upload:</strong> Secure upload system for PDFs, Excel files, and other document formats</li>
-                            <li><strong>Vector Database:</strong> Advanced embedding storage for optimized information retrieval</li>
-                            <li><strong>LLM Integration:</strong> Custom-tuned language models for precise responses</li>
-                            <li><strong>AI Application:</strong> Task-specific implementation with intuitive user interface</li>
-                        </ul>
-                    </section>
-                    <section class="projects">
-                        <h3>Project Components</h3>
-                        <div class="grid">
-                            <article class="project-card">
-                                <h4>AI Marketing Expert</h4>
-                                <p>Specialized AI module for marketing data analysis and ROI optimization through RAG-powered insights.</p>
-                            </article>
-                            <article class="project-card">
-                                <h4>Web Loader</h4>
-                                <p>Automated data extraction tool integrated with AI Marketing Expert for real-time dataset enrichment.</p>
-                            </article>
-                            <article class="project-card">
-                                <h4>PDF Summarization</h4>
-                                <p>NLP-driven document synthesis for rapid extraction of key insights from extensive documentation.</p>
-                            </article>
-                        </div>
-                    </section>
-                    <section class="benefits">
-                        <h3>Framework Benefits</h3>
-                        <ul class="feature-list">
-                            <li>Custom-tailored AI solutions for specific business needs</li>
-                            <li>Scalable data processing and analysis infrastructure</li>
-                            <li>Seamless integration of domain expertise with AI capabilities</li>
-                        </ul>
-                    </section>
-                    <section class="contact">
-                        <h3>Access the Code</h3>
-                        <p>The complete source code is available in a private GitHub repository. For access requests, please contact me at 
-                            <a href="mailto:georgeschamma@gmail.com" class="button">georgeschamma@gmail.com</a>
-                        </p>
-                    </section>
-                </div>
-            </section>
+
+        <div class="project-section">
+            <h2>Framework Overview</h2>
+            
+            <div class="workflow-diagram">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG Framework Workflow" />
+            </div>
+
+            <div class="feature-card">
+                <h3>Core Components</h3>
+                <ul>
+                    <li>Document Processing Pipeline</li>
+                    <li>Vector Database Integration</li>
+                    <li>Advanced Query Processing</li>
+                    <li>Context-Aware Response Generation</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Implementation Features</h3>
+                <ul>
+                    <li>Real-time market data integration</li>
+                    <li>Automated sentiment analysis</li>
+                    <li>Historical pattern recognition</li>
+                    <li>Dynamic portfolio rebalancing suggestions</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>Technical Stack</h3>
+                <ul>
+                    <li>LangChain for AI orchestration</li>
+                    <li>FAISS for vector similarity search</li>
+                    <li>Custom embedding models for financial data</li>
+                    <li>Specialized prompt templates for portfolio analysis</li>
+                </ul>
+            </div>
         </div>
-        <footer id="copyright">
-            <ul>
-                <li>&copy; <span id="year">2024</span> Georges Chamma</li>
-                <li>Design: HTML5 UP</li>
-            </ul>
+
+        <div class="project-section">
+            <h2>Applications</h2>
+            
+            <div class="feature-card">
+                <h3>Market Analysis</h3>
+                <p>Leveraging RAG to analyze market trends, news, and sentiment for informed investment decisions.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Risk Assessment</h3>
+                <p>Intelligent risk evaluation using historical data and market conditions.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Portfolio Optimization</h3>
+                <p>AI-driven suggestions for portfolio rebalancing and optimization strategies.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Portfolio Optimization Project. Design inspired by HTML5 UP</p>
         </footer>
     </div>
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    
-    <script>
-        // Update copyright year automatically
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('year').textContent = new Date().getFullYear();
-        });
-    </script>
 </body>
 </html>
