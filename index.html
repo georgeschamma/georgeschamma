@@ -1,147 +1,283 @@
-import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Georges Chamma - Data Science & AI Innovation Specialist</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Georges Chamma's Portfolio - Data Science and AI Innovation Projects" />
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #64748b;
+            --background-light: #f8fafc;
+            --text-color: #334155;
+            --border-radius: 8px;
+        }
 
-const Portfolio = () => {
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Georges Chamma</h1>
-          <p className="text-xl md:text-2xl mb-8">Data Science & AI Innovation Specialist</p>
-          <p className="text-lg max-w-2xl mx-auto">
-            Leveraging cutting-edge AI and data analytics to transform business operations and drive strategic decision-making
-          </p>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-light);
+            color: var(--text-color);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        nav {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: var(--background-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .social-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Georges Chamma</h1>
+            <p class="subtitle">Data Science & AI Innovation Specialist</p>
+            <p>Leveraging cutting-edge AI and data analytics to transform business operations and drive strategic decision-making</p>
         </div>
-      </div>
+    </div>
 
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Navigation */}
-        <nav className="bg-white rounded-lg shadow-sm mb-12">
-          <ul className="flex flex-wrap justify-center p-4 gap-8">
-            <li><a href="index.html" className="text-blue-600 hover:text-blue-800 font-medium">Home</a></li>
-            <li><a href="Data-Framework.html" className="text-gray-600 hover:text-blue-600">Data Framework</a></li>
-            <li><a href="rag.html" className="text-gray-600 hover:text-blue-600">RAG Framework</a></li>
-            <li><a href="portfolio-optimization.html" className="text-gray-600 hover:text-blue-600">Stock Analyzer</a></li>
-            <li><a href="local-llm.html" className="text-gray-600 hover:text-blue-600">Local LLM</a></li>
-          </ul>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Data-Framework.html">Data Framework</a></li>
+                <li><a href="rag.html">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
+                <li><a href="local-llm.html">Local LLM</a></li>
+            </ul>
         </nav>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* CRISP-DM Framework Card */}
-          <Card className="bg-white hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-xl text-blue-600">CRISP-DM Data Framework</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-gray-100 rounded-md mb-4">
-                <img 
-                  src="/api/placeholder/600/400"
-                  alt="CRISP-DM Framework"
-                  className="w-full h-full object-cover rounded-md"
-                />
-              </div>
-              <p className="text-gray-700 mb-4">
-                Implemented the industry-standard CRISP-DM methodology to systematically approach data science projects. 
-                Demonstrated expertise in transforming complex business requirements into actionable data strategies, 
-                resulting in measurable improvements in project success rates and stakeholder satisfaction.
-              </p>
-              <a href="Data-Framework.html" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-                Explore Framework
-              </a>
-            </CardContent>
-          </Card>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- CRISP-DM Framework Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Framework.gif" 
+                     alt="CRISP-DM Framework" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">CRISP-DM Data Framework</h2>
+                    <p class="project-description">
+                        Implemented the industry-standard CRISP-DM methodology to systematically approach data science projects. 
+                        Demonstrated expertise in transforming complex business requirements into actionable data strategies, 
+                        resulting in measurable improvements in project success rates and stakeholder satisfaction.
+                    </p>
+                    <a href="Data-Framework.html" class="project-link">Explore Framework</a>
+                </div>
+            </div>
 
-          {/* Stock Portfolio Analyzer Card */}
-          <Card className="bg-white hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-xl text-blue-600">AI-Powered Portfolio Optimization</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-gray-100 rounded-md mb-4">
-                <img 
-                  src="/api/placeholder/600/400"
-                  alt="Portfolio Analysis Dashboard"
-                  className="w-full h-full object-cover rounded-md"
-                />
-              </div>
-              <p className="text-gray-700 mb-4">
-                Developed a sophisticated portfolio optimization system combining Modern Portfolio Theory with AI. 
-                Integrated advanced technical indicators (RSI, MACD, Bollinger Bands) with machine learning models 
-                to generate data-driven investment strategies. Achieved a 10.5% expected annual return with a 
-                Sharpe ratio of 0.67.
-              </p>
-              <a href="portfolio-optimization.html" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-                View Analysis
-              </a>
-            </CardContent>
-          </Card>
+            <!-- Stock Portfolio Analyzer Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" 
+                     alt="Portfolio Analysis Dashboard" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">AI-Powered Portfolio Optimization</h2>
+                    <p class="project-description">
+                        Developed a sophisticated portfolio optimization system combining Modern Portfolio Theory with AI. 
+                        Integrated advanced technical indicators (RSI, MACD, Bollinger Bands) with machine learning models 
+                        to generate data-driven investment strategies. Achieved a 10.5% expected annual return with a 
+                        Sharpe ratio of 0.67.
+                    </p>
+                    <a href="portfolio-optimization.html" class="project-link">View Analysis</a>
+                </div>
+            </div>
 
-          {/* RAG Framework Card */}
-          <Card className="bg-white hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-xl text-blue-600">RAG Framework Implementation</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-gray-100 rounded-md mb-4">
-                <img 
-                  src="/api/placeholder/600/400"
-                  alt="RAG Framework"
-                  className="w-full h-full object-cover rounded-md"
-                />
-              </div>
-              <p className="text-gray-700 mb-4">
-                Pioneered the implementation of a Retrieval Augmented Generation (RAG) framework, combining 
-                specialized domain knowledge with Large Language Models. Enhanced decision-making accuracy by 40% 
-                and reduced response time by 60% in automated data processing workflows.
-              </p>
-              <a href="rag.html" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-                Explore Project
-              </a>
-            </CardContent>
-          </Card>
+            <!-- RAG Framework Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
+                     alt="RAG Framework" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">RAG Framework Implementation</h2>
+                    <p class="project-description">
+                        Pioneered the implementation of a Retrieval Augmented Generation (RAG) framework, combining 
+                        specialized domain knowledge with Large Language Models. Enhanced decision-making accuracy by 40% 
+                        and reduced response time by 60% in automated data processing workflows.
+                    </p>
+                    <a href="rag.html" class="project-link">Explore Project</a>
+                </div>
+            </div>
 
-          {/* Local LLM Card */}
-          <Card className="bg-white hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-xl text-blue-600">Enterprise Local LLM Solution</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-gray-100 rounded-md mb-4">
-                <img 
-                  src="/api/placeholder/600/400"
-                  alt="Local LLM Architecture"
-                  className="w-full h-full object-cover rounded-md"
-                />
-              </div>
-              <p className="text-gray-700 mb-4">
-                Architected and deployed a secure, on-premises LLM solution using Ollama and LangChain. 
-                Enabled enterprise-grade AI capabilities while maintaining data privacy and reducing cloud costs 
-                by 45%. Successfully processed over 100,000 queries with 99.9% uptime.
-              </p>
-              <a href="local-llm.html" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-                View Implementation
-              </a>
-            </CardContent>
-          </Card>
+            <!-- Local LLM Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
+                     alt="Local LLM Architecture" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Enterprise Local LLM Solution</h2>
+                    <p class="project-description">
+                        Architected and deployed a secure, on-premises LLM solution using Ollama and LangChain. 
+                        Enabled enterprise-grade AI capabilities while maintaining data privacy and reducing cloud costs 
+                        by 45%. Successfully processed over 100,000 queries with 99.9% uptime.
+                    </p>
+                    <a href="local-llm.html" class="project-link">View Implementation</a>
+                </div>
+            </div>
         </div>
 
-        {/* Footer */}
-        <footer className="text-center mt-16 py-8 border-t border-gray-200">
-          <p className="text-gray-600">© 2024 Georges Chamma | Connect with me on 
-            <a href="https://www.linkedin.com/in/georgeschamma/" 
-               className="text-blue-600 hover:text-blue-800 ml-2"
-               target="_blank"
-               rel="noopener noreferrer">
-              LinkedIn
-            </a>
-          </p>
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Georges Chamma | Connect with me on 
+                <a href="https://www.linkedin.com/in/georgeschamma/" 
+                   class="social-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </p>
         </footer>
-      </div>
     </div>
-  );
-};
-
-export default Portfolio;
+</body>
+</html>
