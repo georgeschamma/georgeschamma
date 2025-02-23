@@ -7,7 +7,6 @@
     <meta name="description" content="RAG Framework Implementation for Portfolio Optimization" />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
     <style>
-        /* Same styles as above */
         :root {
             --primary-color: #4a90e2;
             --secondary-color: #2c3e50;
@@ -17,7 +16,6 @@
             --hover-color: #3498db;
         }
 
-        /* Copy all other styles from above */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -65,26 +63,58 @@
             padding: 8px 20px;
             border-radius: 20px;
             transition: all 0.3s ease;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            background: transparent;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
         }
 
         .project-section {
             background: white;
             padding: 25px;
             border-radius: var(--border-radius);
-            margin-bottom: 30px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 100%;
         }
 
         .feature-card {
             background: var(--background-light);
             padding: 20px;
             border-radius: var(--border-radius);
-            margin-bottom: 20px;
+            margin-bottom: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .feature-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
         }
 
         .workflow-diagram {
@@ -98,6 +128,12 @@
             border-radius: var(--border-radius);
         }
 
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -106,6 +142,12 @@
         }
 
         @media (max-width: 768px) {
+            .grid-container,
+            .feature-grid,
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
             nav ul {
                 flex-direction: column;
                 text-align: center;
@@ -123,67 +165,63 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html" data-tooltip="Data Collection & Processing">Data Framework</a></li>
-                <li><a href="rag.html" class="active" data-tooltip="RAG Framework">RAG Framework</a></li>
-                <li><a href="portfolio-optimization.html" data-tooltip="Stock Analyzer">Stock Analyzer</a></li>
-                <li><a href="local-llm.html" data-tooltip="Local LLM">Local LLM</a></li>
+                <li><a href="Data-Framework.html">Data Framework</a></li>
+                <li><a href="rag.html" class="active">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
+                <li><a href="local-llm.html">Local LLM</a></li>
             </ul>
         </nav>
 
-        <div class="project-section">
-            <h2>Framework Overview</h2>
-            
-            <div class="workflow-diagram">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG Framework Workflow" />
+        <div class="grid-container">
+            <div class="project-section full-width">
+                <h2>Framework Overview</h2>
+                <div class="workflow-diagram">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG Framework Workflow" />
+                </div>
             </div>
 
-            <div class="feature-card">
-                <h3>Core Components</h3>
-                <ul>
-                    <li>Document Processing Pipeline</li>
-                    <li>Vector Database Integration</li>
-                    <li>Advanced Query Processing</li>
-                    <li>Context-Aware Response Generation</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <h3>Implementation Features</h3>
-                <ul>
-                    <li>Real-time market data integration</li>
-                    <li>Automated sentiment analysis</li>
-                    <li>Historical pattern recognition</li>
-                    <li>Dynamic portfolio rebalancing suggestions</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <h3>Technical Stack</h3>
-                <ul>
-                    <li>LangChain for AI orchestration</li>
-                    <li>FAISS for vector similarity search</li>
-                    <li>Custom embedding models for financial data</li>
-                    <li>Specialized prompt templates for portfolio analysis</li>
-                </ul>
+            <div class="project-section">
+                <h2>Core Components & Technical Stack</h2>
+                <div class="components-grid">
+                    <div class="feature-card">
+                        <h3>Core Components</h3>
+                        <ul>
+                            <li>Document Processing Pipeline</li>
+                            <li>Vector Database Integration</li>
+                            <li>Advanced Query Processing</li>
+                            <li>Context-Aware Response Generation</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Technical Stack</h3>
+                        <ul>
+                            <li>LangChain for AI orchestration</li>
+                            <li>FAISS for vector similarity search</li>
+                            <li>Custom embedding models for financial data</li>
+                            <li>Specialized prompt templates for portfolio analysis</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="project-section">
             <h2>Applications</h2>
-            
-            <div class="feature-card">
-                <h3>Market Analysis</h3>
-                <p>Leveraging RAG to analyze market trends, news, and sentiment for informed investment decisions.</p>
-            </div>
+            <div style="display: flex; gap: 20px; margin-top: 20px;">
+                <div class="feature-card" style="flex: 1;">
+                    <h3>Market Analysis</h3>
+                    <p>Leveraging RAG to analyze market trends, news, and sentiment for informed investment decisions.</p>
+                </div>
 
-            <div class="feature-card">
-                <h3>Risk Assessment</h3>
-                <p>Intelligent risk evaluation using historical data and market conditions.</p>
-            </div>
+                <div class="feature-card" style="flex: 1;">
+                    <h3>Risk Assessment</h3>
+                    <p>Intelligent risk evaluation using historical data and market conditions.</p>
+                </div>
 
-            <div class="feature-card">
-                <h3>Portfolio Optimization</h3>
-                <p>AI-driven suggestions for portfolio rebalancing and optimization strategies.</p>
+                <div class="feature-card" style="flex: 1;">
+                    <h3>Portfolio Optimization</h3>
+                    <p>AI-driven suggestions for portfolio rebalancing and optimization strategies.</p>
+                </div>
             </div>
         </div>
         
