@@ -51,10 +51,10 @@
         nav {
             background: white;
             padding: 15px;
-            border-radius: var(--border-radius);
-            margin-bottom: 30px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            margin-bottom: 0;
         }
 
         nav:hover {
@@ -85,13 +85,19 @@
         }
 
         .intro-section {
-            text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 30px;
+            text-align: center;
             font-size: 1.1em;
             line-height: 1.6;
-            color: var(--text-color);
+        }
+
+        .intro-section p {
             max-width: 800px;
-            margin: 0 auto 30px;
+            margin: 0 auto;
         }
 
         .project-section {
@@ -208,18 +214,20 @@
             <p>Enhancing Portfolio Optimization with AI-Powered Knowledge Retrieval</p>
         </header>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html">Data Framework</a></li>
-                <li><a href="rag.html" class="active">RAG Framework</a></li>
-                <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
-                <li><a href="local-llm.html">Local LLM</a></li>
-            </ul>
-        </nav>
+        <div class="nav-intro-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Data-Framework.html">Data Framework</a></li>
+                    <li><a href="rag.html" class="active">RAG Framework</a></li>
+                    <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
+                    <li><a href="local-llm.html">Local LLM</a></li>
+                </ul>
+            </nav>
 
-        <div class="intro-section">
-            <p>The RAG framework combines AI language models with custom data sources to deliver accurate, context-aware financial analysis and portfolio optimization. By integrating specialized knowledge retrieval with foundation models, it enables precise, data-driven investment decisions.</p>
+            <div class="intro-section">
+                <p>The RAG framework combines AI language models with custom data sources to deliver accurate, context-aware financial analysis and portfolio optimization. By integrating specialized knowledge retrieval with foundation models, it enables precise, data-driven investment decisions.</p>
+            </div>
         </div>
 
         <div class="project-section">
