@@ -73,7 +73,7 @@
             background: transparent;
         }
 
-        nav a:not(.active):before {
+        nav a:before {
             content: '';
             position: absolute;
             top: 0;
@@ -87,11 +87,11 @@
             opacity: 0.2;
         }
 
-        nav a:not(.active):hover:before {
+        nav a:hover:before {
             width: 100%;
         }
 
-        nav a:not(.active):hover {
+        nav a:hover {
             color: var(--hover-color);
             transform: translateY(-2px);
         }
@@ -105,7 +105,11 @@
             color: white;
         }
 
-        nav a:not(.active):after {
+        nav a.active:before {
+            display: none;
+        }
+
+        nav a:after {
             content: attr(data-tooltip);
             position: absolute;
             bottom: -30px;
@@ -122,7 +126,7 @@
             white-space: nowrap;
         }
 
-        nav a:not(.active):hover:after {
+        nav a:hover:after {
             opacity: 1;
             visibility: visible;
             bottom: -35px;
@@ -232,7 +236,7 @@
 
         <nav>
             <ul>
-                <li><a href="index.html" class="active" data-tooltip="Overview & Summary">Home</a></li>
+                <li><a href="index.html" data-tooltip="Overview & Summary">Home</a></li>
                 <li><a href="Data-Framework.html" data-tooltip="Data Collection & Processing">Data Framework</a></li>
                 <li><a href="rag.html" data-tooltip="RAG Framework">RAG Framework</a></li>
                 <li><a href="portfolio-optimization.html" data-tooltip="Stock Analyzer">Stock Analyzer</a></li>
