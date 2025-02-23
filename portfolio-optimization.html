@@ -1,192 +1,351 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Optimization with GenAI</title>
+    <title>Portfolio Optimization with GenAI - Project Showcase</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Stock Portfolio Optimization using Modern Portfolio Theory and Black-Litterman Model with GenAI" />
     <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --background-light: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --hover-color: #3498db;
+        }
+
+        /* Previous styles remain the same */
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--background-light);
+            color: var(--text-color);
+        }
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         header {
-            background: #2c3e50;
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 1rem 0;
-            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
         }
 
-        header h1 {
-            margin: 0;
-        }
-
+        /* Enhanced Navigation Styles */
         nav {
-            background: #34495e;
-            padding: 0.5rem 0;
-            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav li {
+            position: relative;
         }
 
         nav a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
-            margin: 0 1rem;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        nav a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--hover-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.2;
+        }
+
+        nav a:hover:before {
+            width: 100%;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: var(--hover-color);
+            transform: translateY(-2px);
         }
 
-        /* Remove hover effect for Home */
-        nav a.home-link {
-            pointer-events: none;
-            cursor: default;
+        nav a.active {
+            background: var(--primary-color);
+            color: white;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
+        nav a.active:hover {
+            color: white;
+        }
+
+        nav a.active:before {
+            display: none;
+        }
+
+        /* Tooltip on hover */
+        nav a:after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8em;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover:after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
+        }
+
+        /* Rest of the previous styles remain the same */
+        .project-section {
             background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        h2 {
-            color: #2c3e50;
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
 
-        table {
+        .metric-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .chart-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .results-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
 
-        table, th, td {
+        .results-table th, .results-table td {
+            padding: 12px;
+            text-align: left;
             border: 1px solid #ddd;
         }
 
-        th, td {
-            padding: 10px;
-            text-align: left;
+        .results-table th {
+            background: var(--background-light);
+            font-weight: 600;
         }
 
-        th {
-            background-color: #f2f2f2;
+        .results-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
-            padding: 1rem 0;
-            background: #2c3e50;
-            color: white;
-            margin-top: 20px;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
         }
 
-        .google-colab-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
 
-        .google-colab-button:hover {
-            background-color: #45a049;
+            nav a:after {
+                display: none; /* Hide tooltips on mobile */
+            }
         }
     </style>
 </head>
 <body>
+    <div id="wrapper">
+        <header>
+            <h1>Portfolio Optimization with GenAI</h1>
+            <p>Leveraging AI and Financial Models for Intelligent Investment Decisions</p>
+        </header>
 
-    <header>
-        <h1>Portfolio Optimization with GenAI - Project Showcase</h1>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active" data-tooltip="Overview & Summary">Home</a></li>
+                <li><a href="Data-Framework.html" data-tooltip="Data Collection & Processing">Data Framework</a></li>
+                <li><a href="rag.html" data-tooltip="RAG Framework">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html" data-tooltip="Stock Analyzer">Stock Analyzer</a></li>
+                <li><a href="local-llm.html" data-tooltip="Local LLM">Local LLM</a></li>
+            </ul>
+        </nav>
 
-    <nav>
-        <a href="#" class="home-link">Home</a>
-        <a href="#">Data Framework</a>
-        <a href="#">RAG Framework</a>
-        <a href="#">Stock Analyzer</a>
-        <a href="#">Local LLM</a>
-    </nav>
+        <!-- Rest of the content remains the same -->
+        <div class="project-section">
+            <h2>Technical Analysis Components</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>RSI (Relative Strength Index)</h3>
+                    <div class="chart-container">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="RSI Chart">
+                    </div>
+                    <p>Momentum indicator measuring speed and magnitude of recent price changes.</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Bollinger Bands</h3>
+                    <div class="chart-container">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bollinger.png" alt="Bollinger Bands Chart">
+                    </div>
+                    <p>Volatility indicator using moving averages and standard deviations.</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>MACD</h3>
+                    <div class="chart-container">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/MACD.webp" alt="MACD Chart">
+                    </div>
+                    <p>Trend-following momentum indicator showing moving averages relationship.</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="container">
-        <h2>Technical Analysis Components</h2>
-        <ul>
-            <li><strong>RSI (Relative Strength Index):</strong> Momentum indicator measuring speed and magnitude of recent price changes.</li>
-            <li><strong>Bollinger Bands:</strong> Volatility indicator using moving averages and standard deviations.</li>
-            <li><strong>MACD:</strong> Trend-following momentum indicator showing moving averages relationship.</li>
-        </ul>
+        <div class="project-section">
+            <h2>Portfolio Optimization Results</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Modern Portfolio Theory Allocation</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>NVDA</td><td>100%</td></tr>
+                            <tr><td>Others</td><td>0%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-        <h2>Portfolio Optimization Results</h2>
+                <div class="metric-card">
+                    <h3>Black-Litterman Model Allocation</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SPY</td><td>71.1%</td></tr>
+                            <tr><td>MSFT</td><td>17.7%</td></tr>
+                            <tr><td>NVDA</td><td>4.1%</td></tr>
+                            <tr><td>AAPL</td><td>2.9%</td></tr>
+                            <tr><td>Others</td><td>4.2%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
-        <h3>Modern Portfolio Theory Allocation</h3>
-        <table>
-            <tr>
-                <th>Asset</th>
-                <th>Weight</th>
-            </tr>
-            <tr>
-                <td>NVDA</td>
-                <td>100%</td>
-            </tr>
-            <tr>
-                <td>Others</td>
-                <td>0%</td>
-            </tr>
-        </table>
+                <div class="metric-card">
+                    <h3>Portfolio Performance</h3>
+                    <ul>
+                        <li>Expected Annual Return: 10.5%</li>
+                        <li>Annual Volatility: 15.4%</li>
+                        <li>Sharpe Ratio: 0.67</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        <h3>Black-Litterman Model Allocation</h3>
-        <table>
-            <tr>
-                <th>Asset</th>
-                <th>Weight</th>
-            </tr>
-            <tr>
-                <td>SPY</td>
-                <td>71.1%</td>
-            </tr>
-            <tr>
-                <td>MSFT</td>
-                <td>17.7%</td>
-            </tr>
-            <tr>
-                <td>NVDA</td>
-                <td>4.1%</td>
-            </tr>
-            <tr>
-                <td>AAPL</td>
-                <td>2.9%</td>
-            </tr>
-            <tr>
-                <td>Others</td>
-                <td>4.2%</td>
-            </tr>
-        </table>
+        <div class="project-section">
+            <h2>Implementation Details</h2>
+            <p>The project leverages several key Python libraries:</p>
+            <ul>
+                <li>yfinance: For fetching historical stock data</li>
+                <li>PyPortfolioOpt: For portfolio optimization calculations</li>
+                <li>LangChain: For AI-powered analysis</li>
+                <li>Pandas & NumPy: For data manipulation and analysis</li>
+            </ul>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" class="button primary" class="button">View on Google Colab</a>
+            </div>
+        </div>
 
-        <h2>Portfolio Performance</h2>
-        <p>Expected Annual Return: 10.5%<br>Annual Volatility: 15.4%<br>Sharpe Ratio: 0.67</p>
-
-        <h2>Implementation Details</h2>
-        <p>The project leverages several key Python libraries:</p>
-        <ul>
-            <li>yfinance: For fetching historical stock data</li>
-            <li>PyPortfolioOpt: For portfolio optimization calculations</li>
-            <li>LangChain: For AI-powered analysis</li>
-            <li>Pandas & NumPy: For data manipulation and analysis</li>
-        </ul>
-
-        <a href="https://colab.research.google.com/" target="_blank" class="google-colab-button">View on Google Colab</a>
+        <footer>
+            <p>&copy; 2024 Portfolio Optimization Project. Design inspired by HTML5 UP</p>
+        </footer>
     </div>
-
-    <footer>
-        © 2024 Portfolio Optimization Project. Design inspired by HTML5 UP
-    </footer>
-
 </body>
 </html>
