@@ -14,6 +14,7 @@
             --text-color: #333;
             --border-radius: 8px;
             --hover-color: #3498db;
+            --code-bg: #f5f5f5;
         }
 
         body {
@@ -171,6 +172,50 @@
             flex-grow: 1;
         }
 
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .implementation-steps {
+            counter-reset: step-counter;
+            padding-left: 40px;
+        }
+
+        .implementation-step {
+            list-style-type: none;
+            margin-bottom: 2em;
+            position: relative;
+        }
+
+        .implementation-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: -40px;
+            top: -5px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .implementation-step h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -190,6 +235,36 @@
 
         .button:hover {
             background-color: var(--hover-color);
+        }
+
+        .app-screenshot {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        .horizontal-tabs {
+            display: flex;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .horizontal-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .horizontal-tab.active {
+            background-color: var(--primary-color);
+            color: white;
         }
 
         @media (max-width: 768px) {
@@ -223,7 +298,7 @@
         </nav>
 
         <div class="intro-section">
-            <p>The RAG framework combines AI language models with custom data sources to deliver accurate results. By integrating specialized knowledge retrieval with foundation models, it enables precise, data-driven responses.</p>
+            <p>The Retrieval-Augmented Generation (RAG) framework represents a significant advancement in AI capabilities, combining the power of large language models with domain-specific knowledge retrieval. This approach enables AI systems to provide accurate, contextually relevant responses by augmenting model outputs with information from specialized knowledge bases.</p>
         </div>
 
         <div class="project-section">
@@ -239,25 +314,186 @@
                 <div class="component-column">
                     <h3>Core Components</h3>
                     <ul>
-                        <li>Document Processing Pipeline</li>
-                        <li>Vector Database Integration</li>
-                        <li>Advanced Query Processing</li>
-                        <li>Context-Aware Response Generation</li>
+                        <li>Data Collection & Processing Pipeline</li>
+                        <li>Text Splitting & Chunking Algorithms</li>
+                        <li>Embedding Generation & Vector Storage</li>
+                        <li>Semantic Retrieval System</li>
+                        <li>LLM Integration & Prompt Engineering</li>
+                        <li>Conversation Memory Management</li>
                     </ul>
                 </div>
                 <div class="component-column">
                     <h3>Technical Stack</h3>
                     <ul>
-                        <li>LangChain for AI orchestration</li>
-                        <li>FAISS for vector similarity search</li>
-                        <li>Custom embedding models for financial data</li>
+                        <li>LangChain for orchestration and component integration</li>
+                        <li>OpenAI Embeddings for semantic encoding</li>
+                        <li>Chroma DB for vector storage and similarity search</li>
+                        <li>Streamlit for interactive user interfaces</li>
+                        <li>BeautifulSoup and PyTubeFix for data collection</li>
+                        <li>Google YouTube API for content discovery</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
-            <h2>Applications</h2>
+            <h2>Case Study: AI Marketing Assistant</h2>
+            <p>I developed a sophisticated RAG-based marketing assistant that leverages expert knowledge from YouTube content creators to provide highly relevant marketing advice and content. This implementation demonstrates the end-to-end process from data collection to interactive user experience.</p>
+            
+            <h3>Implementation Architecture</h3>
+            <ol class="implementation-steps">
+                <li class="implementation-step">
+                    <h3>Data Collection & Processing</h3>
+                    <p>Built a custom YouTube scraper that uses the YouTube API to discover relevant videos and PyTubeFix to extract transcripts. This pipeline automatically collects expert knowledge on social media marketing strategies.</p>
+                    <div class="code-block">
+                        <pre>
+def search_videos(topic, api_key, max_results=20):
+    """Search for videos on a topic using the YouTube API"""
+    youtube = build('youtube', 'v3', developerKey=api_key)
+    request = youtube.search().list(
+        q=topic,
+        part='id,snippet',
+        maxResults=max_results,
+        type='video'
+    )
+    response = request.execute()
+    video_ids = [item['id']['videoId'] for item in response['items']]
+    return video_ids</pre>
+                    </div>
+                </li>
+                <li class="implementation-step">
+                    <h3>Text Processing & Chunking</h3>
+                    <p>Implemented intelligent text splitting using recursive character splitting to optimize chunk sizes for vector embedding. Each document maintains metadata including source information for proper citation.</p>
+                    <div class="code-block">
+                        <pre>
+# Recursive Character Splitter: Uses "smart" splitting
+text_splitter_recursive = RecursiveCharacterTextSplitter(
+    chunk_size = CHUNK_SIZE,
+    chunk_overlap=1000,
+)
+
+docs_recursive = text_splitter_recursive.split_documents(documents)
+
+# Add metadata to enhance retrieval quality
+for doc in docs_recursive:
+    title = doc.metadata.get('title', 'Unknown Title')
+    author = doc.metadata.get('author', 'Unknown Author')
+    video_url = doc.metadata.get('video_url', 'Unknown URL')
+    
+    updated_content = f"Title: {title}\nAuthor: {author}\nVideo URL: {video_url}\n\n{doc.page_content}"
+    doc.page_content = updated_content</pre>
+                    </div>
+                </li>
+                <li class="implementation-step">
+                    <h3>Vector Embedding & Storage</h3>
+                    <p>Created a semantic search database using OpenAI's embedding model and Chroma vector store. This enables efficient retrieval of relevant information based on semantic similarity rather than just keyword matching.</p>
+                    <div class="code-block">
+                        <pre>
+# Create embeddings with OpenAI
+embedding_function = OpenAIEmbeddings(
+    model=EMBEDDING_MODEL,
+)
+
+# Store embeddings in Chroma DB
+vectorstore = Chroma.from_documents(
+    docs_recursive, 
+    embedding=embedding_function, 
+    persist_directory="data/chroma_2.db"
+)
+
+# Set up retriever for similarity search
+retriever = vectorstore.as_retriever()</pre>
+                    </div>
+                </li>
+                <li class="implementation-step">
+                    <h3>RAG Chain Implementation</h3>
+                    <p>Designed a sophisticated retrieval and generation pipeline using LangChain's expression language (LCEL). This pipeline retrieves relevant content and augments the LLM response with expert knowledge.</p>
+                    <div class="code-block">
+                        <pre>
+# Create prompt template for RAG
+template = """Answer the question based only on the following context:
+{context}
+
+Question: {question}
+"""
+prompt = ChatPromptTemplate.from_template(template)
+
+# Set up LLM
+model = ChatOpenAI(
+    model=LLM,
+    temperature=0.7,
+)
+
+# Create RAG chain using LCEL
+rag_chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
+    | prompt
+    | model
+    | StrOutputParser()
+)</pre>
+                    </div>
+                </li>
+                <li class="implementation-step">
+                    <h3>Conversational Interface</h3>
+                    <p>Built an intuitive Streamlit application that provides a chat interface with conversation memory, allowing users to have natural multi-turn interactions with the marketing assistant.</p>
+                    <div class="code-block">
+                        <pre>
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state["messages"] = [{"role": "ai", "content": "How can I help you?"}]
+
+# Display chat message history
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# Process new user queries
+if question := st.chat_input("Enter your Marketing question here:"):
+    with st.spinner("Thinking..."): 
+        # Add user message to chat history
+        st.chat_message("human").write(question)
+
+        # Get response from RAG chain
+        response = rag_chain.invoke(question)
+        
+        # Add AI response to chat history
+        st.chat_message("ai").write(response)</pre>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Innovations</h2>
+            <ul>
+                <li><strong>Dynamic Knowledge Acquisition:</strong> Automated pipeline for collecting and processing expert knowledge from online sources.</li>
+                <li><strong>Intelligent Text Processing:</strong> Implemented recursive text splitting to maintain context integrity when processing long-form content.</li>
+                <li><strong>Metadata Enhancement:</strong> Augmented text chunks with source attribution to enable proper citation in AI responses.</li>
+                <li><strong>Conversation Memory:</strong> Integrated chat history tracking for coherent multi-turn interactions.</li>
+                <li><strong>Modular Architecture:</strong> Built using LangChain's component system for easy extension and modification.</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2>Key Features</h2>
+            <div class="applications-flex">
+                <div class="application-card">
+                    <h3>Marketing Expertise</h3>
+                    <p>The system provides data-driven marketing advice based on real expert knowledge, including proper citation of sources for verification and further exploration.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Content Generation</h3>
+                    <p>Users can request and receive highly relevant marketing content like email templates, social media posts, and campaign strategies grounded in best practices.</p>
+                </div>
+                <div class="application-card">
+                    <h3>Interactive Experience</h3>
+                    <p>The chat interface enables natural conversation flow, allowing users to refine requests and follow up on specific aspects of the marketing advice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Applications & Extensions</h2>
             <div class="applications-flex">
                 <div class="application-card">
                     <h3>AI Marketing Expert</h3>
@@ -275,8 +511,8 @@
         </div>
         
         <div class="project-section">
-            <h2>Access the Code</h2>
-            <p>The complete source code for this RAG implementation is available in a private GitHub repository. For access requests, please contact me at:
+            <h2>Contact for More Information</h2>
+            <p>For more details about this RAG implementation or to discuss potential collaborations, please contact me at:
                 <div style="text-align: center; margin-top: 20px;">
                     <a href="mailto:georgeschamma@gmail.com" class="button">georgeschamma@gmail.com</a>
                 </div>
@@ -284,7 +520,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2025 Georges Chamma | Design inspired by HTML5 UP</p>
+            <p>&copy; 2025 Georges Chamma </p>
         </footer>
     </div>
 </body>
