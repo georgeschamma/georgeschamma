@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Portfolio Optimization with GenAI - Project Showcase</title>
+    <title>Data Science Portfolio: Financial Market Analysis Platform</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Stock Portfolio Optimization using Modern Portfolio Theory and Black-Litterman Model with GenAI" />
+    <meta name="description" content="Advanced Data Science Platform for Financial Analysis and Portfolio Optimization using AI/ML techniques" />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
     <style>
         :root {
@@ -128,6 +128,10 @@
         .project-section {
             background: white;
             padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
         .intro-content {
             max-width: 1000px;
@@ -163,10 +167,6 @@
         .feature-item h3 {
             color: var(--primary-color);
             margin-bottom: 0.75rem;
-        }
-            border-radius: var(--border-radius);
-            margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .metrics-grid {
@@ -233,6 +233,31 @@
             transform: translateY(-2px);
         }
 
+        .tech-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: var(--background-light);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .tech-item h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .data-flow {
+            max-width: 100%;
+            margin: 20px auto;
+            display: block;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -253,14 +278,18 @@
             nav a:after {
                 display: none;
             }
+
+            .tech-skills {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div id="wrapper">
         <header>
-            <h1>Portfolio Optimization with GenAI</h1>
-            <p>Leveraging AI and Financial Models for Intelligent Investment Decisions</p>
+            <h1>Advanced Financial Data Science Platform</h1>
+            <p>Leveraging Data Science, Machine Learning, and AI for Intelligent Data-Driven Analysis</p>
         </header>
 
         <nav>
@@ -274,123 +303,172 @@
         </nav>
 
         <div class="project-section">
-            <h2>Project Introduction</h2>
+            <h2>Project Summary</h2>
             <div class="intro-content">
-                <p class="lead">This innovative project combines modern portfolio theory with artificial intelligence to create a next-generation investment optimization framework. By leveraging advanced machine learning techniques and traditional financial models, we deliver more intelligent and data-driven investment decisions.</p>
+                <p class="lead">This data science platform demonstrates advanced analytics capabilities by integrating multiple data sources, implementing complex statistical models, and leveraging AI to generate actionable insights. The project showcases expertise in data engineering, computational statistics, and machine learning applications.</p>
                 
                 <div class="feature-grid">
                     <div class="feature-item">
-                        <h3>AI-Powered Analysis</h3>
-                        <p>Utilizes advanced language models and machine learning algorithms to analyze market trends and generate insights.</p>
+                        <h3>Data Integration & Processing</h3>
+                        <p>Built automated data pipelines integrating multiple financial data sources with cleaning and transformation workflows for time-series analysis.</p>
                     </div>
                     <div class="feature-item">
-                        <h3>Hybrid Approach</h3>
-                        <p>Combines traditional financial models (MPT, Black-Litterman) with modern AI techniques for enhanced decision-making.</p>
+                        <h3>Advanced Analytics & ML</h3>
+                        <p>Implemented statistical models, natural language processing, and predictive analytics algorithms to extract meaningful patterns from complex data.</p>
                     </div>
                     <div class="feature-item">
-                        <h3>Real-Time Processing</h3>
-                        <p>Processes market data in real-time to provide up-to-date portfolio recommendations and risk assessments.</p>
+                        <h3>Interactive Visualization</h3>
+                        <p>Designed comprehensive data visualization dashboards presenting complex findings to support evidence-based decision making.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
-            <h2>Technical Analysis Components</h2>
+            <h2>Data Science Methodology</h2>
+            <p>This project follows an end-to-end data science workflow:</p>
+            
+            <ol>
+                <li><strong>Data Collection:</strong> Automated integration of multiple financial data sources</li>
+                <li><strong>Data Preprocessing:</strong> Statistical cleaning, normalization, and transformation</li>
+                <li><strong>Feature Engineering:</strong> Creation of technical indicators and derived metrics</li>
+                <li><strong>Model Development:</strong> Implementation of statistical and machine learning algorithms</li>
+                <li><strong>AI Integration:</strong> Leveraging LLMs for advanced insight generation</li>
+                <li><strong>Visualization:</strong> Interactive dashboards and reports for insight delivery</li>
+            </ol>
+            
+            <div class="chart-container">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/methodology.png" alt="Data Science Methodology Flow" class="data-flow">
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Machine Learning Components</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <h3>RSI (Relative Strength Index)</h3>
+                    <h3>Statistical Analysis Models</h3>
                     <div class="chart-container">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="RSI Chart">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="Statistical Analysis">
                     </div>
-                    <p>Momentum indicator measuring speed and magnitude of recent price changes.</p>
+                    <p>Implementation of time-series analysis models with statistical validation and confidence intervals.</p>
                 </div>
                 
                 <div class="metric-card">
-                    <h3>Bollinger Bands</h3>
+                    <h3>Natural Language Processing</h3>
                     <div class="chart-container">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bollinger.png" alt="Bollinger Bands Chart">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bollinger.png" alt="NLP Analysis">
                     </div>
-                    <p>Volatility indicator using moving averages and standard deviations.</p>
+                    <p>Integration of LLMs to analyze complex data patterns and generate executive insights from numerical data.</p>
                 </div>
                 
                 <div class="metric-card">
-                    <h3>MACD</h3>
+                    <h3>Optimization Algorithms</h3>
                     <div class="chart-container">
-                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/MACD.webp" alt="MACD Chart">
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/MACD.webp" alt="Optimization Algorithms">
                     </div>
-                    <p>Trend-following momentum indicator showing moving averages relationship.</p>
+                    <p>Implementation of advanced optimization techniques with constraint satisfaction and multi-objective functions.</p>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
-            <h2>Portfolio Optimization Results</h2>
+            <h2>Data Visualization & Decision Support</h2>
             
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <h3>Modern Portfolio Theory Allocation</h3>
+                    <h3>Interactive Dashboards</h3>
                     <table class="results-table">
                         <thead>
                             <tr>
-                                <th>Asset</th>
-                                <th>Weight</th>
+                                <th>Visualization Type</th>
+                                <th>Insights Generated</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>NVDA</td><td>100%</td></tr>
-                            <tr><td>Others</td><td>0%</td></tr>
+                            <tr><td>Time Series Analysis</td><td>Trend identification and pattern recognition</td></tr>
+                            <tr><td>Statistical Distributions</td><td>Risk assessment and uncertainty quantification</td></tr>
+                            <tr><td>Correlation Matrices</td><td>Interdependency analysis between variables</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="metric-card">
-                    <h3>Black-Litterman Model Allocation</h3>
+                    <h3>Automated Reporting System</h3>
                     <table class="results-table">
                         <thead>
                             <tr>
-                                <th>Asset</th>
-                                <th>Weight</th>
+                                <th>Report Type</th>
+                                <th>Decision Support Value</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>SPY</td><td>71.1%</td></tr>
-                            <tr><td>MSFT</td><td>17.7%</td></tr>
-                            <tr><td>NVDA</td><td>4.1%</td></tr>
-                            <tr><td>AAPL</td><td>2.9%</td></tr>
-                            <tr><td>Others</td><td>4.2%</td></tr>
+                            <tr><td>Executive Summaries</td><td>High-level insights for strategic decisions</td></tr>
+                            <tr><td>Technical Analysis</td><td>Detailed findings for specialist interpretation</td></tr>
+                            <tr><td>Predictive Forecasts</td><td>Future scenario modeling with confidence intervals</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="metric-card">
-                    <h3>Portfolio Performance</h3>
+                    <h3>AI-Generated Insights</h3>
                     <ul>
-                        <li>Expected Annual Return: 10.5%</li>
-                        <li>Annual Volatility: 15.4%</li>
-                        <li>Sharpe Ratio: 0.67</li>
+                        <li>Pattern identification in complex multivariate datasets</li>
+                        <li>Natural language explanations of statistical findings</li>
+                        <li>Automated anomaly detection and significance testing</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
-            <h2>Implementation Details</h2>
-            <p>The project leverages several key Python libraries:</p>
-            <ul>
-                <li>yfinance: For fetching historical stock data</li>
-                <li>PyPortfolioOpt: For portfolio optimization calculations</li>
-                <li>LangChain: For AI-powered analysis</li>
-                <li>Pandas & NumPy: For data manipulation and analysis</li>
-            </ul>
+            <h2>Technical Skills Demonstrated</h2>
+            <div class="tech-skills">
+                <div class="tech-item">
+                    <h4>Data Processing</h4>
+                    <p>Python, Pandas, NumPy, Data Cleaning, Feature Engineering</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Statistical Analysis</h4>
+                    <p>Time Series Analysis, Hypothesis Testing, Statistical Models</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Machine Learning</h4>
+                    <p>Predictive Modeling, Classification, Regression, Optimization</p>
+                </div>
+                <div class="tech-item">
+                    <h4>NLP/AI</h4>
+                    <p>LangChain, OpenAI API, Text Analysis, Pattern Recognition</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Data Visualization</h4>
+                    <p>Matplotlib, Interactive Charts, Dashboard Design</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Cloud Integration</h4>
+                    <p>AWS Services, API Integration, Scalable Architecture</p>
+                </div>
+            </div>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" class="button primary" target="_blank">View on Google Colab</a>
+                <a href="https://colab.research.google.com/drive/1QcMnJNvONy6NE6PVYpmMvX42E22Yq1v-?usp=sharing" class="button primary" target="_blank">View Code on Google Colab</a>
             </div>
         </div>
 
+        <div class="project-section">
+            <h2>Applications Beyond Finance</h2>
+            <p>While this project focuses on financial data, the methodologies and techniques demonstrated are transferable to other domains relevant to economic and social development:</p>
+            
+            <ul>
+                <li><strong>Economic Indicator Analysis:</strong> Using similar time-series techniques to analyze and forecast economic trends</li>
+                <li><strong>Policy Impact Assessment:</strong> Leveraging statistical models to evaluate the effectiveness of policy interventions</li>
+                <li><strong>Resource Allocation Optimization:</strong> Applying optimization algorithms to maximize efficiency in resource distribution</li>
+                <li><strong>Demographic Pattern Recognition:</strong> Utilizing ML techniques to identify patterns in population data</li>
+                <li><strong>Predictive Analytics for Development:</strong> Forecasting development outcomes based on current indicators and policy changes</li>
+            </ul>
+        </div>
+
         <footer>
-            <p>© 2025 Georges Chamma | Design inspired by HTML5 UP</p>
+            <p>© 2025 Georges Chamma | Data Scientist & Machine Learning Specialist</p>
         </footer>
     </div>
 </body>
