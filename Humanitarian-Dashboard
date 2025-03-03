@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Humanitarian Data Studio - Interactive Dashboard for Crisis Response</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Humanitarian Data Studio: Interactive visualization dashboard for crisis response and coordination" />
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --background-light: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --hover-color: #3498db;
+            --accent-color: #e74c3c;
+            --neutral-color: #95a5a6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
+        }
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: 15px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--hover-color);
+            color: white;
+        }
+
+        nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .intro-section p {
+            margin: 0;
+        }
+
+        .project-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .dashboard-preview {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .dashboard-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-item {
+            text-align: center;
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+        }
+
+        .data-sources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .data-source-tag {
+            background: var(--background-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: inline-block;
+        }
+
+        .process-steps {
+            counter-reset: step-counter;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        .process-step {
+            list-style-type: none;
+            position: relative;
+            padding: 20px 20px 20px 80px;
+            margin-bottom: 20px;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .process-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .process-step h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .button:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: var(--background-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                padding-left: 20px;
+                padding-top: 70px;
+            }
+
+            .process-step::before {
+                top: 20px;
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Humanitarian Data Studio</h1>
+            <p>Interactive Data Visualization for Crisis Response and Coordination</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Data-Framework.html">Data Framework</a></li>
+                <li><a href="rag.html">RAG Framework</a></li>
+                <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
+                <li><a href="local-llm.html">Local LLM</a></li>
+                <li><a href="humanitarian-dashboard.html" class="active">Humanitarian Dashboard</a></li>
+            </ul>
+        </nav>
+
+        <div class="intro-section">
+            <p>Leveraging data science expertise to support humanitarian response efforts, this project showcases an interactive dashboard for monitoring aid distribution, donor contributions, and partner activities across Lebanon during crisis situations. By transforming complex humanitarian data into actionable insights, the tool enables faster decision-making and improved coordination among stakeholders.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Dashboard Overview</h2>
+            <div class="dashboard-preview">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/humanitarian_dashboard.jpg" alt="Humanitarian Dashboard Screenshot" />
+            </div>
+            <p>The Lebanon Escalation Dashboard provides a comprehensive "Who, What, Where" (3W) visualization of humanitarian activities, enabling stakeholders to quickly understand the distribution of resources, identify gaps in response, and coordinate effectively across regions and sectors.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Interactive Filtering</h3>
+                    <p>Dynamic filtering by date, partner organization, sector, and geographic region allows users to quickly access the specific information needed for decision-making.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Geospatial Visualization</h3>
+                    <p>Interactive map displaying partner presence across governorates, enabling spatial analysis of coverage and identification of underserved areas.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Resource Allocation Tracking</h3>
+                    <p>Financial contribution visualization by donor, providing transparency on funding sources and allocation patterns to improve accountability.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Partner Activity Monitoring</h3>
+                    <p>Comprehensive tracking of implementing partner activities, sectors of operation, and geographic coverage to enhance coordination among stakeholders.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Sectoral Analysis</h3>
+                    <p>Breakdown of humanitarian activities by sector and region, enabling quick identification of service gaps and overlaps to improve response efficiency.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Real-time Data Updates</h3>
+                    <p>Automated data pipeline ensuring dashboard reflects current situation with minimal manual intervention, supporting timely decision-making.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Project Impact</h2>
+            <div class="impact-metrics">
+                <div class="metric-item">
+                    <div class="metric-value">55+</div>
+                    <div class="metric-label">Partner Organizations Tracked</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">1,000+</div>
+                    <div class="metric-label">Projects Monitored</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Governorates Covered</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">$25M+</div>
+                    <div class="metric-label">Aid Contributions Visualized</div>
+                </div>
+            </div>
+            <p>The dashboard has significantly improved coordination between UN agencies, NGOs, and government entities, reducing duplication of efforts and enhancing the effectiveness of the humanitarian response in Lebanon.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Development Process</h2>
+            <ol class="process-steps">
+                <li class="process-step">
+                    <h4>Needs Assessment & Stakeholder Consultation</h4>
+                    <p>Conducted in-depth consultations with humanitarian coordinators, donors, and implementing partners to identify critical information needs and visualization requirements for effective coordination.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Data Collection & Integration</h4>
+                    <p>Developed a standardized data collection methodology and established automated data pipelines to integrate information from multiple humanitarian information management systems.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Data Cleaning & Transformation</h4>
+                    <p>Implemented robust data validation and cleaning processes to ensure accuracy and consistency across diverse datasets with varying quality standards.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Dashboard Design & Development</h4>
+                    <p>Created an intuitive user interface with interactive visualizations optimized for both technical and non-technical users in the humanitarian sector.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Testing & Refinement</h4>
+                    <p>Conducted iterative testing with humanitarian practitioners to optimize usability and ensure visualizations effectively supported operational decision-making.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Deployment & Knowledge Transfer</h4>
+                    <p>Deployed the dashboard to production environments and conducted training sessions for humanitarian coordination staff to ensure effective adoption.</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Google Data Studio</span>
+                <span class="tech-tag">BigQuery</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">GeoPandas</span>
+                <span class="tech-tag">Google Maps API</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">GitHub Actions</span>
+                <span class="tech-tag">Google Sheets (Data Entry)</span>
+                <span class="tech-tag">REST APIs</span>
+            </div>
+            <p>The dashboard leverages cloud-based technologies for scalability and accessibility, ensuring it can be accessed by humanitarian workers in field conditions with limited connectivity.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Data Sources</h2>
+            <p>The dashboard integrates data from multiple humanitarian coordination systems:</p>
+            <div class="data-sources">
+                <span class="data-source-tag">UNHCR ActivityInfo</span>
+                <span class="data-source-tag">OCHA 3W Database</span>
+                <span class="data-source-tag">IATI (International Aid Transparency Initiative)</span>
+                <span class="data-source-tag">UN Financial Tracking Service</span>
+                <span class="data-source-tag">Partner Reports</span>
+                <span class="data-source-tag">Government Data Portals</span>
+            </div>
+            <p>All data undergoes rigorous validation and anonymization where appropriate to ensure security and privacy while maintaining analytical value.</p>
+        </div>
+
+        <div class="button-container">
+            <a href="https://datastudio.google.com/reporting/humanitarian-dashboard" class="button">Explore the Dashboard</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Georges Chamma | Data Scientist & Humanitarian Innovation Specialist</p>
+        </footer>
+    </div>
+</body>
+</html>
