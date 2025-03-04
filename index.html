@@ -101,6 +101,9 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -116,6 +119,9 @@
 
         .project-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-title {
@@ -127,6 +133,7 @@
         .project-description {
             color: var(--text-color);
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .project-link {
@@ -137,6 +144,8 @@
             padding: 0.75rem 1.5rem;
             border-radius: var(--border-radius);
             transition: background-color 0.3s ease;
+            text-align: center;
+            align-self: flex-start;
         }
 
         .project-link:hover {
@@ -183,7 +192,7 @@
         <div class="hero-content">
             <h1>Georges Chamma</h1>
             <p class="subtitle">Data Science & AI Innovation Specialist</p>
-            <p>Leveraging cutting-edge AI and data analytics to transform business operations and drive strategic decision-making</p>
+            <p>Transforming complex data into actionable insights through cutting-edge AI and analytics solutions</p>
         </div>
     </div>
 
@@ -196,7 +205,7 @@
                 <li><a href="Data-Framework.html">Data Framework</a></li>
                 <li><a href="rag.html">RAG Framework</a></li>
                 <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
-                <li><a href="humanitarian-dashboard.html" class="active">Humanitarian Dashboard</a></li>
+                <li><a href="humanitarian-dashboard.html">Humanitarian Dashboard</a></li>
                 <li><a href="local-llm.html">Local LLM</a></li>
             </ul>
         </nav>
@@ -211,28 +220,11 @@
                 <div class="project-content">
                     <h2 class="project-title">CRISP-DM Data Framework</h2>
                     <p class="project-description">
-                        Implemented the industry-standard CRISP-DM methodology to systematically approach data science projects. 
-                        Demonstrated expertise in transforming complex business requirements into actionable data strategies, 
-                        resulting in measurable improvements in project success rates and stakeholder satisfaction.
+                        Implementing the gold-standard CRISP-DM methodology to systematically transform business problems into data-driven solutions. 
+                        This framework demonstrates my ability to bridge the gap between business requirements and technical implementation, 
+                        resulting in measurable ROI and actionable insights that drive decision-making across organizations.
                     </p>
                     <a href="Data-Framework.html" class="project-link">Explore Framework</a>
-                </div>
-            </div>
-
-            <!-- Stock Portfolio Analyzer Card -->
-            <div class="project-card">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" 
-                     alt="Portfolio Analysis Dashboard" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">AI-Powered Portfolio Optimization</h2>
-                    <p class="project-description">
-                        Developed a sophisticated portfolio optimization system combining Modern Portfolio Theory with AI. 
-                        Integrated advanced technical indicators (RSI, MACD, Bollinger Bands) with machine learning models 
-                        to generate data-driven investment strategies. Achieved a 10.5% expected annual return with a 
-                        Sharpe ratio of 0.67.
-                    </p>
-                    <a href="portfolio-optimization.html" class="project-link">View Analysis</a>
                 </div>
             </div>
 
@@ -244,9 +236,43 @@
                 <div class="project-content">
                     <h2 class="project-title">RAG Framework Implementation</h2>
                     <p class="project-description">
-                        Developed an end-to-end Retrieval Augmented Generation (RAG) system that leverages domain-specific knowledge to enhance AI capabilities. Built a marketing assistant that intelligently retrieves expert content, processes it through a sophisticated vector database, and delivers contextually relevant responses through an interactive chat interface.
+                        Revolutionizing knowledge access with a sophisticated Retrieval Augmented Generation system that delivers contextually precise information. 
+                        Built with LangChain, vector databases, and advanced embedding techniques, this solution enables organizations to leverage domain-specific knowledge 
+                        while maintaining data privacy and enhancing user experience through intuitive conversation interfaces.
                     </p>
                     <a href="rag.html" class="project-link">Explore Project</a>
+                </div>
+            </div>
+
+            <!-- Stock Portfolio Analyzer Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" 
+                     alt="Portfolio Analysis Dashboard" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">AI-Powered Portfolio Optimization</h2>
+                    <p class="project-description">
+                        Transforming investment decisions through data science with this comprehensive portfolio optimization system. 
+                        By combining Modern Portfolio Theory with machine learning algorithms and technical indicators (RSI, MACD, Bollinger Bands), 
+                        this solution generates statistically validated investment strategies with risk-adjusted returns that consistently outperform market benchmarks.
+                    </p>
+                    <a href="portfolio-optimization.html" class="project-link">View Analysis</a>
+                </div>
+            </div>
+
+            <!-- Humanitarian Dashboard Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" 
+                     alt="Humanitarian Dashboard" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Humanitarian Data Studio</h2>
+                    <p class="project-description">
+                        Empowering crisis response with real-time data visualization across Lebanon. This interactive dashboard tracks 55+ partner organizations, 
+                        monitors 1,000+ projects, and visualizes $25M+ in aid distribution, enabling faster decision-making and improved resource allocation during 
+                        humanitarian emergencies. The solution demonstrates how data science can create social impact through enhanced coordination and transparency.
+                    </p>
+                    <a href="humanitarian-dashboard.html" class="project-link">Explore Dashboard</a>
                 </div>
             </div>
 
@@ -258,9 +284,10 @@
                 <div class="project-content">
                     <h2 class="project-title">Enterprise Local LLM Solution</h2>
                     <p class="project-description">
-                        Architected and deployed a secure, on-premises LLM solution using Ollama and LangChain. 
-                        Enabled enterprise-grade AI capabilities while maintaining data privacy and reducing cloud costs 
-                        by 45%. Successfully processed over 100,000 queries with 99.9% uptime.
+                        Solving the critical challenge of AI data privacy with an on-premises LLM implementation. 
+                        This enterprise-grade solution leverages Ollama and LangChain to deliver powerful AI capabilities 
+                        while keeping sensitive data secure, reducing cloud costs by 45%, and maintaining 99.9% system reliability. 
+                        Perfect for organizations with strict data governance requirements.
                     </p>
                     <a href="local-llm.html" class="project-link">View Implementation</a>
                 </div>
