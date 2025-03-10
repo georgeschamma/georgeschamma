@@ -150,6 +150,43 @@
             background-color: var(--background-light);
         }
 
+        .about-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .about-section p {
+            margin-bottom: 1rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .expertise-item {
+            background: var(--background-light);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .expertise-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -212,6 +249,18 @@
 
         .project-link:hover {
             background: var(--primary-dark);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(37, 99, 235, 0.9);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         footer {
@@ -321,21 +370,51 @@
             </ul>
         </nav>
 
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>Turning Data into Business Value</h2>
+            <p>
+                With over 6 years of experience in data science and AI implementation, I specialize in creating scalable data solutions that drive decision-making and deliver measurable business impact. My background in Engineering and Physics combined with expertise in machine learning enables me to tackle complex problems with innovative approaches.
+            </p>
+            <p>
+                As a Senior Data Scientist at Annalect (Omnicom Media Group), I've designed and implemented AI solutions that improved performance by 25% and reduced manual effort by 40% through automated data pipelines. My work spans predictive analytics, natural language processing, and data visualization - all focused on generating actionable insights.
+            </p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h3>Data Engineering</h3>
+                    <p>Building robust pipelines and architectures that transform raw data into structured, analysis-ready formats</p>
+                </div>
+                <div class="expertise-item">
+                    <h3>Machine Learning & AI</h3>
+                    <p>Developing predictive models and AI solutions that extract patterns and generate insights from complex datasets</p>
+                </div>
+                <div class="expertise-item">
+                    <h3>Data Visualization</h3>
+                    <p>Creating intuitive dashboards and visual tools that communicate complex data stories effectively</p>
+                </div>
+                <div class="expertise-item">
+                    <h3>AI Agents & Automation</h3>
+                    <p>Implementing intelligent systems that automate processes and enhance decision-making capabilities</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Projects Grid -->
+        <h2 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Featured Projects</h2>
         <div class="projects-grid">
-            <!-- CRISP-DM Framework Card -->
-            <div class="project-card">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Framework.gif" 
-                     alt="CRISP-DM Framework" 
+            <!-- World Bank Dashboard Card -->
+            <div class="project-card" style="position: relative;">
+                <div class="featured-badge">New</div>
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" 
+                     alt="World Bank Data Dashboard" 
                      class="project-image">
                 <div class="project-content">
-                    <h2 class="project-title">CRISP-DM Data Framework</h2>
+                    <h2 class="project-title">World Bank Data Visualization</h2>
                     <p class="project-description">
-                        Implementing the gold-standard CRISP-DM methodology to systematically transform business problems into data-driven solutions. 
-                        This framework demonstrates my ability to bridge the gap between business requirements and technical implementation, 
-                        resulting in measurable ROI and actionable insights that drive decision-making across organizations.
+                        A comprehensive data engineering solution that transforms World Bank development indicators into interactive visualizations. This platform integrates real-time API data through custom ETL pipelines, enabling exploration of economic, social, and environmental trends across 200+ countries and 250+ indicators with robust error handling and data validation.
                     </p>
-                    <a href="Data-Framework.html" class="project-link">Explore Framework</a>
+                    <a href="world-bank-visualization.html" class="project-link">Explore Project</a>
                 </div>
             </div>
 
@@ -371,19 +450,19 @@
                 </div>
             </div>
 
-            <!-- Humanitarian Dashboard Card -->
+            <!-- CRISP-DM Framework Card -->
             <div class="project-card">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" 
-                     alt="Humanitarian Dashboard" 
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Framework.gif" 
+                     alt="CRISP-DM Framework" 
                      class="project-image">
                 <div class="project-content">
-                    <h2 class="project-title">Humanitarian Data Studio</h2>
+                    <h2 class="project-title">CRISP-DM Data Framework</h2>
                     <p class="project-description">
-                        Empowering crisis response with real-time data visualization across Lebanon. This interactive dashboard tracks 55+ partner organizations, 
-                        monitors 1,000+ projects, and visualizes $25M+ in aid distribution, enabling faster decision-making and improved resource allocation during 
-                        humanitarian emergencies. The solution demonstrates how data science can create social impact through enhanced coordination and transparency.
+                        Implementing the gold-standard CRISP-DM methodology to systematically transform business problems into data-driven solutions. 
+                        This framework demonstrates my ability to bridge the gap between business requirements and technical implementation, 
+                        resulting in measurable ROI and actionable insights that drive decision-making across organizations.
                     </p>
-                    <a href="humanitarian-dashboard.html" class="project-link">Explore Dashboard</a>
+                    <a href="Data-Framework.html" class="project-link">Explore Framework</a>
                 </div>
             </div>
 
@@ -401,6 +480,22 @@
                         Perfect for organizations with strict data governance requirements.
                     </p>
                     <a href="local-llm.html" class="project-link">View Implementation</a>
+                </div>
+            </div>
+
+            <!-- Humanitarian Dashboard Card -->
+            <div class="project-card">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" 
+                     alt="Humanitarian Dashboard" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Humanitarian Data Studio</h2>
+                    <p class="project-description">
+                        Empowering crisis response with real-time data visualization across Lebanon. This interactive dashboard tracks 55+ partner organizations, 
+                        monitors 1,000+ projects, and visualizes $25M+ in aid distribution, enabling faster decision-making and improved resource allocation during 
+                        humanitarian emergencies. The solution demonstrates how data science can create social impact through enhanced coordination and transparency.
+                    </p>
+                    <a href="humanitarian-dashboard.html" class="project-link">Explore Dashboard</a>
                 </div>
             </div>
         </div>
