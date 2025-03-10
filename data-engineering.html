@@ -93,6 +93,43 @@
             color: white;
         }
 
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: var(--border-radius);
+            z-index: 100;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            padding: 10px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 10px 20px;
+            text-align: left;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--background-light);
+            color: var(--primary-color);
+        }
+
         .intro-section {
             background: white;
             padding: 25px;
@@ -197,6 +234,33 @@
             border-radius: var(--border-radius);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             margin-bottom: 15px;
+        }
+
+        .report-download {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .report-download-image {
+            flex: 0 0 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .report-download-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .report-download-content {
+            flex: 1;
         }
 
         .data-flow-steps {
@@ -369,6 +433,17 @@
                 left: 20px;
                 transform: none;
             }
+            
+            .report-download {
+                flex-direction: column;
+            }
+            
+            .report-download-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 20px;
+            }
         }
     </style>
 </head>
@@ -383,11 +458,34 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="Data-Framework.html">Data Framework</a></li>
-                <li><a href="rag.html">RAG Framework</a></li>
-                <li><a href="portfolio-optimization.html">Stock Analyzer</a></li>
-                <li><a href="humanitarian-dashboard.html">Humanitarian Dashboard</a></li>
-                <li><a href="world-bank-visualization.html" class="active">Data Engineering World Bank</a></li>
-                <li><a href="local-llm.html">Local LLM</a></li>
+                
+                <!-- Data Engineering Dropdown -->
+                <li class="dropdown">
+                    <a href="#">Data Engineering</a>
+                    <div class="dropdown-content">
+                        <a href="world-bank-visualization.html" class="active">World Bank Dashboard</a>
+                        <!-- Add more data engineering projects here -->
+                    </div>
+                </li>
+                
+                <!-- AI Agents Dropdown -->
+                <li class="dropdown">
+                    <a href="#">AI Agents</a>
+                    <div class="dropdown-content">
+                        <a href="portfolio-optimization.html">Stock Analyzer</a>
+                        <a href="local-llm.html">Local LLM</a>
+                        <a href="rag.html">RAG Framework</a>
+                    </div>
+                </li>
+                
+                <!-- Visualization Dropdown -->
+                <li class="dropdown">
+                    <a href="#">Visualization</a>
+                    <div class="dropdown-content">
+                        <a href="humanitarian-dashboard.html">Humanitarian Dashboard</a>
+                        <!-- Add more visualization projects here -->
+                    </div>
+                </li>
             </ul>
         </nav>
 
@@ -518,6 +616,20 @@ def fetch_world_bank_data(indicator: str, countries: List[str],
         </div>
 
         <div class="project-section">
+            <h2>Data Export Capabilities</h2>
+            <div class="report-download">
+                <div class="report-download-image">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/data-export.png" alt="Data Export Functionality" />
+                </div>
+                <div class="report-download-content">
+                    <h3>One-Click Data Export</h3>
+                    <p>The platform includes comprehensive data export capabilities, allowing users to download the analyzed data directly as CSV files for further processing or integration with other systems. All visualizations and analysis can be exported, enabling seamless reporting and sharing of insights with stakeholders.</p>
+                    <p>This feature demonstrates the end-to-end data engineering approach of the project, where data is not only ingested and visualized but also made available for downstream processes, following best practices in modern data architecture.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
             <h2>Visualization Capabilities</h2>
             <div class="visualization-examples">
                 <div class="visualization-card">
@@ -570,24 +682,6 @@ def fetch_world_bank_data(indicator: str, countries: List[str],
                 <li><strong>Code Organization:</strong> Logical separation of concerns with dedicated functions for data fetching, transformation, and visualization.</li>
                 <li><strong>Performance Optimization:</strong> Efficient data structures and processing techniques to ensure responsive performance even with large datasets.</li>
             </ul>
-        </div>
-
-        <div class="project-section">
-            <h2>Future Enhancements</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Advanced Analytics Integration</h3>
-                    <p>Planning to implement statistical analysis capabilities including trend forecasting, correlation analysis, and anomaly detection to provide deeper insights into development indicators.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Data Caching System</h3>
-                    <p>Developing a sophisticated caching layer to optimize API usage, reduce latency, and enable offline analysis capabilities while maintaining data freshness guarantees.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Multi-Source Data Integration</h3>
-                    <p>Extending the data pipeline to incorporate additional data sources such as IMF, UN, and WHO datasets for comprehensive cross-domain analysis.</p>
-                </div>
-            </div>
         </div>
 
         <div class="button-container">
