@@ -40,6 +40,7 @@
             margin-bottom: 30px;
         }
 
+        /* Base navigation styling */
         nav {
             background: white;
             padding: 15px;
@@ -74,55 +75,61 @@
             border-radius: 20px;
             transition: all 0.3s ease;
             display: inline-block;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        nav a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--hover-color);
-            transition: all 0.3s ease;
-            z-index: -1;
-            border-radius: 20px;
-            opacity: 0.2;
-        }
-
-        nav a:hover:before {
-            width: 100%;
         }
 
         nav a:hover {
             color: var(--hover-color);
-            transform: translateY(-2px);
+            background-color: var(--background-light);
         }
 
-        nav a:after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 5px 10px;
-            background: var(--secondary-color);
+        nav a.active {
+            background-color: var(--primary-color);
             color: white;
-            border-radius: 4px;
-            font-size: 0.8em;
+        }
+
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a::after {
+            content: "▼";
+            font-size: 0.6em;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            z-index: 100;
             opacity: 0;
             visibility: hidden;
+            transform: translateY(10px);
             transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px 20px;
+            border-radius: 0;
             white-space: nowrap;
         }
 
-        nav a:hover:after {
-            opacity: 1;
-            visibility: visible;
-            bottom: -35px;
+        .dropdown-content a:hover {
+            background-color: var(--background-light);
         }
 
         .project-section {
@@ -259,6 +266,7 @@
             border-top: 1px solid #ddd;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .metrics-grid {
                 grid-template-columns: 1fr;
@@ -266,11 +274,32 @@
             
             nav ul {
                 flex-direction: column;
-                text-align: center;
+                align-items: center;
+                gap: 10px;
             }
 
-            nav a:after {
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                min-width: auto;
+                padding: 5px 0 5px 20px;
+                margin-top: 5px;
                 display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                content: "+";
+            }
+
+            .dropdown.active > a::after {
+                content: "-";
             }
 
             .tech-skills {
@@ -295,7 +324,7 @@
                 <li class="dropdown">
                     <a href="#">Data Engineering</a>
                     <div class="dropdown-content">
-                        <a href="world-bank-visualization.html" class="active">World Bank Dashboard</a>
+                        <a href="world-bank-visualization.html">World Bank Dashboard</a>
                         <!-- Add more data engineering projects here -->
                     </div>
                 </li>
@@ -305,7 +334,7 @@
                     <a href="#">AI Agents</a>
                     <div class="dropdown-content">
                         <a href="rag.html">RAG Framework</a>
-                        <a href="portfolio-optimization.html">Stock Analyzer</a>
+                        <a href="portfolio-optimization.html" class="active">Stock Analyzer</a>
                         <a href="local-llm.html">Local LLM</a>
                     </div>
                 </li>
@@ -470,8 +499,24 @@
         </div>
 
         <footer>
-            <p>© 2025 Georges Chamma </p>
+            <p>© 2025 Georges Chamma | Data Scientist & Machine Learning Specialist</p>
         </footer>
     </div>
+
+    <!-- JavaScript for mobile dropdown toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // For mobile: toggle dropdowns
+            const dropdowns = document.querySelectorAll('.dropdown > a');
+            dropdowns.forEach(dropdownLink => {
+                dropdownLink.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
