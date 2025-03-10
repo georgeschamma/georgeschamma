@@ -184,21 +184,151 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Georges Chamma</h1>
-            <p class="subtitle">Data Science & AI Innovation Specialist</p>
-            <p>Transforming complex data into actionable insights through cutting-edge AI and analytics solutions</p>
-        </div>
-    </div>
+  <!-- Navigation CSS - Add this to your head section -->
+<style>
+    /* Base navigation styling */
+    nav {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Navigation -->
+    nav:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    nav li {
+        position: relative;
+    }
+
+    nav a {
+        color: #333;
+        text-decoration: none;
+        padding: 8px 20px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    nav a:hover {
+        color: #4a90e2;
+        background-color: #f8f9fa;
+    }
+
+    nav a.active {
+        background-color: #4a90e2;
+        color: white;
+    }
+
+    /* Dropdown styling */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown > a::after {
+        content: "▼";
+        font-size: 0.6em;
+        margin-left: 6px;
+        vertical-align: middle;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(5px);
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 8px 20px;
+        border-radius: 0;
+        white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dropdown-content {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            min-width: auto;
+            padding: 5px 0 5px 20px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a::after {
+            content: "+";
+        }
+
+        .dropdown.active > a::after {
+            content: "-";
+        }
+    }
+        </style>
+        
+        <!-- JavaScript for mobile dropdown toggle - Add this before closing body tag -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // For mobile: toggle dropdowns
+                const dropdowns = document.querySelectorAll('.dropdown > a');
+                dropdowns.forEach(dropdownLink => {
+                    dropdownLink.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            this.parentElement.classList.toggle('active');
+                        }
+                    });
+                });
+            });
+        </script>
+        
+        <!-- Navigation HTML - This is the structure to use on all pages -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -208,7 +338,7 @@
                 <li class="dropdown">
                     <a href="#">Data Engineering</a>
                     <div class="dropdown-content">
-                        <a href="world-bank-visualization.html" class="active">World Bank Dashboard</a>
+                        <a href="world-bank-visualization.html">World Bank Dashboard</a>
                         <!-- Add more data engineering projects here -->
                     </div>
                 </li>
