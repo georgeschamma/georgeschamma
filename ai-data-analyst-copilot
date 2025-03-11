@@ -1,0 +1,803 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Data Analyst AI Copilot - Advanced GenAI Solution</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Data Analyst AI Copilot: Enterprise-grade conversational analytics platform powered by LLMs" />
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --background-light: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --hover-color: #3498db;
+            --accent-color: #e74c3c;
+            --neutral-color: #95a5a6;
+            --success-color: #27ae60;
+            --code-bg: #f5f5f5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
+        }
+
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: 15px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--hover-color);
+            color: white;
+        }
+
+        nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: var(--border-radius);
+            z-index: 100;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            padding: 10px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 10px 20px;
+            text-align: left;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--background-light);
+            color: var(--primary-color);
+        }
+
+        .intro-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .project-section {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .dashboard-preview {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .dashboard-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-item {
+            text-align: center;
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+        }
+
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2em 0;
+        }
+
+        .architecture-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+
+        .workflow-steps {
+            counter-reset: step-counter;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        .workflow-step {
+            list-style-type: none;
+            position: relative;
+            padding: 20px 20px 20px 80px;
+            margin-bottom: 20px;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .workflow-step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .workflow-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .workflow-step h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 15px 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: var(--background-light);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .button:hover {
+            background: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+        }
+
+        .agent-architecture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .agent-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .agent-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .agent-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .agent-card-content {
+            padding: 20px;
+        }
+
+        .agent-card-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .use-case {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .use-case:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .use-case h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--background-light);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .use-case-icon {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, rgba(74, 144, 226, 0.1), rgba(44, 62, 80, 0.1));
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: var(--border-radius);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+
+        .demo-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .demo-video {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .demo-video img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .demo-video-content {
+            padding: 15px;
+        }
+
+        .demo-video-content h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+
+        .footer-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .footer-cta h2 {
+            margin-top: 0;
+        }
+
+        .footer-cta p {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .footer-cta .button {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .footer-cta .button:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-step {
+                padding-left: 20px;
+                padding-top: 70px;
+            }
+
+            .workflow-step::before {
+                top: 20px;
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Data Analyst AI Copilot</h1>
+            <p>Enterprise-grade conversational analytics platform that transforms data into actionable insights through natural language</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                
+                <!-- Data Engineering Dropdown -->
+                <li class="dropdown">
+                    <a href="#">Data Engineering</a>
+                    <div class="dropdown-content">
+                        <a href="world-bank-visualization.html">World Bank Dashboard</a>
+                        <a href="data-analyst-ai.html" class="active">Data Analyst AI</a>
+                        <!-- Add more data engineering projects here -->
+                    </div>
+                </li>
+                
+                <!-- AI Agents Dropdown -->
+                <li class="dropdown">
+                    <a href="#">AI Agents</a>
+                    <div class="dropdown-content">
+                        <a href="rag.html">RAG Framework</a>
+                        <a href="portfolio-optimization.html">Stock Analyzer</a>
+                        <a href="local-llm.html">Local LLM</a>
+                    </div>
+                </li>
+                
+                <!-- Visualization Dropdown -->
+                <li class="dropdown">
+                    <a href="#">Visualization</a>
+                    <div class="dropdown-content">
+                        <a href="humanitarian-dashboard.html">Humanitarian Dashboard</a>
+                        <!-- Add more visualization projects here -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="intro-section">
+            <p>The Data Analyst AI Copilot represents the future of business intelligence: a conversational analytics platform that eliminates the technical barriers between users and their data. By combining advanced LLM architectures with specialized data science agents, this solution enables anyone in an organization to explore complex datasets, discover insights, and generate visualizations through natural language—no coding required. This enterprise-ready system demonstrates my expertise in building scalable, AI-driven data solutions that transform how businesses interact with their information assets.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Platform Overview</h2>
+            <div class="dashboard-preview">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/data-analyst-ai.png" alt="Data Analyst AI Copilot Preview" />
+            </div>
+            <p>The Data Analyst AI Copilot is a sophisticated conversational analytics platform that enables business users to interact with their data through natural language. Built on a multi-agent architecture, it leverages large language models to transform plain English queries into powerful data analysis operations, generating interactive visualizations and insights instantly without requiring any technical expertise.</p>
+            
+            <div class="button-container">
+                <a href="https://data-analyst-ai.streamlit.app/" class="button" target="_blank">Explore Live Demo</a>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Core Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Natural Language Data Analysis</h3>
+                    <p>Ask questions about your data in plain English and receive instant answers, eliminating the need for SQL, Python, or specialized query languages. The system handles everything from simple statistical queries to complex multi-step analyses.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Intelligent Data Wrangling</h3>
+                    <p>The specialized Data Wrangling Agent automatically transforms raw data into analysis-ready formats, handling complex operations like grouping, filtering, joining, aggregation, and feature engineering based on natural language instructions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Automated Visualization</h3>
+                    <p>The Data Visualization Agent intelligently selects the most appropriate chart types based on the data structure and analysis goal, creating optimized Plotly visualizations with zero configuration required from users.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multi-Agent Architecture</h3>
+                    <p>Built on a sophisticated orchestration system that routes queries to specialized agents for data wrangling, visualization, and analytics, ensuring optimal handling of each request while maintaining context throughout the conversation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Enterprise Data Integration</h3>
+                    <p>Supports CSV and Excel data sources, with the architecture designed for extensibility to database connections, data warehouses, and other enterprise data sources through modular pipeline components.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Conversation Memory</h3>
+                    <p>Maintains context throughout multi-turn interactions, allowing users to refine their analysis progressively and build on previous results without repeating information or reprocessing data.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Architecture</h2>
+            <p>The Data Analyst AI Copilot is built on a sophisticated multi-agent architecture that orchestrates specialized AI agents to handle different aspects of the data analysis process:</p>
+            
+            <div class="architecture-diagram">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/data-analyst-architecture.png" alt="Data Analyst AI Architecture Diagram" />
+            </div>
+            
+            <div class="agent-architecture">
+                <div class="agent-card">
+                    <div class="agent-card-content">
+                        <h3>Router Agent</h3>
+                        <p>The central orchestration component that analyzes user queries, determines whether to return tabular data or visualizations, and routes requests to the appropriate specialized agents while maintaining conversation state.</p>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-card-content">
+                        <h3>Data Wrangling Agent</h3>
+                        <p>Transforms raw data into analysis-ready formats by handling operations like filtering, grouping, joining, aggregation, and feature engineering based on natural language instructions, with self-healing capabilities for handling errors.</p>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-card-content">
+                        <h3>Data Visualization Agent</h3>
+                        <p>Intelligently selects and generates the most appropriate visualization types (bar charts, scatter plots, line charts, heatmaps) based on the data structure and analysis goals, with automated styling and optimization.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Agent Workflow Process</h3>
+            <ol class="workflow-steps">
+                <li class="workflow-step">
+                    <h4>Query Analysis & Routing</h4>
+                    <p>The Router Agent processes the user's natural language query, determining the analysis intent and whether to return tabular data or visualizations. It then generates specialized instructions for the appropriate downstream agents.</p>
+                </li>
+                <li class="workflow-step">
+                    <h4>Data Wrangling & Transformation</h4>
+                    <p>The Data Wrangling Agent generates Python code to perform the necessary data transformations, executing it safely within a sandboxed environment and implementing automatic error correction through a feedback loop system.</p>
+                    <div class="code-block">
+<pre>
+def data_wrangler(data_list):
+    """
+    Wrangle the provided data based on user query.
+    
+    Parameters:
+    -----------
+    data_list: List or DataFrame
+        The raw data to be processed
+    
+    Returns:
+    --------
+    pd.DataFrame
+        The transformed data ready for visualization or analysis
+    """
+    import pandas as pd
+    import numpy as np
+    
+    # Handle both DataFrame and list inputs
+    if not isinstance(data_list, list):
+        data_list = [data_list]
+    
+    # Convert to DataFrame if needed
+    df = data_list[0]
+    if not isinstance(df, pd.DataFrame):
+        df = pd.DataFrame(df)
+    
+    # Perform required transformations
+    # [Dynamically generated code based on user query]
+    
+    return transformed_df
+</pre>
+                    </div>
+                </li>
+                <li class="workflow-step">
+                    <h4>Visualization Generation</h4>
+                    <p>If a chart is requested, the Data Visualization Agent analyzes the transformed data, selects the optimal chart type, and generates Plotly visualization code that is then executed to produce an interactive chart.</p>
+                    <div class="code-block">
+<pre>
+def data_visualization(data_raw):
+    """
+    Generate an appropriate visualization based on the data and query.
+    
+    Parameters:
+    -----------
+    data_raw: Dictionary or DataFrame
+        The processed data to visualize
+    
+    Returns:
+    --------
+    dict
+        Plotly figure as a JSON-serializable dictionary
+    """
+    import pandas as pd
+    import plotly.express as px
+    import plotly.graph_objects as go
+    import json
+    import plotly.io as pio
+    
+    # Convert to DataFrame if needed
+    if not isinstance(data_raw, pd.DataFrame):
+        df = pd.DataFrame(data_raw)
+    else:
+        df = data_raw
+    
+    # Generate visualization
+    # [Dynamically generated visualization code]
+    
+    # Convert to JSON-serializable format
+    fig_json = pio.to_json(fig)
+    fig_dict = json.loads(fig_json)
+    
+    return fig_dict
+</pre>
+                    </div>
+                </li>
+                <li class="workflow-step">
+                    <h4>Response Delivery & Interface Integration</h4>
+                    <p>The system integrates the results (tables or visualizations) into the conversation interface, maintaining conversation history, storing generated artifacts, and enabling progressive refinement of analysis through follow-up questions.</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h2>Innovation Highlights</h2>
+            
+            <div class="highlight-box">
+                <h3>Multi-Agent LLM-Orchestrated Architecture</h3>
+                <p>Unlike typical AI assistants, this system employs specialized agents with distinct responsibilities, orchestrated through a sophisticated state management system built with LangGraph. This specialization allows each agent to excel at its specific role while the Router Agent handles the complexity of workflow management, resulting in more accurate and reliable results than monolithic approaches.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Self-Healing Code Generation</h3>
+                <p>The system implements an innovative error feedback loop for both data wrangling and visualization agents. When generated code encounters errors, the system automatically adjusts its approach through a dedicated error handling mechanism, attempting multiple resolution strategies before final output, dramatically improving reliability in production environments.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Prompt Engineering for Data Science</h3>
+                <p>The project showcases advanced prompt engineering techniques specifically optimized for data science operations, with carefully crafted prompts that include detailed data context, statistical summaries, and specialized instruction formats that maximize the LLM's ability to generate correct Python code for data manipulation and visualization.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Enterprise Architecture Patterns</h3>
+                <p>The application demonstrates enterprise-grade architectural patterns including modular component design, clear separation of concerns, comprehensive error handling, and scalable state management—making it a production-ready solution rather than just a prototype.</p>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Business Use Cases</h2>
+            <div class="use-cases">
+                <div class="use-case">
+                    <div class="use-case-icon">📊</div>
+                    <h3>Sales Analytics</h3>
+                    <p>Enable sales teams to quickly analyze performance metrics and trends through simple questions like "Show me our top 5 performing products this quarter" or "Compare revenue growth across regions," without waiting for data team support.</p>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">🏥</div>
+                    <h3>Healthcare Operations</h3>
+                    <p>Allow healthcare administrators to analyze patient data, resource utilization, and operational metrics through natural language queries, supporting better resource allocation and care optimization.</p>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">📱</div>
+                    <h3>Marketing Campaign Analysis</h3>
+                    <p>Empower marketing teams to instantly analyze campaign performance, customer segmentation, and engagement metrics by asking questions like "Show me conversion rates by channel" or "Which customer segment responded best to our last campaign?"</p>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">🏭</div>
+                    <h3>Supply Chain Optimization</h3>
+                    <p>Enable operations teams to quickly identify bottlenecks, analyze inventory levels, and optimize distribution networks through conversational interactions with complex supply chain data.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Implementation</h2>
+            <p>The Data Analyst AI Copilot showcases advanced data engineering capabilities through:</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">LangGraph</span>
+                <span class="tech-tag">OpenAI API</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Plotly</span>
+                <span class="tech-tag">Multi-Agent Architecture</span>
+                <span class="tech-tag">State Management</span>
+                <span class="tech-tag">Prompt Engineering</span>
+            </div>
+            
+            <p>The application demonstrates advanced data engineering principles including:</p>
+            
+            <ul>
+                <li><strong>Modular Architecture:</strong> Clean separation of agent responsibilities, state management, and interface components for maintainability and extensibility.</li>
+                <li><strong>Robust Error Handling:</strong> Sophisticated error recovery mechanisms for handling edge cases in data processing and visualization generation.</li>
+                <li><strong>Dynamic Code Generation:</strong> LLM-powered code generation that adapts to data characteristics and user requirements in real-time.</li>
+                <li><strong>State Management:</strong> Implementation of conversation memory and artifact storage for maintaining context across multi-turn interactions.</li>
+                <li><strong>UX Optimization:</strong> Thoughtful interface design that balances technical capabilities with accessibility for non-technical users.</li>
+            </ul>
