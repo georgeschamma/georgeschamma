@@ -238,114 +238,6 @@
             margin-bottom: 15px;
         }
 
-        .workflow-steps {
-            counter-reset: step-counter;
-            padding-left: 0;
-            margin-top: 30px;
-        }
-
-        .workflow-step {
-            list-style-type: none;
-            position: relative;
-            padding: 20px 20px 20px 80px;
-            margin-bottom: 20px;
-            background: var(--background-light);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .workflow-step:hover {
-            transform: translateX(5px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .workflow-step::before {
-            content: counter(step-counter);
-            counter-increment: step-counter;
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: var(--primary-color);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .workflow-step h4 {
-            margin-top: 0;
-            color: var(--secondary-color);
-            font-size: 1.2em;
-        }
-
-        .code-block {
-            background-color: var(--code-bg);
-            padding: 15px;
-            border-radius: var(--border-radius);
-            overflow-x: auto;
-            font-family: monospace;
-            margin: 15px 0;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .tech-tag {
-            background: var(--background-light);
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            color: var(--secondary-color);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .tech-tag:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .button-container {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
-        }
-
-        .button:hover {
-            background: var(--hover-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
-        }
-
         .agent-architecture {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -365,12 +257,6 @@
         .agent-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .agent-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
         }
 
         .agent-card-content {
@@ -429,33 +315,54 @@
             color: var(--secondary-color);
         }
 
-        .demo-videos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: var(--background-light);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            text-align: center;
             margin: 30px 0;
         }
 
-        .demo-video {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
         }
 
-        .demo-video img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .demo-video-content {
-            padding: 15px;
-        }
-
-        .demo-video-content h4 {
-            margin-top: 0;
-            color: var(--secondary-color);
+        .button:hover {
+            background: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
         }
 
         .footer-cta {
@@ -501,17 +408,6 @@
             .impact-metrics {
                 grid-template-columns: 1fr;
             }
-
-            .workflow-step {
-                padding-left: 20px;
-                padding-top: 70px;
-            }
-
-            .workflow-step::before {
-                top: 20px;
-                left: 20px;
-                transform: none;
-            }
         }
     </style>
 </head>
@@ -532,7 +428,6 @@
                     <div class="dropdown-content">
                         <a href="world-bank-visualization.html">World Bank Dashboard</a>
                         <a href="data-analyst-ai.html" class="active">Data Analyst AI</a>
-                        <!-- Add more data engineering projects here -->
                     </div>
                 </li>
                 
@@ -551,14 +446,13 @@
                     <a href="#">Visualization</a>
                     <div class="dropdown-content">
                         <a href="humanitarian-dashboard.html">Humanitarian Dashboard</a>
-                        <!-- Add more visualization projects here -->
                     </div>
                 </li>
             </ul>
         </nav>
 
         <div class="intro-section">
-            <p>The Data Analyst AI Copilot represents the future of business intelligence: a conversational analytics platform that eliminates the technical barriers between users and their data. By combining advanced LLM architectures with specialized data science agents, this solution enables anyone in an organization to explore complex datasets, discover insights, and generate visualizations through natural language—no coding required. This enterprise-ready system demonstrates my expertise in building scalable, AI-driven data solutions that transform how businesses interact with their information assets.</p>
+            <p>The Data Analyst AI Copilot eliminates technical barriers between users and their data by enabling anyone to explore complex datasets through natural language. Combining advanced LLM architectures with specialized data science capabilities, this solution allows business users to discover insights and generate visualizations without coding—transforming how organizations interact with their data assets.</p>
         </div>
 
         <div class="project-section">
@@ -566,7 +460,7 @@
             <div class="dashboard-preview">
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/data-analyst-ai.png" alt="Data Analyst AI Copilot Preview" />
             </div>
-            <p>The Data Analyst AI Copilot is a sophisticated conversational analytics platform that enables business users to interact with their data through natural language. Built on a multi-agent architecture, it leverages large language models to transform plain English queries into powerful data analysis operations, generating interactive visualizations and insights instantly without requiring any technical expertise.</p>
+            <p>Built on a multi-agent architecture, the Data Analyst AI Copilot transforms plain English queries into powerful data analysis operations, generating interactive visualizations and insights instantly without requiring technical expertise.</p>
             
             <div class="button-container">
                 <a href="https://data-analyst-ai.streamlit.app/" class="button" target="_blank">Explore Live Demo</a>
@@ -578,35 +472,25 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>Natural Language Data Analysis</h3>
-                    <p>Ask questions about your data in plain English and receive instant answers, eliminating the need for SQL, Python, or specialized query languages. The system handles everything from simple statistical queries to complex multi-step analyses.</p>
+                    <p>Ask questions about your data in plain English and receive instant answers, eliminating the need for SQL, Python, or specialized query languages.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Intelligent Data Wrangling</h3>
-                    <p>The specialized Data Wrangling Agent automatically transforms raw data into analysis-ready formats, handling complex operations like grouping, filtering, joining, aggregation, and feature engineering based on natural language instructions.</p>
+                    <p>Automatically transforms raw data into analysis-ready formats, handling operations like grouping, filtering, joining, and aggregation based on natural language instructions.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Automated Visualization</h3>
-                    <p>The Data Visualization Agent intelligently selects the most appropriate chart types based on the data structure and analysis goal, creating optimized Plotly visualizations with zero configuration required from users.</p>
+                    <p>Intelligently selects the most appropriate chart types based on data structure and analysis goals, creating optimized visualizations with zero configuration.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Multi-Agent Architecture</h3>
-                    <p>Built on a sophisticated orchestration system that routes queries to specialized agents for data wrangling, visualization, and analytics, ensuring optimal handling of each request while maintaining context throughout the conversation.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Enterprise Data Integration</h3>
-                    <p>Supports CSV and Excel data sources, with the architecture designed for extensibility to database connections, data warehouses, and other enterprise data sources through modular pipeline components.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Conversation Memory</h3>
-                    <p>Maintains context throughout multi-turn interactions, allowing users to refine their analysis progressively and build on previous results without repeating information or reprocessing data.</p>
+                    <p>Routes queries to specialized agents for data wrangling, visualization, and analytics, ensuring optimal handling while maintaining context throughout conversations.</p>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
             <h2>Technical Architecture</h2>
-            <p>The Data Analyst AI Copilot is built on a sophisticated multi-agent architecture that orchestrates specialized AI agents to handle different aspects of the data analysis process:</p>
-            
             <div class="architecture-diagram">
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/data-analyst-architecture.png" alt="Data Analyst AI Architecture Diagram" />
             </div>
@@ -615,137 +499,35 @@
                 <div class="agent-card">
                     <div class="agent-card-content">
                         <h3>Router Agent</h3>
-                        <p>The central orchestration component that analyzes user queries, determines whether to return tabular data or visualizations, and routes requests to the appropriate specialized agents while maintaining conversation state.</p>
+                        <p>Central orchestration component that analyzes user queries and routes requests to specialized agents while maintaining conversation state.</p>
                     </div>
                 </div>
                 <div class="agent-card">
                     <div class="agent-card-content">
                         <h3>Data Wrangling Agent</h3>
-                        <p>Transforms raw data into analysis-ready formats by handling operations like filtering, grouping, joining, aggregation, and feature engineering based on natural language instructions, with self-healing capabilities for handling errors.</p>
+                        <p>Transforms raw data into analysis-ready formats with self-healing capabilities for handling errors.</p>
                     </div>
                 </div>
                 <div class="agent-card">
                     <div class="agent-card-content">
                         <h3>Data Visualization Agent</h3>
-                        <p>Intelligently selects and generates the most appropriate visualization types (bar charts, scatter plots, line charts, heatmaps) based on the data structure and analysis goals, with automated styling and optimization.</p>
+                        <p>Intelligently selects and generates appropriate visualization types based on data structure and analysis goals.</p>
                     </div>
                 </div>
             </div>
-            
-            <h3>Agent Workflow Process</h3>
-            <ol class="workflow-steps">
-                <li class="workflow-step">
-                    <h4>Query Analysis & Routing</h4>
-                    <p>The Router Agent processes the user's natural language query, determining the analysis intent and whether to return tabular data or visualizations. It then generates specialized instructions for the appropriate downstream agents.</p>
-                </li>
-                <li class="workflow-step">
-                    <h4>Data Wrangling & Transformation</h4>
-                    <p>The Data Wrangling Agent generates Python code to perform the necessary data transformations, executing it safely within a sandboxed environment and implementing automatic error correction through a feedback loop system.</p>
-                    <div class="code-block">
-<pre>
-def data_wrangler(data_list):
-    """
-    Wrangle the provided data based on user query.
-    
-    Parameters:
-    -----------
-    data_list: List or DataFrame
-        The raw data to be processed
-    
-    Returns:
-    --------
-    pd.DataFrame
-        The transformed data ready for visualization or analysis
-    """
-    import pandas as pd
-    import numpy as np
-    
-    # Handle both DataFrame and list inputs
-    if not isinstance(data_list, list):
-        data_list = [data_list]
-    
-    # Convert to DataFrame if needed
-    df = data_list[0]
-    if not isinstance(df, pd.DataFrame):
-        df = pd.DataFrame(df)
-    
-    # Perform required transformations
-    # [Dynamically generated code based on user query]
-    
-    return transformed_df
-</pre>
-                    </div>
-                </li>
-                <li class="workflow-step">
-                    <h4>Visualization Generation</h4>
-                    <p>If a chart is requested, the Data Visualization Agent analyzes the transformed data, selects the optimal chart type, and generates Plotly visualization code that is then executed to produce an interactive chart.</p>
-                    <div class="code-block">
-<pre>
-def data_visualization(data_raw):
-    """
-    Generate an appropriate visualization based on the data and query.
-    
-    Parameters:
-    -----------
-    data_raw: Dictionary or DataFrame
-        The processed data to visualize
-    
-    Returns:
-    --------
-    dict
-        Plotly figure as a JSON-serializable dictionary
-    """
-    import pandas as pd
-    import plotly.express as px
-    import plotly.graph_objects as go
-    import json
-    import plotly.io as pio
-    
-    # Convert to DataFrame if needed
-    if not isinstance(data_raw, pd.DataFrame):
-        df = pd.DataFrame(data_raw)
-    else:
-        df = data_raw
-    
-    # Generate visualization
-    # [Dynamically generated visualization code]
-    
-    # Convert to JSON-serializable format
-    fig_json = pio.to_json(fig)
-    fig_dict = json.loads(fig_json)
-    
-    return fig_dict
-</pre>
-                    </div>
-                </li>
-                <li class="workflow-step">
-                    <h4>Response Delivery & Interface Integration</h4>
-                    <p>The system integrates the results (tables or visualizations) into the conversation interface, maintaining conversation history, storing generated artifacts, and enabling progressive refinement of analysis through follow-up questions.</p>
-                </li>
-            </ol>
         </div>
 
         <div class="project-section">
-            <h2>Innovation Highlights</h2>
+            <h2>Key Innovations</h2>
             
             <div class="highlight-box">
-                <h3>Multi-Agent LLM-Orchestrated Architecture</h3>
-                <p>Unlike typical AI assistants, this system employs specialized agents with distinct responsibilities, orchestrated through a sophisticated state management system built with LangGraph. This specialization allows each agent to excel at its specific role while the Router Agent handles the complexity of workflow management, resulting in more accurate and reliable results than monolithic approaches.</p>
+                <h3>Multi-Agent Orchestration</h3>
+                <p>Employs specialized agents with distinct responsibilities, orchestrated through a sophisticated state management system. This specialization allows each agent to excel at its specific role while maintaining coherent cross-agent workflows.</p>
             </div>
             
             <div class="highlight-box">
                 <h3>Self-Healing Code Generation</h3>
-                <p>The system implements an innovative error feedback loop for both data wrangling and visualization agents. When generated code encounters errors, the system automatically adjusts its approach through a dedicated error handling mechanism, attempting multiple resolution strategies before final output, dramatically improving reliability in production environments.</p>
-            </div>
-            
-            <div class="highlight-box">
-                <h3>Prompt Engineering for Data Science</h3>
-                <p>The project showcases advanced prompt engineering techniques specifically optimized for data science operations, with carefully crafted prompts that include detailed data context, statistical summaries, and specialized instruction formats that maximize the LLM's ability to generate correct Python code for data manipulation and visualization.</p>
-            </div>
-            
-            <div class="highlight-box">
-                <h3>Enterprise Architecture Patterns</h3>
-                <p>The application demonstrates enterprise-grade architectural patterns including modular component design, clear separation of concerns, comprehensive error handling, and scalable state management—making it a production-ready solution rather than just a prototype.</p>
+                <p>Implements an error feedback loop that automatically adjusts its approach when errors occur, dramatically improving reliability in production environments.</p>
             </div>
         </div>
 
@@ -755,28 +537,28 @@ def data_visualization(data_raw):
                 <div class="use-case">
                     <div class="use-case-icon">📊</div>
                     <h3>Sales Analytics</h3>
-                    <p>Enable sales teams to quickly analyze performance metrics and trends through simple questions like "Show me our top 5 performing products this quarter" or "Compare revenue growth across regions," without waiting for data team support.</p>
+                    <p>Enable sales teams to analyze performance metrics through simple questions like "Show me our top 5 performing products this quarter."</p>
                 </div>
                 <div class="use-case">
                     <div class="use-case-icon">🏥</div>
                     <h3>Healthcare Operations</h3>
-                    <p>Allow healthcare administrators to analyze patient data, resource utilization, and operational metrics through natural language queries, supporting better resource allocation and care optimization.</p>
+                    <p>Allow administrators to analyze patient data and resource utilization through natural language queries.</p>
                 </div>
                 <div class="use-case">
                     <div class="use-case-icon">📱</div>
-                    <h3>Marketing Campaign Analysis</h3>
-                    <p>Empower marketing teams to instantly analyze campaign performance, customer segmentation, and engagement metrics by asking questions like "Show me conversion rates by channel" or "Which customer segment responded best to our last campaign?"</p>
+                    <h3>Marketing Analysis</h3>
+                    <p>Empower marketing teams to instantly analyze campaign performance and customer segmentation.</p>
                 </div>
                 <div class="use-case">
                     <div class="use-case-icon">🏭</div>
                     <h3>Supply Chain Optimization</h3>
-                    <p>Enable operations teams to quickly identify bottlenecks, analyze inventory levels, and optimize distribution networks through conversational interactions with complex supply chain data.</p>
+                    <p>Quickly identify bottlenecks and optimize distribution networks through conversational interactions.</p>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
-            <h2>Performance Metrics & Benefits</h2>
+            <h2>Performance & Business Impact</h2>
             <div class="impact-metrics">
                 <div class="metric-item">
                     <div class="metric-value">90%</div>
@@ -796,19 +578,15 @@ def data_visualization(data_raw):
                 </div>
             </div>
             
-            <h3>Business Impact</h3>
             <ul>
-                <li><strong>Democratized Data Access:</strong> Removes technical barriers by enabling anyone in an organization to perform complex data analysis through natural language, regardless of their technical background.</li>
-                <li><strong>Accelerated Decision-Making:</strong> Reduces the time from question to insight from hours/days to seconds/minutes by eliminating the need for specialized data team involvement in routine analysis tasks.</li>
-                <li><strong>Consistency & Reliability:</strong> Ensures consistent methodologies and visualization standards across the organization, eliminating inconsistencies from manual analysis processes.</li>
-                <li><strong>Knowledge Preservation:</strong> Retains organizational knowledge about data analysis approaches, making them accessible to everyone rather than siloed within specialized teams.</li>
+                <li><strong>Democratized Data Access:</strong> Removes technical barriers by enabling anyone to perform complex data analysis through natural language.</li>
+                <li><strong>Accelerated Decision-Making:</strong> Reduces the time from question to insight from hours/days to seconds/minutes.</li>
+                <li><strong>Consistent Methodology:</strong> Ensures standardized analysis approaches across the organization.</li>
             </ul>
         </div>
 
         <div class="project-section">
-            <h2>Technical Implementation</h2>
-            <p>The Data Analyst AI Copilot showcases advanced data engineering capabilities through:</p>
-            
+            <h2>Technologies Used</h2>
             <div class="tech-stack">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">Streamlit</span>
@@ -818,67 +596,12 @@ def data_visualization(data_raw):
                 <span class="tech-tag">Pandas</span>
                 <span class="tech-tag">Plotly</span>
                 <span class="tech-tag">Multi-Agent Architecture</span>
-                <span class="tech-tag">State Management</span>
-                <span class="tech-tag">Prompt Engineering</span>
-            </div>
-            
-            <p>The application demonstrates advanced data engineering principles including:</p>
-            
-            <ul>
-                <li><strong>Modular Architecture:</strong> Clean separation of agent responsibilities, state management, and interface components for maintainability and extensibility.</li>
-                <li><strong>Robust Error Handling:</strong> Sophisticated error recovery mechanisms for handling edge cases in data processing and visualization generation.</li>
-                <li><strong>Dynamic Code Generation:</strong> LLM-powered code generation that adapts to data characteristics and user requirements in real-time.</li>
-                <li><strong>State Management:</strong> Implementation of conversation memory and artifact storage for maintaining context across multi-turn interactions.</li>
-                <li><strong>UX Optimization:</strong> Thoughtful interface design that balances technical capabilities with accessibility for non-technical users.</li>
-            </ul>
-            
-            <h3>Key Implementation Features</h3>
-            
-            <ol class="workflow-steps">
-                <li class="workflow-step">
-                    <h4>Dynamic Agent Orchestration</h4>
-                    <p>The Router Preprocessor intelligently analyzes user queries to determine whether they require data wrangling, visualization, or both, then dynamically generates instructions tailored to each specialized agent, ensuring optimal processing while maintaining coherent cross-agent workflows.</p>
-                </li>
-                <li class="workflow-step">
-                    <h4>Intelligent Data Preprocessing</h4>
-                    <p>Before processing, the system automatically analyzes uploaded datasets to extract critical metadata (column types, value distributions, relationships), enabling the agents to make informed decisions about data transformations and visualizations without requiring user specification.</p>
-                </li>
-                <li class="workflow-step">
-                    <h4>Conversational Memory Management</h4>
-                    <p>Implementation of a sophisticated state management system that maintains conversation history, generated visualizations, and processed datasets, enabling multi-turn interactions where users can refine their analysis through follow-up questions.</p>
-                </li>
-                <li class="workflow-step">
-                    <h4>Adaptive Error Recovery</h4>
-                    <p>Implementation of a self-healing mechanism that detects runtime errors in generated code, automatically reformulates its approach, and attempts resolution through a feedback loop—significantly improving reliability in production environments.</p>
-                </li>
-            </ol>
-        </div>
-
-        <div class="project-section">
-            <h2>Future Development Roadmap</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Database Integration</h3>
-                    <p>Extending the platform to connect directly with SQL databases, data warehouses, and cloud storage solutions, enabling users to query enterprise data sources without manual uploads.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Advanced Analytics Agents</h3>
-                    <p>Developing specialized agents for predictive analytics, time series forecasting, and anomaly detection to expand beyond descriptive analysis into predictive and prescriptive capabilities.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Interactive Report Generation</h3>
-                    <p>Adding capabilities to automatically generate comprehensive, exportable reports with narratives that explain insights in business context alongside relevant visualizations.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>On-Premises Deployment</h3>
-                    <p>Developing a containerized version that can be deployed within enterprise environments using local LLMs for organizations with strict data privacy requirements.</p>
-                </div>
             </div>
         </div>
 
         <div class="footer-cta">
             <h2>Ready to Transform Your Data Experience?</h2>
-            <p>The Data Analyst AI Copilot represents the next generation of data analytics—where technical barriers disappear and insights become accessible to everyone. Let's discuss how this technology can be customized for your organization's specific needs.</p>
+            <p>Let's discuss how this technology can be customized for your organization's specific needs.</p>
             <div class="button-container">
                 <a href="mailto:georgeschamma@gmail.com" class="button">Contact Me</a>
                 <a href="https://github.com/georgeschamma/data-analyst-ai" class="button" style="margin-left: 15px;">View on GitHub</a>
