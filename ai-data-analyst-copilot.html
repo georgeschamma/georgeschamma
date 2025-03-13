@@ -9,6 +9,7 @@
     <style>
         :root {
             --primary-color: #4a90e2;
+            --primary-dark: #1d4ed8;
             --secondary-color: #2c3e50;
             --background-light: #f8f9fa;
             --text-color: #333;
@@ -52,12 +53,13 @@
             padding: 0 20px;
         }
 
+        /* Updated navigation styling to match index page */
         nav {
             background: white;
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
 
@@ -73,7 +75,10 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
+        }
+
+        nav li {
+            position: relative;
         }
 
         nav a {
@@ -82,11 +87,12 @@
             padding: 8px 20px;
             border-radius: 20px;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         nav a:hover {
-            background-color: var(--hover-color);
-            color: white;
+            color: var(--primary-color);
+            background-color: var(--background-light);
         }
 
         nav a.active {
@@ -94,41 +100,49 @@
             color: white;
         }
 
-        /* Dropdown Menu Styles */
+        /* Dropdown styling */
         .dropdown {
             position: relative;
-            display: inline-block;
+        }
+
+        .dropdown > a::after {
+            content: "▼";
+            font-size: 0.6em;
+            margin-left: 6px;
+            vertical-align: middle;
         }
 
         .dropdown-content {
-            display: none;
             position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border-radius: var(--border-radius);
-            z-index: 100;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 10px;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 10px 0;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
         }
 
         .dropdown:hover .dropdown-content {
-            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
         }
-        
+
         .dropdown-content a {
             display: block;
-            padding: 10px 20px;
-            text-align: left;
+            padding: 8px 20px;
             border-radius: 0;
+            white-space: nowrap;
         }
 
         .dropdown-content a:hover {
             background-color: var(--background-light);
-            color: var(--primary-color);
         }
 
         .intro-section {
@@ -399,10 +413,40 @@
             border-top: 1px solid #ddd;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
             nav ul {
                 flex-direction: column;
-                text-align: center;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                min-width: auto;
+                padding: 5px 0 5px 20px;
+                margin-top: 5px;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown > a::after {
+                content: "+";
+            }
+
+            .dropdown.active > a::after {
+                content: "-";
             }
 
             .impact-metrics {
@@ -418,17 +462,17 @@
             <p>Enterprise-grade conversational analytics platform that transforms data into actionable insights through natural language</p>
         </header>
 
+        <!-- Updated navigation to match index page -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Data-Framework.html" class="active">Data Framework</a></li>
+                <li><a href="Data-Framework.html">Data Framework</a></li>
                 
                 <!-- Data Engineering Dropdown -->
                 <li class="dropdown">
                     <a href="#">Data Engineering</a>
                     <div class="dropdown-content">
                         <a href="world-bank-visualization.html">World Bank Dashboard</a>
-
                     </div>
                 </li>
                 
@@ -614,5 +658,21 @@
             <p>&copy; 2025 Georges Chamma | Data Engineering & AI Innovation Specialist</p>
         </footer>
     </div>
+
+    <!-- Added JavaScript for mobile dropdown toggle to match index page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // For mobile: toggle dropdowns
+            const dropdowns = document.querySelectorAll('.dropdown > a');
+            dropdowns.forEach(dropdownLink => {
+                dropdownLink.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
