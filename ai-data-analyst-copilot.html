@@ -9,7 +9,6 @@
     <style>
         :root {
             --primary-color: #4a90e2;
-            --primary-dark: #1d4ed8;
             --secondary-color: #2c3e50;
             --background-light: #f8f9fa;
             --text-color: #333;
@@ -53,13 +52,13 @@
             padding: 0 20px;
         }
 
-        /* Updated navigation styling to match index page */
+        /* Base navigation styling */
         nav {
             background: white;
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 30px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
 
@@ -91,7 +90,7 @@
         }
 
         nav a:hover {
-            color: var(--primary-color);
+            color: var(--hover-color);
             background-color: var(--background-light);
         }
 
@@ -118,7 +117,7 @@
             left: 0;
             background: white;
             min-width: 200px;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 10px 0;
             z-index: 100;
@@ -415,10 +414,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -462,7 +457,6 @@
             <p>Enterprise-grade conversational analytics platform that transforms data into actionable insights through natural language</p>
         </header>
 
-        <!-- Updated navigation to match index page -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -659,7 +653,7 @@
         </footer>
     </div>
 
-    <!-- Added JavaScript for mobile dropdown toggle to match index page -->
+    <!-- JavaScript for mobile dropdown toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // For mobile: toggle dropdowns
