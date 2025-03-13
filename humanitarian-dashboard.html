@@ -482,4 +482,90 @@
                 </div>
                 <div class="metric-item">
                     <div class="metric-value">1,000+</div>
-                    <div class="metric-label">Projects
+                    <div class="metric-label">Projects Monitored</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Governorates Covered</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">$25M+</div>
+                    <div class="metric-label">Aid Contributions Visualized</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Development Process</h2>
+            <ol class="process-steps">
+                <li class="process-step">
+                    <h4>Needs Assessment & Stakeholder Consultation</h4>
+                    <p>Analyzed existing online data sources to identify critical information needs and visualization requirements for effective humanitarian coordination and response.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Data Collection & Integration</h4>
+                    <p>Developed a standardized data collection methodology and established automated data pipelines to integrate information from multiple humanitarian information management systems.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Data Cleaning & Transformation</h4>
+                    <p>Implemented robust data validation and cleaning processes to ensure accuracy and consistency across diverse datasets with varying quality standards.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Dashboard Design & Development</h4>
+                    <p>Created an intuitive user interface with interactive visualizations optimized for both technical and non-technical users in the humanitarian sector.</p>
+                </li>
+                <li class="process-step">
+                    <h4>Deployment & Knowledge Transfer</h4>
+                    <p>Deployed the dashboard to production environments and conducted training sessions for humanitarian coordination staff to ensure effective adoption.</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Google Data Studio</span>
+                <span class="tech-tag">Google Sheets</span>
+                <span class="tech-tag">Apps Script</span>
+                <span class="tech-tag">Google Maps API</span>
+            </div>
+            <p>The dashboard leverages cloud-based technologies for scalability and accessibility, ensuring it can be accessed by humanitarian workers in field conditions with limited connectivity.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Data Sources</h2>
+            <p>The dashboard integrates data from multiple humanitarian coordination systems:</p>
+            <div class="data-sources">
+                <span class="data-source-tag">UNHCR ActivityInfo</span>
+                <span class="data-source-tag">OCHA 3W Database</span>
+                <span class="data-source-tag">UN Financial Tracking Service</span>
+            </div>
+            <p>All data undergoes rigorous validation and anonymization where appropriate to ensure security and privacy while maintaining analytical value.</p>
+        </div>
+
+        <div class="button-container">
+            <a href="https://lookerstudio.google.com/reporting/926f1b46-29e3-4fe4-8348-78f1319e6c8c" class="button" target="_blank">Explore the Dashboard</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Georges Chamma</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for mobile dropdown toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // For mobile: toggle dropdowns
+            const dropdowns = document.querySelectorAll('.dropdown > a');
+            dropdowns.forEach(dropdownLink => {
+                dropdownLink.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
