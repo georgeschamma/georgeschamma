@@ -121,19 +121,13 @@
             padding: 2rem 1rem;
         }
 
-        /* Base navigation styling */
+        /* Navigation styles - completely revamped */
         nav {
             background: white;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 30px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         nav ul {
@@ -143,6 +137,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            position: relative;
         }
 
         nav li {
@@ -168,7 +163,7 @@
             color: white;
         }
 
-        /* Dropdown styling */
+        /* Completely revamped dropdown styling */
         .dropdown {
             position: relative;
         }
@@ -188,29 +183,32 @@
             min-width: 200px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 10px 0;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
+            padding: 0;
+            z-index: 1000;
+            display: none;
+            margin-top: 5px;
         }
-
+        
         .dropdown:hover .dropdown-content {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(5px);
+            display: block;
         }
 
         .dropdown-content a {
             display: block;
-            padding: 8px 20px;
+            padding: 10px 20px;
             border-radius: 0;
             white-space: nowrap;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .dropdown-content a:hover {
             background-color: var(--background-light);
+        }
+        
+        .dropdown-content a.active {
+            background-color: var(--primary-color);
+            color: white;
         }
 
         .results-section {
@@ -1034,54 +1032,6 @@
         </footer>
     </div>
 
-    <!-- JavaScript for dropdown functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // For mobile: toggle dropdowns
-            const dropdowns = document.querySelectorAll('.dropdown > a');
-            
-            dropdowns.forEach(dropdownLink => {
-                dropdownLink.addEventListener('click', function(e) {
-                    // For mobile view
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        this.parentElement.classList.toggle('active');
-                    } 
-                    // For desktop view - prevent default action to keep dropdown visible
-                    else {
-                        e.preventDefault();
-                        // Show dropdown on click for desktop as well
-                        const dropdownContent = this.nextElementSibling;
-                        const isVisible = window.getComputedStyle(dropdownContent).visibility === 'visible';
-                        
-                        // First hide all dropdowns
-                        document.querySelectorAll('.dropdown-content').forEach(menu => {
-                            menu.style.opacity = '0';
-                            menu.style.visibility = 'hidden';
-                            menu.style.transform = 'translateY(10px)';
-                        });
-                        
-                        // Then show the clicked one if it wasn't visible
-                        if (!isVisible) {
-                            dropdownContent.style.opacity = '1';
-                            dropdownContent.style.visibility = 'visible'; 
-                            dropdownContent.style.transform = 'translateY(5px)';
-                        }
-                    }
-                });
-            });
-            
-            // Hide dropdowns when clicking elsewhere
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown-content').forEach(menu => {
-                        menu.style.opacity = '0';
-                        menu.style.visibility = 'hidden';
-                        menu.style.transform = 'translateY(10px)';
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- Removed JavaScript for dropdowns since we're using CSS :hover instead -->
 </body>
 </html>
