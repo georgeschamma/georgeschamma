@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Women Employment Prediction - Machine Learning Project</title>
+    <title>World Bank Data Visualization - Global Development Insights</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Machine learning model predicting women employment factors across different countries" />
+    <meta name="description" content="Interactive platform for exploring global development indicators and empowering data-driven decision making" />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
     <style>
         :root {
@@ -161,7 +161,294 @@
             margin-bottom: 30px;
         }
 
-        /* Additional styles for your women employment page would go here */
+        .dashboard-preview {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .dashboard-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-item {
+            text-align: center;
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+        }
+
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2em 0;
+        }
+
+        .architecture-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+
+        .report-download {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .report-download-image {
+            flex: 0 0 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .report-download-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .report-download-content {
+            flex: 1;
+        }
+
+        .data-flow-steps {
+            counter-reset: step-counter;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        .data-flow-step {
+            list-style-type: none;
+            position: relative;
+            padding: 20px 20px 20px 80px;
+            margin-bottom: 20px;
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .data-flow-step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .data-flow-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .data-flow-step h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            font-family: monospace;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: var(--background-light);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .button:hover {
+            background: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+        }
+
+        .use-cases {
+            margin: 30px 0;
+        }
+
+        .use-case {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .use-case h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .visualization-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .visualization-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .visualization-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .visualization-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .visualization-card-content {
+            padding: 20px;
+        }
+
+        .visualization-card-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .insight-box {
+            background-color: rgba(74, 144, 226, 0.1);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: var(--border-radius);
+        }
+
+        .insight-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
 
         footer {
             text-align: center;
@@ -201,16 +488,44 @@
             .dropdown.active > a::after {
                 content: "-";
             }
+
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .data-flow-step {
+                padding-left: 20px;
+                padding-top: 70px;
+            }
+
+            .data-flow-step::before {
+                top: 20px;
+                left: 20px;
+                transform: none;
+            }
+            
+            .report-download {
+                flex-direction: column;
+            }
+            
+            .report-download-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div id="wrapper">
+<!-- Header Section Only - Replace your existing header with this -->
         <header>
             <h1>Women Employment Prediction</h1>
             <p>Transforming global development data into actionable insights for policy makers, researchers, and organizations</p>
         </header>
-
+        
+        <!-- Navigation Section - If needed -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -256,10 +571,168 @@
         </nav>
 
         <div class="intro-section">
-            <p>This machine learning project focuses on predicting factors that influence women's employment rates across different countries and regions. By analyzing socioeconomic indicators, education metrics, and policy frameworks, the model identifies key drivers and barriers to women's participation in the workforce.</p>
+            <p>In a world where data-driven decision making is crucial, the vast treasure trove of global development data from the World Bank remains largely inaccessible to those who need it most. This project bridges that gap by transforming complex datasets into intuitive, interactive visualizations that enable policy makers, researchers, and organizations to uncover insights, identify trends, and make informed decisions that impact millions of lives across the globe.</p>
         </div>
 
-        <!-- Your women employment content would go here, following the same structure -->
+        <div class="project-section">
+            <h2>Platform Overview</h2>
+            <div class="dashboard-preview">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" alt="World Bank Dashboard Preview" />
+            </div>
+            <p>The World Bank Data Visualization Tool provides an intuitive interface to explore global development indicators across 200+ countries and 60+ years of historical data. Users can compare economic growth, environmental metrics, education statistics, and health outcomes through customizable visualizations that reveal patterns and relationships not evident in raw data.</p>
+            
+            <div class="button-container">
+                <a href="https://georgeschamma-world-bank-d-data-engineering-dashboard-un-hspn9k.streamlit.app/" class="button" target="_blank">Explore Live Dashboard</a>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Challenges & Solutions: Making Global Data Accessible</h2>
+            
+            <p>The World Bank collects invaluable development data spanning economies, health systems, education, and environmental conditions worldwide. However, transforming this data into actionable insights presents significant challenges that this project addresses through targeted technical solutions.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Challenge: Data Complexity</h3>
+                    <p>Raw World Bank data spans 250+ indicators across 200+ countries and 60+ years of history, making it overwhelming for most users to process manually.</p>
+                    <p><strong>Solution:</strong> Implemented advanced ETL workflows that transform complex data into clean, structured formats with automated validation and normalization, making it instantly usable for analysis.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Challenge: Technical Barriers</h3>
+                    <p>Traditional access methods require coding skills and database knowledge, limiting access for policy makers, researchers, and organizations without technical expertise.</p>
+                    <p><strong>Solution:</strong> Designed an intuitive interface that allows non-technical users to explore complex data through simple dropdown selectors, interactive filters, and dynamic visualizations.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Challenge: Insight Gaps</h3>
+                    <p>Hidden patterns and correlations in the data remain undiscovered without proper visualization tools, hindering evidence-based decision making and policy development.</p>
+                    <p><strong>Solution:</strong> Developed a multi-modal visualization system with time series, comparative, and geospatial views that automatically highlights patterns and relationships.</p>
+                </div>
+            </div>
+
+            <div class="visualization-examples">
+                <div class="visualization-card">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Time Series Analysis.png" alt="Time Series Visualization" />
+                    <div class="visualization-card-content">
+                        <h3>Time Series Analysis</h3>
+                        <p>Interactive line charts that visualize trends and patterns in development indicators over time, enabling comparative analysis across multiple countries with synchronized tooltips and flexible time range selection.</p>
+                    </div>
+                </div>
+                <div class="visualization-card">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bar Charts.png" alt="Bar Chart Visualization" />
+                    <div class="visualization-card-content">
+                        <h3>Comparative Bar Charts</h3>
+                        <p>Dynamic bar charts that facilitate direct comparison of indicators across countries for specific years, with automatic sorting, color coding, and value labeling to highlight significant differences.</p>
+                    </div>
+                </div>
+                <div class="visualization-card">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Map.png" alt="Choropleth Map Visualization" />
+                    <div class="visualization-card-content">
+                        <h3>Geospatial Analysis</h3>
+                        <p>Interactive choropleth maps that display global or regional distribution of indicators, revealing geographic patterns and disparities with customizable color scales and intuitive hover information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Implementation</h2>
+            
+            <div class="insight-box">
+                <h3>Industry-Relevant Engineering Skills</h3>
+                <p>This project showcases transferable data engineering expertise that applies across industries - from financial services to healthcare to retail. The same architecture that processes World Bank data could be adapted to handle enterprise data warehousing, IoT data streams, or customer analytics platforms.</p>
+            </div>
+            
+            <div class="architecture-diagram">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/architecture-diagram.png" alt="Data Engineering Architecture Diagram" />
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Robust ETL Pipeline</h3>
+                    <p>Built a resilient data pipeline that handles complex API interactions including pagination, rate limiting, and error recovery, ensuring reliable data flow from source to visualization.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Data Transformation</h3>
+                    <p>Created workflows that normalize heterogeneous data into consistent formats, handling missing values and ensuring type consistency across disparate indicators.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Modular Architecture</h3>
+                    <p>Implemented a design that separates concerns, enabling easy maintenance while efficiently handling large datasets with optimized data structures.</p>
+                </div>
+            </div>
+            
+            <h3>Technologies Used</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Plotly</span>
+                <span class="tech-tag">REST API Integration</span>
+                <span class="tech-tag">Data Transformation</span>
+                <span class="tech-tag">ETL Workflows</span>
+                <span class="tech-tag">Data Validation</span>
+                <span class="tech-tag">Error Handling</span>
+                <span class="tech-tag">Logging Systems</span>
+            </div>
+            
+            <h3>Implementation Process</h3>
+            <ol class="data-flow-steps">
+                <li class="data-flow-step">
+                    <h4>Data Source Configuration</h4>
+                    <p>Engineered a flexible data source interface that abstracts the World Bank API complexities, allowing seamless integration with additional data sources in the future.</p>
+                </li>
+                <li class="data-flow-step">
+                    <h4>Data Extraction & Acquisition</h4>
+                    <p>Implemented a robust data fetching system that handles API pagination, rate limiting, and connection failures with intelligent retry mechanisms.</p>
+                </li>
+                <li class="data-flow-step">
+                    <h4>Data Transformation & Processing</h4>
+                    <p>Designed intelligent data processing workflows that clean, normalize, and structure raw API data into analysis-ready formats.</p>
+                </li>
+                <li class="data-flow-step">
+                    <h4>Data Visualization Generation</h4>
+                    <p>Created a visualization engine that automatically selects the optimal chart type based on data characteristics with intuitive controls for data exploration.</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h2>Impact & Results</h2>
+            
+            <div class="impact-metrics">
+                <div class="metric-item">
+                    <div class="metric-value">250+</div>
+                    <div class="metric-label">Development Indicators</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">200+</div>
+                    <div class="metric-label">Countries & Territories</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">60+</div>
+                    <div class="metric-label">Years of Historical Data</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Visualization Types</div>
+                </div>
+            </div>
+            
+            <div class="report-download">
+                <div class="report-download-image">
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Raw Data.png" alt="Data Export Functionality" />
+                </div>
+                <div class="report-download-content">
+                    <h3>One-Click Data Export</h3>
+                    <p>The platform includes comprehensive data export capabilities, allowing users to download the analyzed data directly as CSV files for further processing or integration with other systems.</p>
+                    <p>All visualizations and analysis can be exported, enabling seamless reporting and sharing of insights with stakeholders - a critical feature for organizations that need to incorporate findings into their own reporting systems.</p>
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <a href="https://github.com/georgeschamma/world-bank-data-visualization" class="button" target="_blank">View Source Code on GitHub</a>
+            </div>
+        </div>
 
         <footer>
             <p>&copy; 2025 Georges Chamma | Data Engineering & AI Innovation Specialist</p>
