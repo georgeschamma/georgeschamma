@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>World Bank Data Visualization - Data Engineering Project</title>
+    <title>World Bank Data Visualization - Global Development Insights</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Data Engineering Project: Real-time World Bank data visualization and analysis tool" />
+    <meta name="description" content="Interactive platform for exploring global development indicators and empowering data-driven decision making" />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
     <style>
         :root {
@@ -175,28 +175,29 @@
             border: 1px solid #ddd;
         }
 
-        .features-grid {
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
 
-        .feature-card {
+        .benefit-card {
             background: var(--background-light);
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--accent-color);
         }
 
-        .feature-card:hover {
+        .benefit-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .feature-card h3 {
-            color: var(--primary-color);
+        .benefit-card h3 {
+            color: var(--accent-color);
             margin-top: 0;
             margin-bottom: 15px;
         }
@@ -383,6 +384,23 @@
             box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
         }
 
+        .use-cases {
+            margin: 30px 0;
+        }
+
+        .use-case {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .use-case h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
         .visualization-examples {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -417,6 +435,19 @@
         .visualization-card-content h3 {
             margin-top: 0;
             color: var(--primary-color);
+        }
+
+        .insight-box {
+            background-color: rgba(39, 174, 96, 0.1);
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: var(--border-radius);
+        }
+
+        .insight-box h3 {
+            margin-top: 0;
+            color: var(--accent-color);
         }
 
         footer {
@@ -490,7 +521,7 @@
     <div id="wrapper">
         <header>
             <h1>World Bank Data Visualization & Analytics</h1>
-            <p>A comprehensive data engineering solution for transforming global development indicators into actionable insights</p>
+            <p>Transforming global development data into actionable insights for policy makers, researchers, and organizations</p>
         </header>
 
         <nav>
@@ -528,7 +559,7 @@
         </nav>
 
         <div class="intro-section">
-            <p>This project demonstrates advanced data engineering capabilities through a powerful, real-time data visualization platform for World Bank development indicators. By architecting a robust data pipeline that seamlessly integrates with the World Bank API, this application transforms complex global datasets into intuitive, interactive visualizations that enable rapid analysis and discovery of economic, social, and environmental trends across countries and time periods.</p>
+            <p>In a world where data-driven decision making is crucial, the vast treasure trove of global development data from the World Bank remains largely inaccessible to those who need it most. This project bridges that gap by transforming complex datasets into intuitive, interactive visualizations that enable policy makers, researchers, and organizations to uncover insights, identify trends, and make informed decisions that impact millions of lives across the globe.</p>
         </div>
 
         <div class="project-section">
@@ -536,7 +567,7 @@
             <div class="dashboard-preview">
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" alt="World Bank Dashboard Preview" />
             </div>
-            <p>The World Bank Data Visualization Tool is a sophisticated data engineering solution that empowers users to explore global development indicators through customizable visualizations. Built with Python and Streamlit, the platform provides real-time access to the World Bank's extensive database, enabling data-driven decision making and comparative analysis across countries, regions, and time periods.</p>
+            <p>The World Bank Data Visualization Tool provides an intuitive interface to explore global development indicators across 200+ countries and 60+ years of historical data. Users can compare economic growth, environmental metrics, education statistics, and health outcomes through customizable visualizations that reveal patterns and relationships not evident in raw data.</p>
             
             <div class="button-container">
                 <a href="https://georgeschamma-world-bank-d-data-engineering-dashboard-un-hspn9k.streamlit.app/" class="button" target="_blank">Explore Live Dashboard</a>
@@ -544,31 +575,58 @@
         </div>
 
         <div class="project-section">
-            <h2>Core Data Engineering Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Automated Data Pipeline</h3>
-                    <p>Engineered a sophisticated ETL workflow that dynamically fetches, processes, and transforms World Bank API data into analysis-ready formats, handling API pagination, error states, and data validation automatically.</p>
+            <h2>Why This Project Matters</h2>
+            
+            <div class="insight-box">
+                <h3>Democratizing Access to Global Development Data</h3>
+                <p>The World Bank collects vital statistics on economies, health systems, education, and environmental conditions across the globe. However, the sheer volume and complexity of this data make it challenging for many stakeholders to extract meaningful insights. This project was created to democratize access to this valuable information, making it accessible and actionable for everyone from policy makers to students.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Evidence-Based Policy Making</h3>
+                    <p>Enables government officials and policy makers to base decisions on reliable data rather than assumptions, leading to more effective programs and resource allocation. The platform makes it easy to compare indicators across regions and track progress over time.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Real-time Data Integration</h3>
-                    <p>Implemented real-time data retrieval from the World Bank API with robust error handling, rate limiting compliance, and response processing to ensure continuous data availability without service disruptions.</p>
+                <div class="benefit-card">
+                    <h3>Research & Education</h3>
+                    <p>Provides researchers and students with an accessible tool to explore global development patterns, test hypotheses, and generate visualizations for publications without requiring advanced technical skills or expensive software.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Intelligent Data Transformation</h3>
-                    <p>Created data normalization and transformation processes that handle missing values, standardize formats, and prepare data for statistical analysis and visualization across disparate indicator types.</p>
+                <div class="benefit-card">
+                    <h3>Cross-Country Comparisons</h3>
+                    <p>Facilitates easy comparison of development indicators across countries and regions, highlighting disparities and success stories that can inform best practices and targeted interventions in areas like healthcare, education, and environmental protection.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Optimized Data Structures</h3>
-                    <p>Designed efficient data models and in-memory data structures that support complex filtering, aggregation, and time-series analysis while maintaining responsive performance on large datasets.</p>
+                <div class="benefit-card">
+                    <h3>Trend Identification</h3>
+                    <p>Reveals long-term trends in global development that might be missed in tabular data, helping organizations identify emerging issues and opportunities for intervention before they become crises.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Data Quality Assurance</h3>
-                    <p>Implemented comprehensive data validation, error handling, and logging systems to ensure data integrity and provide transparent feedback when API limitations or data quality issues arise.</p>
+                <div class="benefit-card">
+                    <h3>Impact Assessment</h3>
+                    <p>Enables NGOs and development agencies to assess the impact of their programs by visualizing changes in relevant indicators over time and comparing against regional benchmarks or global targets.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Interactive Visualization Engine</h3>
-                    <p>Developed a powerful visualization engine that dynamically generates optimized charts based on data characteristics, providing meaningful insights through time-series analysis, comparative benchmarking, and geospatial mapping.</p>
+                <div class="benefit-card">
+                    <h3>Storytelling & Advocacy</h3>
+                    <p>Transforms complex statistics into compelling visual narratives that can be used for advocacy, fundraising, and raising awareness about critical global development challenges and successes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Real-World Applications</h2>
+            
+            <div class="use-cases">
+                <div class="use-case">
+                    <h3>Sustainable Development Goals Tracking</h3>
+                    <p>The platform enables organizations to track progress toward the UN Sustainable Development Goals (SDGs) by visualizing key indicators over time and comparing performance across regions. This helps identify areas needing additional resources and intervention while highlighting successful approaches that can be replicated elsewhere.</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3>Climate Change Impact Analysis</h3>
+                    <p>Researchers and environmental organizations can visualize CO2 emissions, temperature changes, and natural disaster impacts alongside economic indicators to understand the relationship between development approaches and environmental consequences, informing more sustainable policy recommendations.</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3>Educational Equality Assessment</h3>
+                    <p>Education ministries and international agencies can analyze school enrollment rates, literacy levels, and educational spending across different demographics to identify disparities and develop targeted interventions that promote equal access to quality education.</p>
                 </div>
             </div>
         </div>
@@ -605,38 +663,10 @@
                 <li class="data-flow-step">
                     <h4>Data Source Configuration</h4>
                     <p>Engineered a flexible data source interface that abstracts the World Bank API complexities, allowing seamless integration with additional data sources in the future while maintaining consistent data structures.</p>
-                    <div class="code-block">
-                        <pre>
-# World Bank API indicators dictionary (common indicators)
-WB_INDICATORS = {
-    "NY.GDP.MKTP.CD": "GDP (current US$)",
-    "NY.GDP.PCAP.CD": "GDP per capita (current US$)",
-    "SP.POP.TOTL": "Population, total",
-    "EN.ATM.CO2E.PC": "CO2 emissions (metric tons per capita)",
-    # Additional indicators...
-}</pre>
-                    </div>
                 </li>
                 <li class="data-flow-step">
                     <h4>Data Extraction & Acquisition</h4>
                     <p>Implemented a robust data fetching system that handles API pagination, rate limiting, and connection failures. The system intelligently retries failed requests and provides clear feedback to users when data is unavailable.</p>
-                    <div class="code-block">
-                        <pre>
-def fetch_world_bank_data(indicator: str, countries: List[str], 
-                         start_year: int, end_year: int) -> Optional[pd.DataFrame]:
-    """
-    Fetch data from World Bank API with comprehensive error handling.
-    """
-    try:
-        country_str = ";".join(countries)
-        url = f"http://api.worldbank.org/v2/country/{country_str}/indicator/{indicator}?date={start_year}:{end_year}&format=json&per_page=1000"
-        
-        logger.info(f"Fetching World Bank data: {url}")
-        response = requests.get(url)
-        
-        # Robust error handling and data validation
-        # ...</pre>
-                    </div>
                 </li>
                 <li class="data-flow-step">
                     <h4>Data Transformation & Processing</h4>
@@ -710,16 +740,6 @@ def fetch_world_bank_data(indicator: str, countries: List[str],
                 <span class="tech-tag">Error Handling</span>
                 <span class="tech-tag">Logging Systems</span>
             </div>
-            
-            <p>The application is built with a modular architecture that separates data acquisition, transformation, visualization, and user interface concerns, enabling easy maintenance and extension. The code follows best practices for data engineering, including:</p>
-            
-            <ul>
-                <li><strong>Type Annotations:</strong> Comprehensive type hints throughout the codebase to enhance code readability and enable static type checking.</li>
-                <li><strong>Error Handling:</strong> Robust exception handling with meaningful error messages and graceful fallbacks for API failures.</li>
-                <li><strong>Logging:</strong> Detailed logging system for monitoring data flow and troubleshooting issues in production.</li>
-                <li><strong>Code Organization:</strong> Logical separation of concerns with dedicated functions for data fetching, transformation, and visualization.</li>
-                <li><strong>Performance Optimization:</strong> Efficient data structures and processing techniques to ensure responsive performance even with large datasets.</li>
-            </ul>
         </div>
 
         <div class="button-container">
