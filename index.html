@@ -4,7 +4,7 @@
     <title>Georges Chamma - Data Science & AI Innovation Specialist</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Georges Chamma's Portfolio - Data Science, AI Innovation, and Conversational Analytics Solutions" />
+    <meta name="description" content="Georges Chamma's Portfolio - Data Science, AI Innovation, Machine Learning, and Analytics Solutions" />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
     <style>
         :root {
@@ -14,6 +14,8 @@
             --background-light: #f8fafc;
             --text-color: #334155;
             --border-radius: 8px;
+            --accent-color: #0ea5e9;
+            --success-color: #10b981;
         }
 
         * {
@@ -34,22 +36,73 @@
             color: white;
             padding: 5rem 1rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/subtle-pattern.png');
+            opacity: 0.1;
+            z-index: 0;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.9);
         }
 
         .hero p {
             font-size: 1.25rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 1rem auto;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
         }
 
         .container {
@@ -152,52 +205,98 @@
 
         .about-section {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: var(--border-radius);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
         }
         
         .about-section h2 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
         }
         
         .about-section p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         
         .expertise-item {
             background: var(--background-light);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: var(--border-radius);
             border-left: 3px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         
         .expertise-item h3 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-header h2 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
         }
 
         .project-card {
             background: white;
             border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
             height: 100%;
@@ -207,18 +306,23 @@
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 1.75rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -226,14 +330,28 @@
 
         .project-title {
             color: var(--primary-color);
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .project-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
         }
 
         .project-description {
             color: var(--text-color);
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
         .project-link {
@@ -243,13 +361,16 @@
             text-decoration: none;
             padding: 0.75rem 1.5rem;
             border-radius: var(--border-radius);
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
             text-align: center;
             align-self: flex-start;
+            font-weight: 500;
         }
 
         .project-link:hover {
             background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .featured-badge {
@@ -258,33 +379,121 @@
             right: 1rem;
             background: rgba(37, 99, 235, 0.9);
             color: white;
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 0.85rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
+            z-index: 5;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .new-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .skills-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-badge {
+            background: var(--background-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: white;
+            margin: 3rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-top: 4rem;
             border-top: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .social-link {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .social-link:hover {
             color: var(--primary-dark);
+            transform: translateY(-3px);
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.25rem;
             }
 
             nav ul {
@@ -319,6 +528,11 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -329,14 +543,18 @@
         <div class="hero-content">
             <h1>Georges Chamma</h1>
             <p class="subtitle">Data Science & AI Innovation Specialist</p>
-            <p>Transforming complex data into actionable insights through cutting-edge AI and analytics solutions</p>
+            <p>Transforming complex data into actionable insights through cutting-edge AI, machine learning, and analytics solutions</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="mailto:georgeschamma@gmail.com" class="btn btn-outline">Contact Me</a>
+            </div>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="container">
         <!-- Navigation -->
-         <nav>
+        <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 
@@ -345,7 +563,6 @@
                     <a href="#">Data Engineering</a>
                     <div class="dropdown-content">
                         <a href="world-bank-visualization.html">World Bank Dashboard</a>
-                        <!-- Add more data engineering projects here -->
                     </div>
                 </li>
                 
@@ -364,8 +581,7 @@
                 <li class="dropdown">
                     <a href="#">ML Projects</a>
                     <div class="dropdown-content">
-                        <a href="https://georgeschamma.github.io/georgeschamma/women-employment-prediction.html">Women Employment Prediction</a>
-                        <!-- Add more ML projects here -->
+                        <a href="women-employment-prediction.html">Women Employment Prediction</a>
                     </div>
                 </li>
                 
@@ -374,11 +590,10 @@
                     <a href="#">Visualization</a>
                     <div class="dropdown-content">
                         <a href="humanitarian-dashboard.html">Humanitarian Dashboard</a>
-                        <!-- Add more visualization projects here -->
                     </div>
                 </li>
             </ul>
-</nav>
+        </nav>
 
         <!-- About Section -->
         <div class="about-section">
@@ -387,6 +602,7 @@
                 With over 6 years of experience in data science and AI implementation, I specialize in creating scalable data solutions that drive decision-making and deliver measurable business impact. My background in Engineering and Physics combined with expertise in machine learning enables me to tackle complex problems with innovative approaches.
             </p>
             <p>
+                I've successfully led projects that improved marketing ROI, optimized performance metrics, and automated key business processes across multiple industries. My work bridges the gap between technical capabilities and business objectives, consistently delivering solutions that provide real-world value.
             </p>
             
             <div class="expertise-grid">
@@ -410,11 +626,29 @@
         </div>
 
         <!-- Projects Grid -->
-        <h2 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Featured Projects</h2>
+        <div id="projects" class="section-header">
+            <h2>Featured Projects</h2>
+        </div>
+        
         <div class="projects-grid">
+            <!-- Women Employment Prediction Card -->
+            <div class="project-card">
+                <div class="featured-badge new-badge">New</div>
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Women Employment 1.png" 
+                     alt="Women Employment Prediction" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Smart Women's Employment Prediction</h2>
+                    <p class="project-description">
+                        An innovative machine learning system that automatically selects the optimal prediction model for each dataset, delivering up to 28% more accurate employment forecasts. This adaptive approach tests multiple algorithms (Linear Regression, Ridge Regression, Random Forest) to find the best fit for each region's unique patterns, providing policymakers with reliable insights for economic planning and gender equality initiatives.
+                    </p>
+                    <a href="women-employment-prediction.html" class="project-link">Explore Project</a>
+                </div>
+            </div>
+            
             <!-- Data Analyst AI Copilot Card -->
             <div class="project-card">
-                <div class="featured-badge">New</div>
+                <div class="featured-badge">Featured</div>
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Analyst%20Copilot%201.png" 
                      alt="Data Analyst AI Copilot" 
                      class="project-image">
@@ -473,22 +707,6 @@
                 </div>
             </div>
 
-            <!-- CRISP-DM Framework Card -->
-            <div class="project-card">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Framework.gif" 
-                     alt="CRISP-DM Framework" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">CRISP-DM Data Framework</h2>
-                    <p class="project-description">
-                        Implementing the gold-standard CRISP-DM methodology to systematically transform business problems into data-driven solutions. 
-                        This framework demonstrates my ability to bridge the gap between business requirements and technical implementation, 
-                        resulting in measurable ROI and actionable insights that drive decision-making across organizations.
-                    </p>
-                    <a href="Data-Framework.html" class="project-link">Explore Framework</a>
-                </div>
-            </div>
-
             <!-- Local LLM Card -->
             <div class="project-card">
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
@@ -505,34 +723,91 @@
                     <a href="local-llm.html" class="project-link">View Implementation</a>
                 </div>
             </div>
+        </div>
 
-            <!-- Humanitarian Dashboard Card -->
-            <div class="project-card">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" 
-                     alt="Humanitarian Dashboard" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Humanitarian Data Studio</h2>
-                    <p class="project-description">
-                        Empowering crisis response with real-time data visualization across Lebanon. This interactive dashboard tracks 55+ partner organizations, 
-                        monitors 1,000+ projects, and visualizes $25M+ in aid distribution, enabling faster decision-making and improved resource allocation during 
-                        humanitarian emergencies. The solution demonstrates how data science can create social impact through enhanced coordination and transparency.
-                    </p>
-                    <a href="humanitarian-dashboard.html" class="project-link">Explore Dashboard</a>
+        <!-- Skills Section -->
+        <div class="skills-section">
+            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                <h2 style="padding-bottom: 0;">Technical Expertise</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">SQL</span>
+                        <span class="skill-badge">HTML/CSS</span>
+                        <span class="skill-badge">Pandas</span>
+                        <span class="skill-badge">NumPy</span>
+                        <span class="skill-badge">Streamlit</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">Scikit-Learn</span>
+                        <span class="skill-badge">LangChain</span>
+                        <span class="skill-badge">LangGraph</span>
+                        <span class="skill-badge">OpenAI API</span>
+                        <span class="skill-badge">H2O</span>
+                        <span class="skill-badge">Predictive Modeling</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data Visualization</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">Tableau</span>
+                        <span class="skill-badge">Power BI</span>
+                        <span class="skill-badge">Looker Studio</span>
+                        <span class="skill-badge">Matplotlib</span>
+                        <span class="skill-badge">Plotly</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Data Engineering</h3>
+                    <div class="skill-list">
+                        <span class="skill-badge">ETL Pipelines</span>
+                        <span class="skill-badge">Data Warehousing</span>
+                        <span class="skill-badge">API Integration</span>
+                        <span class="skill-badge">Data Cleaning</span>
+                        <span class="skill-badge">Statistical Modeling</span>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Transform Your Data Strategy?</h2>
+            <p>Let's discuss how my expertise in data science, machine learning, and AI can help your organization unlock valuable insights and drive better decision-making.</p>
+            <a href="mailto:georgeschamma@gmail.com" class="btn">Get in Touch</a>
+        </div>
+
         <!-- Footer -->
         <footer>
-            <p>© 2025 Georges Chamma | Connect with me on 
+            <div class="social-links">
                 <a href="https://www.linkedin.com/in/georgeschamma/" 
                    class="social-link"
                    target="_blank"
                    rel="noopener noreferrer">
                     LinkedIn
                 </a>
-            </p>
+                <a href="https://github.com/georgeschamma" 
+                   class="social-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub
+                </a>
+                <a href="mailto:georgeschamma@gmail.com" 
+                   class="social-link">
+                    Email
+                </a>
+            </div>
+            <p>© 2025 Georges Chamma | Data Science & AI Innovation Specialist</p>
         </footer>
     </div>
 
@@ -547,6 +822,16 @@
                         e.preventDefault();
                         this.parentElement.classList.toggle('active');
                     }
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
         });
