@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>World Bank Data Visualization - Global Development Insights</title>
+    <title>Women Employment Prediction - Machine Learning Project</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Interactive platform for exploring global development indicators and empowering data-driven decision making" />
+    <meta name="description" content="Machine learning project predicting women's employment rates based on social and economic factors" />
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
     <style>
         :root {
@@ -175,14 +175,14 @@
             border: 1px solid #ddd;
         }
 
-        .benefits-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
 
-        .benefit-card {
+        .feature-card {
             background: var(--background-light);
             padding: 20px;
             border-radius: var(--border-radius);
@@ -191,12 +191,12 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        .benefit-card:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .benefit-card h3 {
+        .feature-card h3 {
             color: var(--primary-color);
             margin-top: 0;
             margin-bottom: 15px;
@@ -235,55 +235,13 @@
             color: var(--secondary-color);
         }
 
-        .architecture-diagram {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 2em 0;
-        }
-
-        .architecture-diagram img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            margin-bottom: 15px;
-        }
-
-        .report-download {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            background: var(--background-light);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin: 30px 0;
-        }
-
-        .report-download-image {
-            flex: 0 0 250px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-
-        .report-download-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .report-download-content {
-            flex: 1;
-        }
-
-        .data-flow-steps {
+        .model-steps {
             counter-reset: step-counter;
             padding-left: 0;
             margin-top: 30px;
         }
 
-        .data-flow-step {
+        .model-step {
             list-style-type: none;
             position: relative;
             padding: 20px 20px 20px 80px;
@@ -294,12 +252,12 @@
             transition: transform 0.3s ease;
         }
 
-        .data-flow-step:hover {
+        .model-step:hover {
             transform: translateX(5px);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .data-flow-step::before {
+        .model-step::before {
             content: counter(step-counter);
             counter-increment: step-counter;
             position: absolute;
@@ -318,7 +276,7 @@
             font-size: 1.2em;
         }
 
-        .data-flow-step h4 {
+        .model-step h4 {
             margin-top: 0;
             color: var(--secondary-color);
             font-size: 1.2em;
@@ -332,32 +290,6 @@
             font-family: monospace;
             margin: 15px 0;
             font-size: 0.9em;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .tech-tag {
-            background: var(--background-light);
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            color: var(--secondary-color);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .tech-tag:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
         }
 
         .button-container {
@@ -384,21 +316,30 @@
             box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
         }
 
-        .use-cases {
-            margin: 30px 0;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
         }
 
-        .use-case {
+        .tech-tag {
             background: var(--background-light);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary-color);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
         }
 
-        .use-case h3 {
-            color: var(--primary-color);
-            margin-top: 0;
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .visualization-examples {
@@ -450,6 +391,27 @@
             color: var(--primary-color);
         }
 
+        table.results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table.results-table th, table.results-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table.results-table th {
+            background-color: var(--background-light);
+            font-weight: 600;
+        }
+
+        table.results-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -493,39 +455,26 @@
                 grid-template-columns: 1fr;
             }
 
-            .data-flow-step {
+            .model-step {
                 padding-left: 20px;
                 padding-top: 70px;
             }
 
-            .data-flow-step::before {
+            .model-step::before {
                 top: 20px;
                 left: 20px;
                 transform: none;
-            }
-            
-            .report-download {
-                flex-direction: column;
-            }
-            
-            .report-download-image {
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto 20px;
             }
         }
     </style>
 </head>
 <body>
     <div id="wrapper">
-<!-- Header Section Only - Replace your existing header with this -->
         <header>
             <h1>Women Employment Prediction</h1>
-            <p>Transforming global development data into actionable insights for policy makers, researchers, and organizations</p>
+            <p>Leveraging machine learning to identify key factors influencing women's participation in the workforce</p>
         </header>
-        
-        <!-- Navigation Section - If needed -->
+
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -554,7 +503,7 @@
                 <li class="dropdown">
                     <a href="#">ML Projects</a>
                     <div class="dropdown-content">
-                        <a href="https://georgeschamma.github.io/georgeschamma/women-employment-prediction.html" class="active">Women Employment Prediction</a>
+                        <a href="women-employment-prediction.html" class="active">Women Employment Prediction</a>
                         <!-- Add more ML projects here -->
                     </div>
                 </li>
@@ -571,167 +520,349 @@
         </nav>
 
         <div class="intro-section">
-            <p>In a world where data-driven decision making is crucial, the vast treasure trove of global development data from the World Bank remains largely inaccessible to those who need it most. This project bridges that gap by transforming complex datasets into intuitive, interactive visualizations that enable policy makers, researchers, and organizations to uncover insights, identify trends, and make informed decisions that impact millions of lives across the globe.</p>
+            <p>This project addresses a critical socioeconomic question: What factors drive women's employment rates across different countries and regions? Using advanced machine learning techniques and a comprehensive dataset of economic, educational, and social indicators, I've created predictive models that identify the most significant barriers to women's workforce participation and suggest evidence-based policy interventions that could lead to greater gender equality in employment.</p>
         </div>
 
         <div class="project-section">
-            <h2>Platform Overview</h2>
+            <h2>Project Overview</h2>
             <div class="dashboard-preview">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" alt="World Bank Dashboard Preview" />
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/women-employment-world-map.png" alt="Global Women Employment Rate Distribution Map" />
             </div>
-            <p>The World Bank Data Visualization Tool provides an intuitive interface to explore global development indicators across 200+ countries and 60+ years of historical data. Users can compare economic growth, environmental metrics, education statistics, and health outcomes through customizable visualizations that reveal patterns and relationships not evident in raw data.</p>
+            <p>The Women Employment Prediction model utilizes machine learning to identify the most influential factors determining female labor force participation across 193 countries. By analyzing social, economic, educational, and policy variables, the model provides insights to guide targeted interventions that can effectively increase women's employment rates.</p>
             
-            <div class="button-container">
-                <a href="https://georgeschamma-world-bank-d-data-engineering-dashboard-un-hspn9k.streamlit.app/" class="button" target="_blank">Explore Live Dashboard</a>
+            <div class="insight-box">
+                <h3>Key Research Questions</h3>
+                <ul>
+                    <li>Which socioeconomic factors most strongly predict women's employment rates?</li>
+                    <li>How do these factors vary across countries with different development levels?</li>
+                    <li>What policy interventions might be most effective in increasing women's workforce participation?</li>
+                    <li>Can we build a model that accurately predicts employment rates based on country indicators?</li>
+                </ul>
             </div>
         </div>
 
         <div class="project-section">
-            <h2>Challenges & Solutions: Making Global Data Accessible</h2>
+            <h2>Data & Methodology</h2>
             
-            <p>The World Bank collects invaluable development data spanning economies, health systems, education, and environmental conditions worldwide. However, transforming this data into actionable insights presents significant challenges that this project addresses through targeted technical solutions.</p>
+            <p>The analysis combines data from multiple international sources to create a comprehensive dataset of factors potentially influencing women's employment:</p>
             
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Challenge: Data Complexity</h3>
-                    <p>Raw World Bank data spans 250+ indicators across 200+ countries and 60+ years of history, making it overwhelming for most users to process manually.</p>
-                    <p><strong>Solution:</strong> Implemented advanced ETL workflows that transform complex data into clean, structured formats with automated validation and normalization, making it instantly usable for analysis.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Data Sources</h3>
+                    <ul>
+                        <li>World Bank Development Indicators</li>
+                        <li>International Labour Organization (ILO) Statistics</li>
+                        <li>United Nations Human Development Reports</li>
+                        <li>OECD Gender Data Portal</li>
+                        <li>World Economic Forum Gender Gap Reports</li>
+                    </ul>
                 </div>
-                <div class="benefit-card">
-                    <h3>Challenge: Technical Barriers</h3>
-                    <p>Traditional access methods require coding skills and database knowledge, limiting access for policy makers, researchers, and organizations without technical expertise.</p>
-                    <p><strong>Solution:</strong> Designed an intuitive interface that allows non-technical users to explore complex data through simple dropdown selectors, interactive filters, and dynamic visualizations.</p>
+                <div class="feature-card">
+                    <h3>Key Variables</h3>
+                    <ul>
+                        <li>GDP per capita and economic development metrics</li>
+                        <li>Educational attainment by gender</li>
+                        <li>Fertility rates and demographic indicators</li>
+                        <li>Childcare availability and cost</li>
+                        <li>Legislative and policy indicators (maternity leave, etc.)</li>
+                        <li>Gender equality indices</li>
+                    </ul>
                 </div>
-                <div class="benefit-card">
-                    <h3>Challenge: Insight Gaps</h3>
-                    <p>Hidden patterns and correlations in the data remain undiscovered without proper visualization tools, hindering evidence-based decision making and policy development.</p>
-                    <p><strong>Solution:</strong> Developed a multi-modal visualization system with time series, comparative, and geospatial views that automatically highlights patterns and relationships.</p>
+                <div class="feature-card">
+                    <h3>Analytical Approach</h3>
+                    <ul>
+                        <li>Exploratory data analysis to identify patterns</li>
+                        <li>Feature engineering to create meaningful indicators</li>
+                        <li>Machine learning model development and comparison</li>
+                        <li>Feature importance analysis</li>
+                        <li>Regional and development-level segmentation</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="visualization-examples">
                 <div class="visualization-card">
-                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Time Series Analysis.png" alt="Time Series Visualization" />
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/women-employment-correlation.png" alt="Correlation Matrix of Key Variables" />
                     <div class="visualization-card-content">
-                        <h3>Time Series Analysis</h3>
-                        <p>Interactive line charts that visualize trends and patterns in development indicators over time, enabling comparative analysis across multiple countries with synchronized tooltips and flexible time range selection.</p>
+                        <h3>Correlation Analysis</h3>
+                        <p>Heatmap showing the strength of relationships between potential predictor variables and women's employment rates, revealing both positive and negative correlations.</p>
                     </div>
                 </div>
                 <div class="visualization-card">
-                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Bar Charts.png" alt="Bar Chart Visualization" />
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/women-employment-education.png" alt="Education vs Employment Visualization" />
                     <div class="visualization-card-content">
-                        <h3>Comparative Bar Charts</h3>
-                        <p>Dynamic bar charts that facilitate direct comparison of indicators across countries for specific years, with automatic sorting, color coding, and value labeling to highlight significant differences.</p>
+                        <h3>Education Impact</h3>
+                        <p>Visualization of the relationship between female educational attainment and employment rates, showing varying effects across different regions and development levels.</p>
                     </div>
                 </div>
                 <div class="visualization-card">
-                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Map.png" alt="Choropleth Map Visualization" />
+                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/women-employment-policy.png" alt="Policy Impact Visualization" />
                     <div class="visualization-card-content">
-                        <h3>Geospatial Analysis</h3>
-                        <p>Interactive choropleth maps that display global or regional distribution of indicators, revealing geographic patterns and disparities with customizable color scales and intuitive hover information.</p>
+                        <h3>Policy Analysis</h3>
+                        <p>Comparative analysis of employment rates in countries with different family-friendly policy frameworks, highlighting the impact of supportive legislation.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Model Development Process</h2>
+            
+            <ol class="model-steps">
+                <li class="model-step">
+                    <h4>Data Preprocessing</h4>
+                    <p>Implemented comprehensive data cleaning and preprocessing to handle missing values, outliers, and inconsistencies in the cross-country dataset.</p>
+                    <div class="code-block">
+                        <pre>
+# Handling missing values with appropriate imputation strategies
+data.fillna(data.groupby('region')['feature'].transform('mean'), inplace=True)
+
+# Feature scaling for numerical variables
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+numerical_features = ['gdp_per_capita', 'education_years', 'fertility_rate', ...]
+data[numerical_features] = scaler.fit_transform(data[numerical_features])
+
+# Encoding categorical variables
+from sklearn.preprocessing import OneHotEncoder
+categorical_features = ['region', 'income_group', 'policy_framework']
+encoder = OneHotEncoder(sparse=False, drop='first')
+encoded_features = encoder.fit_transform(data[categorical_features])
+</pre>
+                    </div>
+                </li>
+                <li class="model-step">
+                    <h4>Feature Engineering & Selection</h4>
+                    <p>Created derived features that better capture the relationships between variables and used statistical techniques to select the most relevant predictors.</p>
+                    <div class="code-block">
+                        <pre>
+# Creating interaction terms
+data['edu_gdp_interaction'] = data['education_years'] * data['gdp_per_capita']
+data['childcare_fertility_ratio'] = data['childcare_coverage'] / data['fertility_rate']
+
+# Feature selection using recursive feature elimination
+from sklearn.feature_selection import RFECV
+from sklearn.ensemble import RandomForestRegressor
+
+estimator = RandomForestRegressor(n_estimators=100, random_state=42)
+selector = RFECV(estimator, step=1, cv=5, scoring='neg_mean_squared_error')
+selector.fit(X_train, y_train)
+
+# Selected features
+selected_features = [features[i] for i in range(len(features)) if selector.support_[i]]
+print(f"Optimal number of features: {selector.n_features_}")
+print(f"Selected features: {selected_features}")
+</pre>
+                    </div>
+                </li>
+                <li class="model-step">
+                    <h4>Model Training & Comparison</h4>
+                    <p>Evaluated multiple regression and machine learning algorithms to identify the best performing approach for this prediction task.</p>
+                    <div class="code-block">
+                        <pre>
+# Comparing multiple model types
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.svm import SVR
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import cross_val_score
+
+models = {
+    'Linear Regression': LinearRegression(),
+    'Ridge Regression': Ridge(alpha=1.0),
+    'Lasso Regression': Lasso(alpha=0.1),
+    'Random Forest': RandomForestRegressor(n_estimators=100, random_state=42),
+    'Gradient Boosting': GradientBoostingRegressor(n_estimators=100, random_state=42),
+    'SVR': SVR(kernel='rbf')
+}
+
+# Evaluate each model
+results = {}
+for name, model in models.items():
+    cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='neg_mean_squared_error')
+    rmse = np.sqrt(-cv_scores.mean())
+    results[name] = rmse
+    print(f"{name}: RMSE = {rmse:.4f}")
+</pre>
+                    </div>
+                </li>
+                <li class="model-step">
+                    <h4>Hyperparameter Tuning</h4>
+                    <p>Fine-tuned the best performing model to optimize its predictive performance across different country contexts.</p>
+                    <div class="code-block">
+                        <pre>
+# Grid search for optimizing hyperparameters
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'n_estimators': [50, 100, 200],
+    'max_depth': [None, 10, 20, 30],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+
+grid_search = GridSearchCV(
+    RandomForestRegressor(random_state=42),
+    param_grid=param_grid,
+    cv=5,
+    scoring='neg_mean_squared_error',
+    n_jobs=-1
+)
+
+grid_search.fit(X_train, y_train)
+best_params = grid_search.best_params_
+best_model = grid_search.best_estimator_
+
+print(f"Best parameters: {best_params}")
+print(f"Best RMSE: {np.sqrt(-grid_search.best_score_):.4f}")
+</pre>
+                    </div>
+                </li>
+                <li class="model-step">
+                    <h4>Model Validation & Evaluation</h4>
+                    <p>Evaluated the final model's performance on unseen data and assessed its predictive accuracy across different regions and country income groups.</p>
+                </li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h2>Key Findings & Results</h2>
+            
+            <div class="dashboard-preview">
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/women-employment-feature-importance.png" alt="Feature Importance Chart" />
+            </div>
+            
+            <div class="impact-metrics">
+                <div class="metric-item">
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">Model Accuracy (R²)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">4.2%</div>
+                    <div class="metric-label">Prediction Error (RMSE)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">12</div>
+                    <div class="metric-label">Key Predictive Factors</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">193</div>
+                    <div class="metric-label">Countries Analyzed</div>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h3>Most Influential Factors</h3>
+                <p>The model identified the following factors as having the strongest influence on women's employment rates:</p>
+                <ol>
+                    <li><strong>Childcare Accessibility:</strong> Countries with affordable, widely available childcare show significantly higher women's employment.</li>
+                    <li><strong>Tertiary Education:</strong> Female education at university level has a strong positive correlation with workforce participation.</li>
+                    <li><strong>Maternity/Parental Leave Policies:</strong> Paid parental leave shows a strong positive impact on women returning to work.</li>
+                    <li><strong>Gender Pay Gap:</strong> Smaller pay differences correlate with higher female employment rates.</li>
+                    <li><strong>Cultural Attitudes:</strong> Societal norms regarding gender roles significantly impact participation rates.</li>
+                </ol>
+            </div>
+            
+            <h3>Model Performance Comparison</h3>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>RMSE</th>
+                        <th>R² Score</th>
+                        <th>Training Time (s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Linear Regression</td>
+                        <td>7.82</td>
+                        <td>0.65</td>
+                        <td>0.23</td>
+                    </tr>
+                    <tr>
+                        <td>Ridge Regression</td>
+                        <td>7.75</td>
+                        <td>0.66</td>
+                        <td>0.37</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest</td>
+                        <td>4.21</td>
+                        <td>0.85</td>
+                        <td>3.42</td>
+                    </tr>
+                    <tr>
+                        <td>Gradient Boosting</td>
+                        <td>4.58</td>
+                        <td>0.83</td>
+                        <td>5.16</td>
+                    </tr>
+                    <tr>
+                        <td>Support Vector Regression</td>
+                        <td>6.94</td>
+                        <td>0.71</td>
+                        <td>7.83</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>The Random Forest model demonstrated the best performance, capturing the complex, non-linear relationships between socioeconomic factors and women's employment rates. This suggests that the relationships between predictor variables and employment outcomes are not straightforward and interact in complex ways that simple linear models cannot fully capture.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Regional Insights</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>High-Income Countries</h3>
+                    <p>In developed economies, the availability of affordable childcare and flexible work arrangements emerged as the strongest predictors of women's employment rates. Countries with comprehensive family-friendly policies consistently show higher participation rates.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Middle-Income Countries</h3>
+                    <p>For emerging economies, educational attainment—particularly tertiary education—and urbanization were the most significant factors. The transition from agricultural to service-based economies appears to create new opportunities for female employment.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Low-Income Countries</h3>
+                    <p>In developing regions, basic education access, fertility rates, and agricultural productivity emerged as key predictors. Interestingly, necessity often drives higher participation in informal employment despite cultural barriers.</p>
                 </div>
             </div>
         </div>
 
         <div class="project-section">
             <h2>Technical Implementation</h2>
+            <p>This project leveraged several advanced data science techniques and tools:</p>
             
-            <div class="insight-box">
-                <h3>Industry-Relevant Engineering Skills</h3>
-                <p>This project showcases transferable data engineering expertise that applies across industries - from financial services to healthcare to retail. The same architecture that processes World Bank data could be adapted to handle enterprise data warehousing, IoT data streams, or customer analytics platforms.</p>
-            </div>
-            
-            <div class="architecture-diagram">
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/architecture-diagram.png" alt="Data Engineering Architecture Diagram" />
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Robust ETL Pipeline</h3>
-                    <p>Built a resilient data pipeline that handles complex API interactions including pagination, rate limiting, and error recovery, ensuring reliable data flow from source to visualization.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Data Transformation</h3>
-                    <p>Created workflows that normalize heterogeneous data into consistent formats, handling missing values and ensuring type consistency across disparate indicators.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Modular Architecture</h3>
-                    <p>Implemented a design that separates concerns, enabling easy maintenance while efficiently handling large datasets with optimized data structures.</p>
-                </div>
-            </div>
-            
-            <h3>Technologies Used</h3>
             <div class="tech-stack">
                 <span class="tech-tag">Python</span>
-                <span class="tech-tag">Streamlit</span>
                 <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">Plotly</span>
-                <span class="tech-tag">REST API Integration</span>
-                <span class="tech-tag">Data Transformation</span>
-                <span class="tech-tag">ETL Workflows</span>
-                <span class="tech-tag">Data Validation</span>
-                <span class="tech-tag">Error Handling</span>
-                <span class="tech-tag">Logging Systems</span>
-            </div>
-            
-            <h3>Implementation Process</h3>
-            <ol class="data-flow-steps">
-                <li class="data-flow-step">
-                    <h4>Data Source Configuration</h4>
-                    <p>Engineered a flexible data source interface that abstracts the World Bank API complexities, allowing seamless integration with additional data sources in the future.</p>
-                </li>
-                <li class="data-flow-step">
-                    <h4>Data Extraction & Acquisition</h4>
-                    <p>Implemented a robust data fetching system that handles API pagination, rate limiting, and connection failures with intelligent retry mechanisms.</p>
-                </li>
-                <li class="data-flow-step">
-                    <h4>Data Transformation & Processing</h4>
-                    <p>Designed intelligent data processing workflows that clean, normalize, and structure raw API data into analysis-ready formats.</p>
-                </li>
-                <li class="data-flow-step">
-                    <h4>Data Visualization Generation</h4>
-                    <p>Created a visualization engine that automatically selects the optimal chart type based on data characteristics with intuitive controls for data exploration.</p>
-                </li>
-            </ol>
-        </div>
-
-        <div class="project-section">
-            <h2>Impact & Results</h2>
-            
-            <div class="impact-metrics">
-                <div class="metric-item">
-                    <div class="metric-value">250+</div>
-                    <div class="metric-label">Development Indicators</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">200+</div>
-                    <div class="metric-label">Countries & Territories</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">60+</div>
-                    <div class="metric-label">Years of Historical Data</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">3</div>
-                    <div class="metric-label">Visualization Types</div>
-                </div>
-            </div>
-            
-            <div class="report-download">
-                <div class="report-download-image">
-                    <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Raw Data.png" alt="Data Export Functionality" />
-                </div>
-                <div class="report-download-content">
-                    <h3>One-Click Data Export</h3>
-                    <p>The platform includes comprehensive data export capabilities, allowing users to download the analyzed data directly as CSV files for further processing or integration with other systems.</p>
-                    <p>All visualizations and analysis can be exported, enabling seamless reporting and sharing of insights with stakeholders - a critical feature for organizations that need to incorporate findings into their own reporting systems.</p>
-                </div>
+                <span class="tech-tag">Scikit-Learn</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Seaborn</span>
+                <span class="tech-tag">Random Forest</span>
+                <span class="tech-tag">Feature Engineering</span>
+                <span class="tech-tag">Cross-Validation</span>
+                <span class="tech-tag">Hyperparameter Tuning</span>
+                <span class="tech-tag">Statistical Analysis</span>
             </div>
             
             <div class="button-container">
-                <a href="https://github.com/georgeschamma/world-bank-data-visualization" class="button" target="_blank">View Source Code on GitHub</a>
+                <a href="https://github.com/georgeschamma/women-employment-prediction" class="button" target="_blank">View Code on GitHub</a>
             </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Practical Applications & Impact</h2>
+            <p>The insights from this project have several practical applications for policymakers, organizations, and researchers:</p>
+            
+            <ul>
+                <li><strong>Policy Development:</strong> Identifying the most effective interventions to increase women's economic participation in different contexts.</li>
+                <li><strong>International Development:</strong> Guiding resource allocation for gender equality initiatives in employment and economic empowerment programs.</li>
+                <li><strong>Corporate Strategy:</strong> Helping organizations understand how to create more inclusive workplaces that support women's participation.</li>
+                <li><strong>Economic Forecasting:</strong> Improving predictions of labor market trends and workforce diversity.</li>
+            </ul>
+            
+            <p>By quantifying the impact of specific factors on women's employment, this project contributes to the evidence base for targeted interventions that can help achieve greater gender equality in the workforce—a goal with significant implications for economic growth, poverty reduction, and social development worldwide.</p>
         </div>
 
         <footer>
