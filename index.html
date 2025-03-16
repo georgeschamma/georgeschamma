@@ -807,28 +807,7 @@
             </ul>
         </nav>
         
-        <!-- Results Section -->
-        <div class="results-section">
-            <h2>Business Results That Speak for Themselves</h2>
-            <div class="results-grid">
-                <div class="result-item">
-                    <div class="result-number">40%</div>
-                    <div class="result-label">Marketing ROI Improvement</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-number">90%</div>
-                    <div class="result-label">Reduction in Analysis Time</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-number">45%</div>
-                    <div class="result-label">Cost Reduction with Local AI</div>
-                </div>
-                <div class="result-item">
-                    <div class="result-number">28%</div>
-                    <div class="result-label">More Accurate Predictions</div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- About Section -->
         <div class="about-section">
@@ -862,12 +841,7 @@
             <h2>Featured Solutions for Your Business</h2>
         </div>
         
-        <div class="scarcity-section">
-            <div class="scarcity-content">
-                <h3>Limited Availability for New Projects in Q2 2025</h3>
-                <p>Currently accepting only 2 more clients for strategic data science partnerships</p>
-            </div>
-        </div>
+
         
         <div class="projects-grid">
             <!-- Women Employment Prediction Card -->
@@ -962,52 +936,24 @@
                     <a href="portfolio-optimization.html" class="project-link">View Solution</a>
                 </div>
             </div>
+
+            <!-- Humanitarian Dashboard Card -->
+            <div class="project-card">
+                <div class="benefit-item benefit-decision">Enhanced Coordination</div>
+                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" 
+                     alt="Humanitarian Dashboard" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Humanitarian Data Studio</h2>
+                    <p class="project-description">
+                        Powerful data visualization platform that tracks resources, monitors project progress, and enhances coordination across organizations. This solution enables faster response times and better resource allocation for critical situations.
+                    </p>
+                    <a href="humanitarian-dashboard.html" class="project-link">Explore Dashboard</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Testimonial Section -->
-        <div class="testimonial-section">
-            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
-                <h2>What Clients Say</h2>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        The Data Analyst AI Copilot transformed how our marketing team works with data. What used to take days now happens in minutes, and everyone can get insights without waiting for the analytics team.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Sarah Johnson</div>
-                            <div class="author-title">Marketing Director, Tech Company</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        Georges' Private AI Solution saved us 45% on our AI infrastructure costs while addressing our strict data security requirements. The implementation was smooth and the performance has been excellent.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Michael Chen</div>
-                            <div class="author-title">CTO, Financial Services</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        The predictive modeling work exceeded our expectations, delivering forecasts that were 28% more accurate than our previous system. This has fundamentally improved our planning process.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">David Rodriguez</div>
-                            <div class="author-title">Operations VP, Retail</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Skills Section -->
         <div class="skills-section">
@@ -1088,18 +1034,52 @@
         </footer>
     </div>
 
-    <!-- JavaScript for mobile dropdown toggle -->
+    <!-- JavaScript for dropdown functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // For mobile: toggle dropdowns
             const dropdowns = document.querySelectorAll('.dropdown > a');
+            
             dropdowns.forEach(dropdownLink => {
                 dropdownLink.addEventListener('click', function(e) {
+                    // For mobile view
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
                         this.parentElement.classList.toggle('active');
+                    } 
+                    // For desktop view - prevent default action to keep dropdown visible
+                    else {
+                        e.preventDefault();
+                        // Show dropdown on click for desktop as well
+                        const dropdownContent = this.nextElementSibling;
+                        const isVisible = window.getComputedStyle(dropdownContent).visibility === 'visible';
+                        
+                        // First hide all dropdowns
+                        document.querySelectorAll('.dropdown-content').forEach(menu => {
+                            menu.style.opacity = '0';
+                            menu.style.visibility = 'hidden';
+                            menu.style.transform = 'translateY(10px)';
+                        });
+                        
+                        // Then show the clicked one if it wasn't visible
+                        if (!isVisible) {
+                            dropdownContent.style.opacity = '1';
+                            dropdownContent.style.visibility = 'visible'; 
+                            dropdownContent.style.transform = 'translateY(5px)';
+                        }
                     }
                 });
+            });
+            
+            // Hide dropdowns when clicking elsewhere
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown-content').forEach(menu => {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.transform = 'translateY(10px)';
+                    });
+                }
             });
         });
     </script>
