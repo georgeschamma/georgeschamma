@@ -94,14 +94,14 @@
         .dropdown {
             position: relative;
         }
-
+        
         .dropdown > a::after {
             content: "▼";
             font-size: 0.6em;
             margin-left: 6px;
             vertical-align: middle;
         }
-
+        
         .dropdown-content {
             position: absolute;
             top: 100%;
@@ -117,23 +117,43 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
         }
-
+        
         .dropdown:hover .dropdown-content {
             opacity: 1;
             visibility: visible;
             transform: translateY(5px);
         }
-
+        
         .dropdown-content a {
             display: block;
             padding: 8px 20px;
             border-radius: 0;
             white-space: nowrap;
+            background-color: white; /* Ensure white background */
+            color: var(--text-color); /* Ensure text color is consistent */
         }
-
+        
         .dropdown-content a:hover {
             background-color: var(--background-light);
+            color: var(--primary-color);
         }
+        
+        /* Ensure dropdown items have full opacity and visibility */
+        .dropdown-content a {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Additional specificity to prevent transparency issues */
+        nav .dropdown-content a {
+            background-color: white;
+            color: var(--text-color);
+        }
+        
+        nav .dropdown-content a:hover {
+            background-color: var(--background-light);
+            color: var(--primary-color);
+}
 
         .intro-section {
             background: white;
