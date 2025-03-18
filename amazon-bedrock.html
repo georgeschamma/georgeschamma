@@ -14,7 +14,7 @@
             --text-color: #333;
             --border-radius: 8px;
             --hover-color: #3498db;
-            --accent-color: #ff9900;
+            --accent-color: #4a90e2;
             --neutral-color: #95a5a6;
             --success-color: #27ae60;
             --code-bg: #f5f5f5;
@@ -205,7 +205,7 @@
             border-radius: var(--border-radius);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid var(--primary-color);
         }
 
         .feature-card:hover {
@@ -243,7 +243,7 @@
         .metric-value {
             font-size: 2.5em;
             font-weight: bold;
-            color: var(--accent-color);
+            color: var(--primary-color);
             margin: 10px 0;
         }
 
@@ -280,7 +280,7 @@
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--accent-color);
+            border-top: 4px solid var(--primary-color);
         }
 
         .model-card:hover {
@@ -325,7 +325,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            background: var(--accent-color);
+            background: var(--primary-color);
             color: white;
             font-size: 0.7em;
             padding: 2px 8px;
@@ -361,7 +361,7 @@
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background-color: var(--accent-color);
+            background-color: var(--primary-color);
             color: white;
             width: 40px;
             height: 40px;
@@ -388,7 +388,7 @@
             padding: 20px;
             border-radius: var(--border-radius);
             margin-bottom: 20px;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid var(--primary-color);
         }
 
         .use-case h3 {
@@ -397,8 +397,8 @@
         }
 
         .highlight-box {
-            background: linear-gradient(to right, rgba(255, 153, 0, 0.1), rgba(255, 153, 0, 0.05));
-            border-left: 4px solid var(--accent-color);
+            background: linear-gradient(to right, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
+            border-left: 4px solid var(--primary-color);
             padding: 20px;
             margin: 25px 0;
             border-radius: var(--border-radius);
@@ -430,7 +430,7 @@
         }
 
         .tech-tag:hover {
-            background: var(--accent-color);
+            background: var(--primary-color);
             color: white;
             transform: translateY(-2px);
         }
@@ -443,24 +443,24 @@
         .button {
             display: inline-block;
             padding: 12px 30px;
-            background: var(--accent-color);
+            background: var(--primary-color);
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
             font-size: 1.1em;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
         }
 
         .button:hover {
-            background: #e68a00;
+            background: var(--hover-color);
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(255, 153, 0, 0.4);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
         }
 
         .scarcity-section {
-            background: linear-gradient(135deg, #ff9900, #e68a00);
+            background: linear-gradient(135deg, var(--primary-color), var(--hover-color));
             color: white;
             padding: 1.5rem;
             border-radius: var(--border-radius);
@@ -468,7 +468,7 @@
             margin-top: 2.5rem;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
         }
         
         .scarcity-section::before {
@@ -536,14 +536,14 @@
         /* Badge styles */
         .badge {
             display: inline-block;
-            background-color: rgba(255, 153, 0, 0.15);
-            border: 1px solid rgba(255, 153, 0, 0.3);
+            background-color: rgba(74, 144, 226, 0.15);
+            border: 1px solid rgba(74, 144, 226, 0.3);
             padding: 0.5rem 1rem;
             border-radius: 2rem;
             font-size: 0.875rem;
             font-weight: 500;
             margin-bottom: 1rem;
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
 
         /* Responsive adjustments */
