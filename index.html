@@ -187,18 +187,6 @@
             z-index: 1000;
             display: none;
             margin-top: 5px;
-            /* Add padding to create buffer zone */
-            padding-top: 5px;
-        }
-        
-        /* Create buffer zone before dropdown content for smoother hovering */
-        .dropdown::after {
-            content: '';
-            position: absolute;
-            height: 10px;
-            width: 100%;
-            bottom: -10px;
-            left: 0;
         }
         
         .dropdown:hover .dropdown-content {
@@ -779,12 +767,12 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-
+                
                 <!-- Cloud Solutions Dropdown -->
                 <li class="dropdown">
                     <a href="#">AWS</a>
                     <div class="dropdown-content">
-                        <a href="amazon-bedrock.html" >AWS Bedrock</a>
+                        <a href="amazon-bedrock.html">AWS Bedrock</a>
                     </div>
                 </li>
                 
@@ -837,19 +825,19 @@
             <div class="expertise-grid">
                 <div class="expertise-item">
                     <h3>Data Engineering</h3>
-                    <p>Building robust pipelines and architectures that transform raw data into structured, analysis-ready formats</p>
+                    <p>Transform raw, chaotic data into valuable business assets through robust pipelines and architectures that deliver reliable, analysis-ready information when and where you need it</p>
                 </div>
                 <div class="expertise-item">
                     <h3>Machine Learning & AI</h3>
-                    <p>Developing predictive models and AI solutions that extract patterns and generate insights from complex datasets</p>
+                    <p>Unlock hidden patterns and future trends in your data with custom predictive models that give you competitive intelligence and foresight other businesses simply don't have</p>
                 </div>
                 <div class="expertise-item">
                     <h3>Data Visualization</h3>
-                    <p>Creating intuitive dashboards and visual tools that communicate complex data stories effectively</p>
+                    <p>Make complex data instantly understandable through intuitive visual dashboards that empower faster decisions, clearer communication, and alignment across your organization</p>
                 </div>
                 <div class="expertise-item">
-                    <h3>AI Agents & Automation</h3>
-                    <p>Implementing intelligent systems that automate processes and enhance decision-making capabilities</p>
+                    <h3>Cloud AI Integration</h3>
+                    <p>Leverage enterprise-grade AI capabilities without infrastructure headaches through seamless cloud integrations that scale with your business while maintaining data security</p>
                 </div>
             </div>
         </div>
@@ -862,6 +850,22 @@
 
         
         <div class="projects-grid">
+            <!-- AWS Bedrock Card -->
+            <div class="project-card">
+                <div class="featured-badge new-badge">Enterprise-Grade</div>
+                <div class="benefit-item benefit-roi">Zero Infrastructure Cost</div>
+                <img src="https://georgeschamma.github.io/georgeschamma/images/AWS Models.png" 
+                     alt="AWS Bedrock Models" 
+                     class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">AWS Bedrock AI Platform</h2>
+                    <p class="project-description">
+                        Deploy production-ready AI without massive infrastructure investments. Access top foundation models from Anthropic, Meta, and Amazon in your secure AWS environment with your data never leaving your account. Perfect for businesses seeking enterprise security with cloud flexibility.
+                    </p>
+                    <a href="amazon-bedrock.html" class="project-link">Learn More</a>
+                </div>
+            </div>
+            
             <!-- Women Employment Prediction Card -->
             <div class="project-card">
                 <div class="featured-badge new-badge">New</div>
@@ -911,6 +915,7 @@
 
             <!-- Local LLM Card -->
             <div class="project-card">
+                <div class="featured-badge limited-badge">Limited Offer</div>
                 <div class="benefit-item benefit-roi">45% Cost Reduction</div>
                 <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
                      alt="Local LLM Architecture" 
