@@ -187,6 +187,18 @@
             z-index: 1000;
             display: none;
             margin-top: 5px;
+            /* Add padding to create buffer zone */
+            padding-top: 5px;
+        }
+        
+        /* Create buffer zone before dropdown content for smoother hovering */
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 100%;
+            bottom: -10px;
+            left: 0;
         }
         
         .dropdown:hover .dropdown-content {
