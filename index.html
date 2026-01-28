@@ -10,7 +10,8 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Manrope',sans-serif;background:#09090b;color:#fafafa;line-height:1.6;overflow-x:hidden}
-        
+        html{scroll-behavior:smooth}
+
         /* HERO */
         .hero{position:relative;min-height:100vh;display:flex;flex-direction:column}
         
@@ -158,6 +159,14 @@
         .mobile-link{display:block;padding:1rem 0;font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:500;color:rgba(255,255,255,0.8);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.08)}
         .mobile-link:hover{color:#fff}
         .mobile-cta{margin-top:auto;padding-top:2rem}
+
+        /* NEW INTERACTIONS */
+        .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
+        .reveal.active{opacity:1;transform:translateY(0)}
+        
+        .back-to-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:#f87b52;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:all 0.3s;z-index:90;box-shadow:0 10px 30px rgba(248,123,82,0.4);border:none}
+        .back-to-top.visible{opacity:1;pointer-events:all}
+        .back-to-top:hover{transform:translateY(-5px);background:#ea580c}
         
         /* RESPONSIVE */
         @media(min-width:640px){
@@ -238,7 +247,7 @@
         </nav>
         
         <!-- Hero Content -->
-        <div class="hero-content">
+        <div class="hero-content reveal">
             <div class="hero-main">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
@@ -247,10 +256,6 @@
                 <h1 class="hero-title">Your Data Deserves<br><span class="hero-title-accent">a Better Future.</span></h1>
                 <p class="hero-subtitle">I transform scattered data, uncertainty, and intuition into clear, confident actions — before opportunities disappear.</p>
                 <div class="hero-ctas">
-                    <a href="mailto:georgeschamma@gmail.com" class="btn-primary">
-                        Get Started
-                        <span class="btn-primary-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
-                    </a>
                     <a href="#about" class="btn-secondary">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                         See How It Works
@@ -269,7 +274,7 @@
         </div>
         
         <!-- Logo Cloud -->
-        <div class="logo-cloud">
+        <div class="logo-cloud reveal">
             <div class="logo-cloud-inner">
                 <span class="logo-cloud-label">Used by experts at</span>
                 <div class="logo-cloud-logos">
@@ -282,12 +287,12 @@
         </div>
         
         <!-- Stats -->
-        <div class="stats-bar">
+        <div class="stats-bar reveal">
             <div class="stats-inner">
-                <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Years Experience</div></div>
-                <div class="stat"><div class="stat-num">40%</div><div class="stat-label">Average ROI Increase</div></div>
-                <div class="stat"><div class="stat-num">90%</div><div class="stat-label">Faster Analysis</div></div>
-                <div class="stat"><div class="stat-num">28%</div><div class="stat-label">More Accurate</div></div>
+                <div class="stat"><div class="stat-num" data-target="6">0</div><div class="stat-label">Years Experience (+ sign)</div></div>
+                <div class="stat"><div class="stat-num" data-target="40">0</div><div class="stat-label">Average ROI Increase (%)</div></div>
+                <div class="stat"><div class="stat-num" data-target="90">0</div><div class="stat-label">Faster Analysis (%)</div></div>
+                <div class="stat"><div class="stat-num" data-target="28">0</div><div class="stat-label">More Accurate (%)</div></div>
             </div>
         </div>
     </section>
@@ -311,28 +316,28 @@
     <!-- ABOUT -->
     <section id="about" class="section">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">About</span>
                 <h2 class="section-title">Turning Data into <span class="section-title-accent">Business Value</span></h2>
                 <p class="section-subtitle">With over 6 years of experience in data science and AI, I create scalable solutions that deliver measurable business impact.</p>
             </div>
             <div class="expertise-grid">
-                <div class="expertise-card">
+                <div class="expertise-card reveal">
                     <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></div>
                     <h3 class="expertise-title">Data Engineering</h3>
                     <p class="expertise-desc">Transform raw data into structured assets that drive reliable insights.</p>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card reveal">
                     <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 1 9 9c0 3.1-1.5 5.8-3.8 7.4L12 22l-5.2-3.6A9 9 0 0 1 12 2z"/><circle cx="12" cy="10" r="3"/></svg></div>
                     <h3 class="expertise-title">Machine Learning & AI</h3>
                     <p class="expertise-desc">Leverage predictive models that reveal hidden patterns and trends.</p>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card reveal">
                     <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
                     <h3 class="expertise-title">Data Visualization</h3>
                     <p class="expertise-desc">Convert complex data into intuitive visuals for faster decisions.</p>
                 </div>
-                <div class="expertise-card">
+                <div class="expertise-card reveal">
                     <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
                     <h3 class="expertise-title">Cloud AI Integration</h3>
                     <p class="expertise-desc">Deploy enterprise-grade AI securely with scalable solutions.</p>
@@ -344,13 +349,13 @@
     <!-- PROJECTS -->
     <section id="projects" class="section section-dark">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Portfolio</span>
                 <h2 class="section-title">Featured Solutions</h2>
                 <p class="section-subtitle">Production-ready AI and data solutions built to deliver measurable results.</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-badge orange">Enterprise</span>
                         <span class="project-metric green">No Hardware</span>
@@ -362,7 +367,7 @@
                         <a href="amazon-bedrock.html" class="project-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-badge orange">New</span>
                         <span class="project-metric blue">28% Accurate</span>
@@ -374,7 +379,7 @@
                         <a href="women-employment-prediction.html" class="project-link">See How <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-badge purple">Popular</span>
                         <span class="project-metric green">90% Faster</span>
@@ -386,7 +391,7 @@
                         <a href="ai-data-analyst-copilot.html" class="project-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-metric blue">Data-Driven</span>
                         <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" alt="Dashboard" class="project-img" loading="lazy">
@@ -397,7 +402,7 @@
                         <a href="world-bank-visualization.html" class="project-link">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-metric green">45% Savings</span>
                         <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" alt="Local LLM" class="project-img" loading="lazy">
@@ -408,7 +413,7 @@
                         <a href="local-llm.html" class="project-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-metric orange">Instant</span>
                         <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG" class="project-img" loading="lazy">
@@ -419,7 +424,7 @@
                         <a href="rag.html" class="project-link">See How <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-metric green">Optimized</span>
                         <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="Portfolio" class="project-img" loading="lazy">
@@ -430,7 +435,7 @@
                         <a href="portfolio-optimization.html" class="project-link">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <span class="project-metric blue">Coordination</span>
                         <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" alt="Humanitarian" class="project-img" loading="lazy">
@@ -448,25 +453,25 @@
     <!-- SKILLS -->
     <section class="section">
         <div class="section-inner">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Expertise</span>
                 <h2 class="section-title">Technical Skills</h2>
                 <p class="section-subtitle">A comprehensive toolkit for building end-to-end data solutions.</p>
             </div>
             <div class="skills-grid">
-                <div class="skill-cat">
+                <div class="skill-cat reveal">
                     <h3 class="skill-cat-title">Programming & Tools</h3>
                     <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Streamlit</span></div>
                 </div>
-                <div class="skill-cat">
+                <div class="skill-cat reveal">
                     <h3 class="skill-cat-title">Machine Learning & AI</h3>
                     <div class="skill-tags"><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">H2O</span></div>
                 </div>
-                <div class="skill-cat">
+                <div class="skill-cat reveal">
                     <h3 class="skill-cat-title">Data Visualization</h3>
                     <div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Plotly</span></div>
                 </div>
-                <div class="skill-cat">
+                <div class="skill-cat reveal">
                     <h3 class="skill-cat-title">Data Engineering</h3>
                     <div class="skill-tags"><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Warehousing</span><span class="skill-tag">API Integration</span><span class="skill-tag">Statistical Modeling</span></div>
                 </div>
@@ -475,7 +480,7 @@
     </section>
     
     <!-- CTA -->
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <div class="cta-card">
             <h2 class="cta-title">Ready to Transform Your Data?</h2>
             <p class="cta-subtitle">Let's discuss how AI and data science can drive measurable results for your business.</p>
@@ -499,10 +504,105 @@
         </div>
     </footer>
     
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    
     <script>
-        var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('mobileMenu');
-        btn.onclick=function(){menu.classList.toggle('active');document.body.style.overflow=menu.classList.contains('active')?'hidden':''};
-        document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var h=this.getAttribute('href');if(h!=='#'){e.preventDefault();var t=document.querySelector(h);if(t){t.scrollIntoView({behavior:'smooth'});menu.classList.remove('active');document.body.style.overflow=''}}}});
+        // Mobile Menu Toggle
+        var btn = document.getElementById('navMobileBtn');
+        var menu = document.getElementById('mobileMenu');
+        
+        btn.onclick = function() {
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        };
+
+        // Smooth Scrolling for Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+            a.onclick = function(e) {
+                var h = this.getAttribute('href');
+                if(h !== '#') {
+                    e.preventDefault();
+                    var t = document.querySelector(h);
+                    if(t) {
+                        t.scrollIntoView({behavior: 'smooth'});
+                        menu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            }
+        });
+
+        // Scroll Reveal Animation
+        var revealElements = document.querySelectorAll('.reveal');
+        
+        var revealObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15
+        });
+        
+        revealElements.forEach(function(el) {
+            revealObserver.observe(el);
+        });
+        
+        // Animated Stats
+        var stats = document.querySelectorAll('.stat-num');
+        var hasAnimatedStats = false;
+        
+        var statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if(entry.isIntersecting && !hasAnimatedStats) {
+                    hasAnimatedStats = true;
+                    stats.forEach(function(stat) {
+                        var target = +stat.getAttribute('data-target');
+                        var count = 0;
+                        var increment = target / 50; // controls speed
+                        
+                        var updateCount = function() {
+                            if(count < target) {
+                                count += increment;
+                                stat.innerText = Math.ceil(count) + (target === 6 ? '+' : '%');
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                stat.innerText = target + (target === 6 ? '+' : '%');
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        var statsSection = document.querySelector('.stats-bar');
+        if(statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
+        // Back to Top Button
+        var backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
