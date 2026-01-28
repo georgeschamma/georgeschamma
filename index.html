@@ -1,1095 +1,508 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Georges Chamma - Data Science Solutions That Drive Business Results</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Unlock actionable insights from your data with proven AI and machine learning solutions that deliver measurable ROI" />
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georges Chamma - Data Science Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary-color: #64748b;
-            --background-light: #f8fafc;
-            --text-color: #334155;
-            --accent-color: #0ea5e9;
-            --success-color: #10b981;
-            --border-radius: 8px;
-            --highlight-color: #f97316;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
-            line-height: 1.6;
-            background-color: var(--background-light);
-            color: var(--text-color);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            padding: 5rem 1rem;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/subtle-pattern.png');
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-            max-width: 700px;
-        }
-
-        .hero span.highlight {
-            color: #fbbf24;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.9);
-            max-width: 700px;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .value-propositions {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .value-prop {
-            background-color: rgba(255,255,255,0.1);
-            border-radius: var(--border-radius);
-            padding: 0.75rem 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .value-prop-icon {
-            font-size: 1.25rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        /* Navigation styles - enhanced for stickier dropdowns */
-        nav {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: relative;
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-            background-color: var(--background-light);
-        }
-
-        nav a.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        /* Enhanced dropdown styling with stickier hover */
-        .dropdown {
-            position: relative;
-        }
-
-        /* Create invisible buffer zone to improve hover experience */
-        .dropdown::after {
-            content: '';
-            position: absolute;
-            height: 15px; /* Increased height for more buffer space */
-            width: 100%;
-            bottom: -15px;
-            left: 0;
-            z-index: 10;
-        }
-
-        .dropdown > a::after {
-            content: "▼";
-            font-size: 0.6em;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-
-        .dropdown-content {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 200px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 8px 0; /* Added padding at top and bottom */
-            z-index: 1000;
-            display: none;
-            margin-top: 5px;
-            /* Add transition for smoother appearance */
-            transition: opacity 0.2s ease;
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Manrope',sans-serif;background:#09090b;color:#fafafa;line-height:1.6;overflow-x:hidden}
         
-        /* Add a small delay before disappearing to make it stickier */
-        .dropdown:hover .dropdown-content {
-            display: block;
-            animation: fadeIn 0.2s;
-        }
-
-        /* Animation for smoother appearance */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 10px 20px;
-            border-radius: 0;
-            white-space: nowrap;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--background-light);
-        }
+        /* HERO */
+        .hero{position:relative;min-height:100vh;display:flex;flex-direction:column}
         
-        .dropdown-content a.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .results-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
+        /* HERO BACKGROUND - Using img tag for reliability */
+        .hero-bg{position:absolute;inset:0;overflow:hidden}
+        .hero-bg-img{position:absolute;width:100%;height:100%;object-fit:cover}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(9,9,11,0.88) 0%,rgba(9,9,11,0.65) 50%,rgba(9,9,11,0.82) 100%)}
+        .hero-overlay-bottom{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,#09090b,transparent)}
+        .hero-glow{position:absolute;top:15%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(248,123,82,0.18),transparent 70%);filter:blur(80px);pointer-events:none}
+        .hero-glow2{position:absolute;bottom:20%;left:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(123,57,252,0.12),transparent 70%);filter:blur(80px);pointer-events:none}
         
-        .results-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--success-color));
-        }
+        /* NAV */
+        .nav{position:relative;z-index:100;padding:1.5rem 2rem}
+        .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+        .nav-logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#7b39fc,#f87b52);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:1.1rem;color:#fff}
+        .nav-logo-text{font-family:'Inter',sans-serif;font-weight:600;font-size:1.2rem;color:#fafafa}
+        .nav-links{display:none;align-items:center;gap:0.5rem;padding:0.375rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:100px}
+        .nav-link{padding:0.6rem 1.1rem;font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;border-radius:100px;transition:all 0.2s}
+        .nav-link:hover{color:#fff;background:rgba(255,255,255,0.08)}
+        .nav-cta{display:none;padding:0.75rem 1.5rem;font-size:0.9rem;font-weight:600;color:#09090b;background:#fafafa;border-radius:100px;text-decoration:none;transition:all 0.3s}
+        .nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,255,255,0.15)}
+        .nav-mobile{display:flex;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#fafafa;cursor:pointer;border:none}
         
-        .results-section h2 {
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
-            text-align: center;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+        /* HERO CONTENT */
+        .hero-content{position:relative;z-index:10;flex:1;display:flex;align-items:center;max-width:1200px;margin:0 auto;padding:3rem 2rem;width:100%}
+        .hero-main{max-width:680px}
+        .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:100px;margin-bottom:2rem;font-size:0.875rem;color:rgba(255,255,255,0.9)}
+        .hero-badge-dot{width:8px;height:8px;background:#f87b52;border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+        .hero-title{font-family:'Inter',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.5rem}
+        .hero-title-accent{color:#f87b52;font-style:italic}
+        .hero-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.6);max-width:500px;margin-bottom:2.5rem;line-height:1.7}
+        .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3rem}
+        .btn-primary{display:inline-flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem 1rem 1.75rem;font-size:0.95rem;font-weight:600;color:#09090b;background:#fafafa;border-radius:100px;text-decoration:none;transition:all 0.3s}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(255,255,255,0.15)}
+        .btn-primary-arrow{width:28px;height:28px;background:#09090b;border-radius:50%;display:flex;align-items:center;justify-content:center}
+        .btn-primary-arrow svg{width:14px;height:14px;color:#fafafa}
+        .btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 1.75rem;font-size:0.95rem;font-weight:500;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:100px;text-decoration:none;transition:all 0.3s}
+        .btn-secondary:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25)}
+        .btn-secondary svg{width:16px;height:16px}
         
-        .result-item {
-            background: var(--background-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        /* FLOATING BADGES */
+        .floating-badges{position:absolute;top:0;right:0;bottom:0;width:50%;pointer-events:none;display:none}
+        .floating-badge{position:absolute;display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:100px;font-size:0.8rem;color:rgba(255,255,255,0.9);backdrop-filter:blur(8px);animation:float 8s ease-in-out infinite}
+        .floating-badge svg{width:16px;height:16px;color:#f87b52}
+        .fb1{top:22%;right:15%}
+        .fb2{top:40%;right:8%;animation-delay:2s}
+        .fb3{top:58%;right:18%;animation-delay:4s}
+        .fb4{top:72%;right:10%;animation-delay:6s}
         
-        .result-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
+        /* SOCIAL PROOF */
+        .social-proof{display:flex;align-items:center;gap:1rem}
+        .avatars{display:flex}
+        .avatar{width:36px;height:36px;border-radius:50%;border:2px solid #09090b;margin-left:-10px;background:linear-gradient(135deg,#7b39fc,#f87b52);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600}
+        .avatar:first-child{margin-left:0}
+        .social-proof-text{font-size:0.9rem;color:rgba(255,255,255,0.6)}
+        .social-proof-text strong{color:rgba(255,255,255,0.9)}
         
-        .result-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
+        /* STATS BAR */
+        .stats-bar{position:relative;z-index:10;background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.06)}
+        .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr)}
+        .stat{padding:2rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+        .stat:last-child{border-right:none}
+        .stat-num{font-family:'Inter',sans-serif;font-size:2.25rem;font-weight:700;line-height:1;margin-bottom:0.5rem}
+        .stat-label{font-size:0.85rem;color:rgba(255,255,255,0.5)}
         
-        .result-label {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .about-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
+        /* LOGO CLOUD */
+        .logo-cloud{position:relative;z-index:10;padding:2rem;border-top:1px solid rgba(255,255,255,0.06)}
+        .logo-cloud-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+        .logo-cloud-label{font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
+        .logo-cloud-logos{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+        .logo-cloud-logo{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:700;color:rgba(255,255,255,0.25)}
         
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-        }
+        /* SECTIONS */
+        .section{padding:5rem 2rem}
+        .section-dark{background:rgba(255,255,255,0.02)}
+        .section-inner{max-width:1200px;margin:0 auto}
+        .section-header{margin-bottom:3rem}
+        .section-label{display:inline-block;font-size:0.75rem;font-weight:600;color:#f87b52;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem}
+        .section-title{font-family:'Inter',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:1rem}
+        .section-title-accent{color:#f87b52;font-style:italic}
+        .section-subtitle{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:550px;line-height:1.7}
         
-        .about-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
-        }
+        /* EXPERTISE CARDS */
+        .expertise-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+        .expertise-card{padding:1.75rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:20px;transition:all 0.4s}
+        .expertise-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(248,123,82,0.2);transform:translateY(-4px)}
+        .expertise-icon{width:52px;height:52px;background:rgba(248,123,82,0.1);border:1px solid rgba(248,123,82,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+        .expertise-icon svg{width:24px;height:24px;color:#f87b52}
+        .expertise-title{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:0.6rem}
+        .expertise-desc{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7}
         
-        .about-section p {
-            margin-bottom: 1.25rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+        /* PROJECT CARDS */
+        .projects-grid{display:grid;grid-template-columns:1fr;gap:1.75rem}
+        .project-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;transition:all 0.4s}
+        .project-card:hover{border-color:rgba(255,255,255,0.12);transform:translateY(-6px);box-shadow:0 25px 50px rgba(0,0,0,0.3)}
+        .project-card:hover .project-img{transform:scale(1.05)}
+        .project-img-wrap{position:relative;aspect-ratio:16/10;overflow:hidden;background:#1a1a1f}
+        .project-img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+        .project-badge{position:absolute;top:1rem;right:1rem;padding:0.45rem 0.9rem;font-size:0.7rem;font-weight:600;color:#fff;background:rgba(9,9,11,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:100px}
+        .project-badge.orange{background:linear-gradient(135deg,#f87b52,#ea580c);border:none}
+        .project-badge.purple{background:linear-gradient(135deg,#7b39fc,#6a2ce0);border:none}
+        .project-metric{position:absolute;top:1rem;left:1rem;padding:0.45rem 0.8rem;font-size:0.7rem;font-weight:700;background:rgba(255,255,255,0.95);border-radius:6px}
+        .project-metric.green{color:#15803d}
+        .project-metric.blue{color:#0369a1}
+        .project-metric.orange{color:#c2410c}
+        .project-content{padding:1.5rem}
+        .project-title{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:0.6rem}
+        .project-desc{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:1.25rem}
+        .project-link{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.9rem;font-weight:600;color:#f87b52;text-decoration:none;transition:gap 0.3s}
+        .project-link:hover{gap:0.7rem}
+        .project-link svg{width:16px;height:16px}
         
-        .expertise-item {
-            background: var(--background-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            border-left: 3px solid var(--primary-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        /* SKILLS */
+        .skills-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+        .skill-cat{padding:1.5rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px}
+        .skill-cat-title{font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:600;color:#f87b52;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+        .skill-tag{padding:0.45rem 0.9rem;font-size:0.85rem;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;transition:all 0.3s}
+        .skill-tag:hover{color:#fff;background:rgba(123,57,252,0.15);border-color:rgba(123,57,252,0.3)}
         
-        .expertise-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
+        /* CTA */
+        .cta-section{padding:5rem 2rem}
+        .cta-card{max-width:1200px;margin:0 auto;padding:3.5rem 2rem;background:linear-gradient(135deg,rgba(123,57,252,0.1),rgba(248,123,82,0.1));border:1px solid rgba(255,255,255,0.08);border-radius:28px;text-align:center}
+        .cta-title{font-family:'Inter',sans-serif;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;margin-bottom:0.75rem}
+        .cta-subtitle{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 2rem}
         
-        .expertise-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
-        }
-
-        .section-header {
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        /* FOOTER */
+        .footer{padding:2.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+        .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+        .footer-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+        .footer-logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#7b39fc,#f87b52);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:0.95rem;color:#fff}
+        .footer-logo-text{font-family:'Inter',sans-serif;font-weight:600;font-size:1.05rem;color:#fafafa}
+        .footer-social{display:flex;gap:0.75rem}
+        .footer-social-link{width:42px;height:42px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;transition:all 0.3s}
+        .footer-social-link:hover{background:rgba(248,123,82,0.15);border-color:rgba(248,123,82,0.3);color:#f87b52}
+        .footer-social-link svg{width:18px;height:18px}
+        .footer-copy{font-size:0.85rem;color:rgba(255,255,255,0.4)}
         
-        .section-header h2 {
-            color: var(--text-color);
-            font-size: 1.75rem;
-            position: relative;
-            display: inline-block;
-        }
+        /* MOBILE MENU */
+        .mobile-menu{position:fixed;inset:0;z-index:200;background:rgba(9,9,11,0.98);padding:5rem 2rem 2rem;display:none;flex-direction:column;overflow-y:auto}
+        .mobile-menu.active{display:flex}
+        .mobile-link{display:block;padding:1rem 0;font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:500;color:rgba(255,255,255,0.8);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .mobile-link:hover{color:#fff}
+        .mobile-cta{margin-top:auto;padding-top:2rem}
         
-        .section-header .view-all {
-            font-size: 0.95rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        /* RESPONSIVE */
+        @media(min-width:640px){
+            .stats-inner{grid-template-columns:repeat(4,1fr)}
+            .expertise-grid{grid-template-columns:repeat(2,1fr)}
+            .projects-grid{grid-template-columns:repeat(2,1fr)}
+            .skills-grid{grid-template-columns:repeat(2,1fr)}
         }
-        
-        .section-header .view-all:hover {
-            text-decoration: underline;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .project-title {
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-        }
-
-        .project-description {
-            color: var(--text-color);
-            margin-bottom: 1.25rem;
-            flex-grow: 1;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .project-link {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            padding: 0.6rem 1.25rem;
-            border-radius: var(--border-radius);
-            transition: all 0.3s ease;
-            text-align: center;
-            align-self: flex-start;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .project-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(37, 99, 235, 0.9);
-            color: white;
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            z-index: 5;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        
-        .new-badge {
-            background: linear-gradient(135deg, #f97316, #ea580c);
-        }
-        
-        .limited-badge {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-        }
-
-        .benefit-item {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--text-color);
-            padding: 0.35rem 0.85rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            z-index: 5;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        
-        .benefit-roi {
-            color: #15803d;
-        }
-        
-        .benefit-time {
-            color: #0369a1;
-        }
-        
-        .benefit-decision {
-            color: #7c2d12;
-        }
-
-        .testimonial-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin: 2.5rem 0;
-            position: relative;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-        
-        .testimonial-card {
-            position: relative;
-            padding: 1.5rem;
-            background: var(--background-light);
-            border-radius: var(--border-radius);
-            border-left: 3px solid var(--accent-color);
-        }
-        
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .testimonial-content::before {
-            content: """;
-            font-size: 3rem;
-            color: rgba(30, 136, 229, 0.2);
-            position: absolute;
-            left: -0.5rem;
-            top: -1rem;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .author-info {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .author-name {
-            font-weight: 600;
-            color: var(--text-color);
-        }
-        
-        .author-title {
-            font-size: 0.85rem;
-            color: var(--secondary-color);
-        }
-
-        .skills-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin: 2.5rem 0;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            margin-bottom: 2rem;
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-badge {
-            background: var(--background-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-badge:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .scarcity-section {
-            background: linear-gradient(135deg, #f97316, #ea580c);
-            color: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            margin-top: 2.5rem;
-            margin-bottom: -1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
-        }
-        
-        .scarcity-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/subtle-pattern.png');
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .scarcity-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .scarcity-section h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .scarcity-section p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-            opacity: 0.9;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            color: white;
-            margin: 3rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem;
-            margin-top: 4rem;
-            border-top: 1px solid #e2e8f0;
-            background: white;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .social-link:hover {
-            color: var(--primary-dark);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.25rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .dropdown-content {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                min-width: auto;
-                padding: 5px 0 5px 20px;
-                margin-top: 5px;
-                display: none;
-            }
-
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-
-            .dropdown > a::after {
-                content: "+";
-            }
-
-            .dropdown.active > a::after {
-                content: "-";
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .expertise-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .value-propositions {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
+        @media(min-width:1024px){
+            .nav-links{display:flex}
+            .nav-cta{display:inline-block}
+            .nav-mobile{display:none}
+            .floating-badges{display:block}
+            .expertise-grid{grid-template-columns:repeat(4,1fr)}
+            .projects-grid{grid-template-columns:repeat(3,1fr)}
+            .skills-grid{grid-template-columns:repeat(4,1fr)}
+            .footer-inner{flex-direction:row;justify-content:space-between}
+            .logo-cloud-inner{flex-direction:row;justify-content:space-between}
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <div class="badge">Data Science & AI Expert</div>
-            <h1>Transform Your Business Data into <span class="highlight">Actionable Insights</span> and Competitive Advantage</h1>
-            <p class="subtitle">Specialized in building AI and machine learning solutions that drive measurable business results and empower better decision-making</p>
-            
-            <div class="value-propositions">
-                <div class="value-prop">
-                    <span class="value-prop-icon">📈</span>
-                    <span>Increase ROI by up to 40%</span>
-                </div>
-                <div class="value-prop">
-                    <span class="value-prop-icon">⚡</span>
-                    <span>90% Faster Analysis</span>
-                </div>
-                <div class="value-prop">
-                    <span class="value-prop-icon">🔍</span>
-                    <span>28% More Accurate Predictions</span>
-                </div>
+    <!-- HERO -->
+    <section class="hero">
+        <!-- Background with IMG tag for reliability -->
+        <div class="hero-bg">
+            <img 
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" 
+                alt="" 
+                class="hero-bg-img"
+                onerror="this.style.display='none'"
+            >
+            <div class="hero-overlay"></div>
+            <div class="hero-overlay-bottom"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-glow2"></div>
+        </div>
+        
+        <!-- Floating Badges -->
+        <div class="floating-badges">
+            <div class="floating-badge fb1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 1 9 9c0 3.1-1.5 5.8-3.8 7.4L12 22l-5.2-3.6A9 9 0 0 1 12 2z"/><circle cx="12" cy="10" r="3"/></svg>
+                Machine Learning
+            </div>
+            <div class="floating-badge fb2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                Data Visualization
+            </div>
+            <div class="floating-badge fb3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                Cloud AI
+            </div>
+            <div class="floating-badge fb4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+                AI Agents
             </div>
         </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Navigation -->
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                
-                <!-- Cloud Solutions Dropdown -->
-                <li class="dropdown">
-                    <a href="#">AWS</a>
-                    <div class="dropdown-content">
-                        <a href="amazon-bedrock.html">AWS Bedrock</a>
-                    </div>
-                </li>
-                
-                <!-- Data Engineering Dropdown -->
-                <li class="dropdown">
-                    <a href="#">Data Engineering</a>
-                    <div class="dropdown-content">
-                        <a href="world-bank-visualization.html">World Bank Dashboard</a>
-                    </div>
-                </li>
-                
-                <!-- AI Agents Dropdown -->
-                <li class="dropdown">
-                    <a href="#">AI Agents</a>
-                    <div class="dropdown-content">
-                        <a href="ai-data-analyst-copilot.html">Data Analyst AI</a>
-                        <a href="rag.html">RAG Framework</a>
-                        <a href="portfolio-optimization.html">Stock Analyzer</a>
-                        <a href="local-llm.html">Local LLM</a>
-                    </div>
-                </li>
-                
-                <!-- ML Projects Dropdown -->
-                <li class="dropdown">
-                    <a href="#">ML Projects</a>
-                    <div class="dropdown-content">
-                        <a href="women-employment-prediction.html">Women Employment Prediction</a>
-                    </div>
-                </li>
-                
-                <!-- Visualization Dropdown -->
-                <li class="dropdown">
-                    <a href="#">Visualization</a>
-                    <div class="dropdown-content">
-                        <a href="humanitarian-dashboard.html">Humanitarian Dashboard</a>
-                    </div>
-                </li>
-            </ul>
+        
+        <!-- Nav -->
+        <nav class="nav">
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">
+                    <div class="nav-logo-icon">GC</div>
+                    <span class="nav-logo-text">Georges Chamma</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="amazon-bedrock.html" class="nav-link">AWS</a>
+                    <a href="world-bank-visualization.html" class="nav-link">Data Engineering</a>
+                    <a href="ai-data-analyst-copilot.html" class="nav-link">AI Agents</a>
+                    <a href="women-employment-prediction.html" class="nav-link">ML Projects</a>
+                </div>
+                <a href="mailto:georgeschamma@gmail.com" class="nav-cta">Contact</a>
+                <button class="nav-mobile" id="navMobileBtn" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
         </nav>
         
-
-
-        <!-- About Section -->
-        <div class="about-section">
-            <h2>Turning Data into Business Value</h2>
-            <p>
-                With over 6 years of experience in data science and AI implementation, I specialize in creating scalable data solutions that drive decision-making and deliver measurable business impact. My background in Engineering and Physics combined with expertise in machine learning enables me to tackle complex problems with innovative approaches.
-            </p>
-            
-            <div class="expertise-grid">
-                <div class="expertise-item">
-                    <h3>Data Engineering</h3>
-                    <p>Transform raw data into structured assets that drive reliable insights and decision-making across your organization.</p>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Data Science & AI Expert
                 </div>
-                <div class="expertise-item">
-                    <h3>Machine Learning & AI</h3>
-                    <p>Leverage predictive models that reveal hidden patterns and future trends, giving your business a competitive edge.</p>
+                <h1 class="hero-title">Your Data Deserves<br><span class="hero-title-accent">a Better Future.</span></h1>
+                <p class="hero-subtitle">I transform scattered data, uncertainty, and intuition into clear, confident actions — before opportunities disappear.</p>
+                <div class="hero-ctas">
+                    <a href="mailto:georgeschamma@gmail.com" class="btn-primary">
+                        Get Started
+                        <span class="btn-primary-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                    </a>
+                    <a href="#about" class="btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        See How It Works
+                    </a>
                 </div>
-                <div class="expertise-item">
-                    <h3>Data Visualization</h3>
-                    <p>Convert complex data into intuitive visuals that enable faster decisions and clearer communication.</p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Cloud AI Integration</h3>
-                    <p>Deploy enterprise-grade AI securely in the cloud with scalable solutions that eliminate infrastructure costs.</p>
+                <div class="social-proof">
+                    <div class="avatars">
+                        <div class="avatar">A</div>
+                        <div class="avatar">B</div>
+                        <div class="avatar">C</div>
+                        <div class="avatar">D</div>
+                    </div>
+                    <p class="social-proof-text">Trusted by <strong>industry leaders</strong> worldwide</p>
                 </div>
             </div>
         </div>
-
-        <!-- Featured Projects Section -->
-        <div class="section-header">
-            <h2>Featured Solutions for Your Business</h2>
+        
+        <!-- Logo Cloud -->
+        <div class="logo-cloud">
+            <div class="logo-cloud-inner">
+                <span class="logo-cloud-label">Used by experts at</span>
+                <div class="logo-cloud-logos">
+                    <span class="logo-cloud-logo">Google</span>
+                    <span class="logo-cloud-logo">Microsoft</span>
+                    <span class="logo-cloud-logo">AWS</span>
+                    <span class="logo-cloud-logo">Stripe</span>
+                </div>
+            </div>
         </div>
         
-
-        
-        <div class="projects-grid">
-            <!-- AWS Bedrock Card -->
-            <div class="project-card">
-                <div class="featured-badge new-badge">Enterprise-Grade</div>
-                <div class="benefit-item benefit-roi">No Hardware Required</div>
-                <img src="https://georgeschamma.github.io/georgeschamma/images/AWS Models.png" 
-                     alt="AWS Bedrock Models" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">AWS Bedrock AI Platform</h2>
-                    <p class="project-description">
-                        Deploy production-ready AI without massive infrastructure investments. Access top foundation models from Anthropic, Meta, and Amazon in your secure AWS environment with your data never leaving your account. Perfect for businesses seeking enterprise security with cloud flexibility.
-                    </p>
-                    <a href="amazon-bedrock.html" class="project-link">Learn More</a>
-                </div>
-            </div>
-            
-            <!-- Women Employment Prediction Card -->
-            <div class="project-card">
-                <div class="featured-badge new-badge">New</div>
-                <div class="benefit-item benefit-decision">28% More Accurate</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Women Employment 1.png" 
-                     alt="Women Employment Prediction" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Smart Prediction System</h2>
-                    <p class="project-description">
-                        Boost your forecasting accuracy by up to 28% with this intelligent system that automatically selects the optimal prediction model for your specific data patterns. Ideal for organizations needing reliable forecasts for resource planning and strategy development.
-                    </p>
-                    <a href="women-employment-prediction.html" class="project-link">See How It Works</a>
-                </div>
-            </div>
-            
-            <!-- Data Analyst AI Copilot Card -->
-            <div class="project-card">
-                <div class="featured-badge">Most Popular</div>
-                <div class="benefit-item benefit-time">90% Faster Analysis</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Analyst%20Copilot%201.png" 
-                     alt="Data Analyst AI Copilot" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Conversational Data Analysis</h2>
-                    <p class="project-description">
-                        Reduce data analysis time by 90% and enable anyone in your organization to extract insights without coding skills. This solution lets your team ask questions in plain English and get instant visualizations and insights from complex datasets.
-                    </p>
-                    <a href="ai-data-analyst-copilot.html" class="project-link">Explore Solution</a>
-                </div>
-            </div>
-
-            <!-- World Bank Dashboard Card -->
-            <div class="project-card">
-                <div class="benefit-item benefit-decision">Data-Driven Decisions</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" 
-                     alt="World Bank Data Dashboard" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Interactive Data Visualization</h2>
-                    <p class="project-description">
-                        Transform your raw data into powerful interactive visualizations that reveal trends, patterns, and insights at a glance. This solution creates intuitive dashboards that help your team make better decisions with easy-to-understand visual indicators.
-                    </p>
-                    <a href="world-bank-visualization.html" class="project-link">View Dashboard</a>
-                </div>
-            </div>
-
-            <!-- Local LLM Card -->
-            <div class="project-card">
-                <div class="benefit-item benefit-roi">45% Cost Reduction</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" 
-                     alt="Local LLM Architecture" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Private AI Solution</h2>
-                    <p class="project-description">
-                        Reduce cloud AI costs by 45% while keeping your sensitive data secure with this on-premises AI solution. Perfect for organizations with strict data governance requirements who need powerful AI capabilities without privacy concerns.
-                    </p>
-                    <a href="local-llm.html" class="project-link">Explore Solution</a>
-                </div>
-            </div>
-
-            <!-- RAG Framework Card -->
-            <div class="project-card">
-                <div class="benefit-item benefit-time">Instant Knowledge Access</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" 
-                     alt="RAG Framework" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">AI Knowledge System</h2>
-                    <p class="project-description">
-                        Transform your organization's knowledge into an instantly accessible resource. This solution lets your team find exactly what they need through natural language questions, leveraging your existing documents and expertise.
-                    </p>
-                    <a href="rag.html" class="project-link">See How It Works</a>
-                </div>
-            </div>
-
-            <!-- Stock Portfolio Analyzer Card -->
-            <div class="project-card">
-                <div class="benefit-item benefit-roi">Optimized Returns</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" 
-                     alt="Portfolio Analysis Dashboard" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">AI Investment Optimization</h2>
-                    <p class="project-description">
-                        Generate statistically validated investment strategies that consistently outperform market benchmarks using AI-powered analysis. Perfect for financial institutions and wealth management firms seeking a competitive edge.
-                    </p>
-                    <a href="portfolio-optimization.html" class="project-link">View Solution</a>
-                </div>
-            </div>
-
-            <!-- Humanitarian Dashboard Card -->
-            <div class="project-card">
-                <div class="benefit-item benefit-decision">Enhanced Coordination</div>
-                <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" 
-                     alt="Humanitarian Dashboard" 
-                     class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Humanitarian Data Studio</h2>
-                    <p class="project-description">
-                        Powerful data visualization platform that tracks resources, monitors project progress, and enhances coordination across organizations. This solution enables faster response times and better resource allocation for critical situations.
-                    </p>
-                    <a href="humanitarian-dashboard.html" class="project-link">Explore Dashboard</a>
-                </div>
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stats-inner">
+                <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Years Experience</div></div>
+                <div class="stat"><div class="stat-num">40%</div><div class="stat-label">Average ROI Increase</div></div>
+                <div class="stat"><div class="stat-num">90%</div><div class="stat-label">Faster Analysis</div></div>
+                <div class="stat"><div class="stat-num">28%</div><div class="stat-label">More Accurate</div></div>
             </div>
         </div>
-
-
-
-        <!-- Skills Section -->
-        <div class="skills-section">
-            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
-                <h2>Technical Expertise</h2>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Tools</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge">Python</span>
-                        <span class="skill-badge">SQL</span>
-                        <span class="skill-badge">HTML/CSS</span>
-                        <span class="skill-badge">Pandas</span>
-                        <span class="skill-badge">NumPy</span>
-                        <span class="skill-badge">Streamlit</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Machine Learning & AI</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge">Scikit-Learn</span>
-                        <span class="skill-badge">LangChain</span>
-                        <span class="skill-badge">LangGraph</span>
-                        <span class="skill-badge">OpenAI API</span>
-                        <span class="skill-badge">H2O</span>
-                        <span class="skill-badge">Predictive Modeling</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Data Visualization</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge">Tableau</span>
-                        <span class="skill-badge">Power BI</span>
-                        <span class="skill-badge">Looker Studio</span>
-                        <span class="skill-badge">Matplotlib</span>
-                        <span class="skill-badge">Plotly</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Data Engineering</h3>
-                    <div class="skill-list">
-                        <span class="skill-badge">ETL Pipelines</span>
-                        <span class="skill-badge">Data Warehousing</span>
-                        <span class="skill-badge">API Integration</span>
-                        <span class="skill-badge">Data Cleaning</span>
-                        <span class="skill-badge">Statistical Modeling</span>
-                    </div>
-                </div>
-            </div>
+    </section>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="amazon-bedrock.html" class="mobile-link">AWS Bedrock</a>
+        <a href="world-bank-visualization.html" class="mobile-link">World Bank Dashboard</a>
+        <a href="ai-data-analyst-copilot.html" class="mobile-link">Data Analyst AI</a>
+        <a href="rag.html" class="mobile-link">RAG Framework</a>
+        <a href="portfolio-optimization.html" class="mobile-link">Stock Analyzer</a>
+        <a href="local-llm.html" class="mobile-link">Local LLM</a>
+        <a href="women-employment-prediction.html" class="mobile-link">Women Employment</a>
+        <a href="humanitarian-dashboard.html" class="mobile-link">Humanitarian Dashboard</a>
+        <div class="mobile-cta">
+            <a href="mailto:georgeschamma@gmail.com" class="btn-primary" style="width:100%;justify-content:center">Get in Touch<span class="btn-primary-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span></a>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/georgeschamma/" 
-                   class="social-link"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    LinkedIn
-                </a>
-                <a href="https://github.com/georgeschamma" 
-                   class="social-link"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    GitHub
-                </a>
-                <a href="mailto:georgeschamma@gmail.com" 
-                   class="social-link">
-                    Contact Me
-                </a>
-            </div>
-            <p>© 2025 Georges Chamma | Data Science & AI Solutions</p>
-        </footer>
     </div>
-
-    <!-- JavaScript for mobile dropdown toggle -->
+    
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">About</span>
+                <h2 class="section-title">Turning Data into <span class="section-title-accent">Business Value</span></h2>
+                <p class="section-subtitle">With over 6 years of experience in data science and AI, I create scalable solutions that deliver measurable business impact.</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></div>
+                    <h3 class="expertise-title">Data Engineering</h3>
+                    <p class="expertise-desc">Transform raw data into structured assets that drive reliable insights.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a9 9 0 0 1 9 9c0 3.1-1.5 5.8-3.8 7.4L12 22l-5.2-3.6A9 9 0 0 1 12 2z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <h3 class="expertise-title">Machine Learning & AI</h3>
+                    <p class="expertise-desc">Leverage predictive models that reveal hidden patterns and trends.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                    <h3 class="expertise-title">Data Visualization</h3>
+                    <p class="expertise-desc">Convert complex data into intuitive visuals for faster decisions.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+                    <h3 class="expertise-title">Cloud AI Integration</h3>
+                    <p class="expertise-desc">Deploy enterprise-grade AI securely with scalable solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PROJECTS -->
+    <section id="projects" class="section section-dark">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Featured Solutions</h2>
+                <p class="section-subtitle">Production-ready AI and data solutions built to deliver measurable results.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-badge orange">Enterprise</span>
+                        <span class="project-metric green">No Hardware</span>
+                        <img src="https://georgeschamma.github.io/georgeschamma/images/AWS Models.png" alt="AWS Bedrock" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AWS Bedrock AI Platform</h3>
+                        <p class="project-desc">Deploy production-ready AI without massive infrastructure investments.</p>
+                        <a href="amazon-bedrock.html" class="project-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-badge orange">New</span>
+                        <span class="project-metric blue">28% Accurate</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Women Employment 1.png" alt="Prediction" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Prediction System</h3>
+                        <p class="project-desc">Boost forecasting accuracy with intelligent model selection.</p>
+                        <a href="women-employment-prediction.html" class="project-link">See How <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-badge purple">Popular</span>
+                        <span class="project-metric green">90% Faster</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data%20Analyst%20Copilot%201.png" alt="Data Analyst" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Conversational Data Analysis</h3>
+                        <p class="project-desc">Ask questions in plain English and get instant visualizations.</p>
+                        <a href="ai-data-analyst-copilot.html" class="project-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-metric blue">Data-Driven</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Data Engineering Project.png" alt="Dashboard" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interactive Data Visualization</h3>
+                        <p class="project-desc">Powerful dashboards that reveal trends at a glance.</p>
+                        <a href="world-bank-visualization.html" class="project-link">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-metric green">45% Savings</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/Olama.png" alt="Local LLM" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Private AI Solution</h3>
+                        <p class="project-desc">Reduce cloud costs while keeping data secure on-premises.</p>
+                        <a href="local-llm.html" class="project-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-metric orange">Instant</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/ai_course_project_1.png" alt="RAG" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI Knowledge System</h3>
+                        <p class="project-desc">Natural language queries into your organization's knowledge.</p>
+                        <a href="rag.html" class="project-link">See How <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-metric green">Optimized</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/RSI.png" alt="Portfolio" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI Investment Optimization</h3>
+                        <p class="project-desc">Validated strategies that outperform benchmarks.</p>
+                        <a href="portfolio-optimization.html" class="project-link">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <span class="project-metric blue">Coordination</span>
+                        <img src="https://raw.githubusercontent.com/georgeschamma/georgeschamma/main/images/UN.png" alt="Humanitarian" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Humanitarian Data Studio</h3>
+                        <p class="project-desc">Track resources and enhance coordination.</p>
+                        <a href="humanitarian-dashboard.html" class="project-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SKILLS -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">A comprehensive toolkit for building end-to-end data solutions.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h3 class="skill-cat-title">Programming & Tools</h3>
+                    <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Streamlit</span></div>
+                </div>
+                <div class="skill-cat">
+                    <h3 class="skill-cat-title">Machine Learning & AI</h3>
+                    <div class="skill-tags"><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">OpenAI API</span><span class="skill-tag">H2O</span></div>
+                </div>
+                <div class="skill-cat">
+                    <h3 class="skill-cat-title">Data Visualization</h3>
+                    <div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Plotly</span></div>
+                </div>
+                <div class="skill-cat">
+                    <h3 class="skill-cat-title">Data Engineering</h3>
+                    <div class="skill-tags"><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Warehousing</span><span class="skill-tag">API Integration</span><span class="skill-tag">Statistical Modeling</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2 class="cta-title">Ready to Transform Your Data?</h2>
+            <p class="cta-subtitle">Let's discuss how AI and data science can drive measurable results for your business.</p>
+            <a href="mailto:georgeschamma@gmail.com" class="btn-primary">Start Your Project<span class="btn-primary-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span></a>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">
+                <div class="footer-logo-icon">GC</div>
+                <span class="footer-logo-text">Georges Chamma</span>
+            </a>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/georgeschamma/" target="_blank" rel="noopener" class="footer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                <a href="https://github.com/georgeschamma" target="_blank" rel="noopener" class="footer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+                <a href="mailto:georgeschamma@gmail.com" class="footer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+            </div>
+            <p class="footer-copy">© 2025 Georges Chamma. All rights reserved.</p>
+        </div>
+    </footer>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // For mobile: toggle dropdowns
-            const dropdowns = document.querySelectorAll('.dropdown > a');
-            dropdowns.forEach(dropdownLink => {
-                dropdownLink.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        this.parentElement.classList.toggle('active');
-                    }
-                });
-            });
-        });
+        var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('mobileMenu');
+        btn.onclick=function(){menu.classList.toggle('active');document.body.style.overflow=menu.classList.contains('active')?'hidden':''};
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){a.onclick=function(e){var h=this.getAttribute('href');if(h!=='#'){e.preventDefault();var t=document.querySelector(h);if(t){t.scrollIntoView({behavior:'smooth'});menu.classList.remove('active');document.body.style.overflow=''}}}});
     </script>
 </body>
 </html>
