@@ -15,13 +15,23 @@
         /* HERO */
         .hero{position:relative;min-height:100vh;display:flex;flex-direction:column}
         
-        /* HERO BACKGROUND - Using img tag for reliability */
+        /* HERO BACKGROUND */
         .hero-bg{position:absolute;inset:0;overflow:hidden}
-        .hero-bg-img{position:absolute;width:100%;height:100%;object-fit:cover}
-        .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(9,9,11,0.88) 0%,rgba(9,9,11,0.65) 50%,rgba(9,9,11,0.82) 100%)}
-        .hero-overlay-bottom{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,#09090b,transparent)}
-        .hero-glow{position:absolute;top:15%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(248,123,82,0.18),transparent 70%);filter:blur(80px);pointer-events:none}
-        .hero-glow2{position:absolute;bottom:20%;left:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(123,57,252,0.12),transparent 70%);filter:blur(80px);pointer-events:none}
+        
+        /* Updated Video Styles */
+        .hero-bg-video{
+            position:absolute;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            /* Ensure video stays behind overlays */
+            z-index: 0; 
+        }
+
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(9,9,11,0.85) 0%,rgba(9,9,11,0.5) 50%,rgba(9,9,11,0.8) 100%); z-index: 1;}
+        .hero-overlay-bottom{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,#09090b,transparent); z-index: 1;}
+        .hero-glow{position:absolute;top:15%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(248,123,82,0.15),transparent 70%);filter:blur(80px);pointer-events:none; z-index: 2;}
+        .hero-glow2{position:absolute;bottom:20%;left:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(123,57,252,0.1),transparent 70%);filter:blur(80px);pointer-events:none; z-index: 2;}
         
         /* NAV */
         .nav{position:relative;z-index:100;padding:1.5rem 2rem}
@@ -56,7 +66,7 @@
         .btn-secondary svg{width:16px;height:16px}
         
         /* FLOATING BADGES */
-        .floating-badges{position:absolute;top:0;right:0;bottom:0;width:50%;pointer-events:none;display:none}
+        .floating-badges{position:absolute;top:0;right:0;bottom:0;width:50%;pointer-events:none;display:none; z-index: 2;}
         .floating-badge{position:absolute;display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:100px;font-size:0.8rem;color:rgba(255,255,255,0.9);backdrop-filter:blur(8px);animation:float 8s ease-in-out infinite}
         .floating-badge svg{width:16px;height:16px;color:#f87b52}
         .fb1{top:22%;right:15%}
@@ -191,14 +201,19 @@
 <body>
     <!-- HERO -->
     <section class="hero">
-        <!-- Background with IMG tag for reliability -->
+        <!-- Background with Video -->
         <div class="hero-bg">
-            <img 
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" 
-                alt="" 
-                class="hero-bg-img"
-                onerror="this.style.display='none'"
+            <video 
+                class="hero-bg-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80"
             >
+                <!-- Cinematic Earth Night Loop -->
+                <source src="https://cdn.pixabay.com/video/2019/05/27/23977-339233083_large.mp4" type="video/mp4">
+            </video>
             <div class="hero-overlay"></div>
             <div class="hero-overlay-bottom"></div>
             <div class="hero-glow"></div>
